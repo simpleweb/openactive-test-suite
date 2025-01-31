@@ -1,0 +1,164 @@
+{
+  "flow": {
+    "Feature": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "booking-partner-openid-authentication-for-multiple-sellers",
+              "required-features",
+              "_NoFlow_",
+              "_NoOpportunityType_",
+              "Feature"
+            ],
+            "duration": 3,
+            "failureMessages": [],
+            "fullName": "booking-partner-openid-authentication-for-multiple-sellers required-features _NoFlow_ _NoOpportunityType_ Feature can only be implemented if other features: 'multiple-sellers' and 'booking-partner-openid-authentication' are",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "can only be implemented if other features: 'multiple-sellers' and 'booking-partner-openid-authentication' are"
+          }
+        ]
+      }
+    },
+    "Feature Description Assertions (for OpenActive maintainers)": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "booking-partner-openid-authentication-for-multiple-sellers",
+              "required-features",
+              "_NoFlow_",
+              "_NoOpportunityType_",
+              "Feature Description Assertions (for OpenActive maintainers)"
+            ],
+            "duration": 1,
+            "failureMessages": [],
+            "fullName": "booking-partner-openid-authentication-for-multiple-sellers required-features _NoFlow_ _NoOpportunityType_ Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+          }
+        ]
+      }
+    }
+  },
+  "logs": [
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "booking-partner-openid-authentication-for-multiple-sellers",
+        "required-features",
+        "_NoFlow_",
+        "_NoOpportunityType_",
+        "Feature"
+      ],
+      "title": "can only be implemented if other features: 'multiple-sellers' and 'booking-partner-openid-authentication' are",
+      "fullName": "booking-partner-openid-authentication-for-multiple-sellers required-features _NoFlow_ _NoOpportunityType_ Feature can only be implemented if other features: 'multiple-sellers' and 'booking-partner-openid-authentication' are",
+      "spec": {
+        "ancestorTitles": [
+          "booking-partner-openid-authentication-for-multiple-sellers",
+          "required-features",
+          "_NoFlow_",
+          "_NoOpportunityType_",
+          "Feature"
+        ],
+        "duration": 3,
+        "failureMessages": [],
+        "fullName": "booking-partner-openid-authentication-for-multiple-sellers required-features _NoFlow_ _NoOpportunityType_ Feature can only be implemented if other features: 'multiple-sellers' and 'booking-partner-openid-authentication' are",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "can only be implemented if other features: 'multiple-sellers' and 'booking-partner-openid-authentication' are"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "booking-partner-openid-authentication-for-multiple-sellers",
+        "required-features",
+        "_NoFlow_",
+        "_NoOpportunityType_",
+        "Feature Description Assertions (for OpenActive maintainers)"
+      ],
+      "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "fullName": "booking-partner-openid-authentication-for-multiple-sellers required-features _NoFlow_ _NoOpportunityType_ Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "spec": {
+        "ancestorTitles": [
+          "booking-partner-openid-authentication-for-multiple-sellers",
+          "required-features",
+          "_NoFlow_",
+          "_NoOpportunityType_",
+          "Feature Description Assertions (for OpenActive maintainers)"
+        ],
+        "duration": 1,
+        "failureMessages": [],
+        "fullName": "booking-partner-openid-authentication-for-multiple-sellers required-features _NoFlow_ _NoOpportunityType_ Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+      }
+    }
+  ],
+  "timestamp": "Fri Jan 31 2025 11:34:36 GMT+0000 (Coordinated Universal Time)",
+  "config": {
+    "testDescription": "This feature can only be implemented if features: 'multiple-sellers' and 'booking-partner-openid-authentication' are implemented",
+    "skipMultiple": true,
+    "doesNotUseOpportunitiesMode": true,
+    "testCategory": "authentication",
+    "testFeature": "booking-partner-openid-authentication-for-multiple-sellers",
+    "testFeatureImplemented": true,
+    "testIdentifier": "required-features",
+    "testName": "Can only be implemented if other features are",
+    "requiredFeatures": [
+      "multiple-sellers",
+      "booking-partner-openid-authentication"
+    ]
+  },
+  "implemented": true,
+  "testFileIdentifier": "booking-partner-openid-authentication-for-multiple-sellers required-features _NoFlow_ _NoOpportunityType_",
+  "suites": [
+    [
+      "booking-partner-openid-authentication-for-multiple-sellers",
+      "required-features",
+      "_NoFlow_",
+      "_NoOpportunityType_"
+    ],
+    [
+      "booking-partner-openid-authentication-for-multiple-sellers",
+      "required-features",
+      "_NoFlow_",
+      "_NoOpportunityType_",
+      "Feature"
+    ],
+    [
+      "booking-partner-openid-authentication-for-multiple-sellers",
+      "required-features",
+      "_NoFlow_",
+      "_NoOpportunityType_",
+      "Feature Description Assertions (for OpenActive maintainers)"
+    ]
+  ],
+  "title": "booking-partner-openid-authentication-for-multiple-sellers >> required-features",
+  "workingLog": "",
+  "specs": {
+    "booking-partner-openid-authentication-for-multiple-sellers,required-features,_NoFlow_,_NoOpportunityType_,Feature": [
+      "can only be implemented if other features: 'multiple-sellers' and 'booking-partner-openid-authentication' are"
+    ],
+    "booking-partner-openid-authentication-for-multiple-sellers,required-features,_NoFlow_,_NoOpportunityType_,Feature Description Assertions (for OpenActive maintainers)": [
+      "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+    ]
+  },
+  "description": "This feature can only be implemented if features: 'multiple-sellers' and 'booking-partner-openid-authentication' are implemented",
+  "baseAncestorTitles": [
+    "booking-partner-openid-authentication-for-multiple-sellers",
+    "required-features",
+    "_NoFlow_",
+    "_NoOpportunityType_"
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "flow": {
+    "Feature": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "single-seller",
+              "multiple-sellers-implemented",
+              "_NoFlow_",
+              "_NoOpportunityType_",
+              "Feature"
+            ],
+            "duration": 3,
+            "failureMessages": [],
+            "fullName": "single-seller multiple-sellers-implemented _NoFlow_ _NoOpportunityType_ Feature must be implemented if other features: 'multiple-sellers' are NOT",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "must be implemented if other features: 'multiple-sellers' are NOT"
+          }
+        ]
+      }
+    },
+    "Feature Description Assertions (for OpenActive maintainers)": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "single-seller",
+              "multiple-sellers-implemented",
+              "_NoFlow_",
+              "_NoOpportunityType_",
+              "Feature Description Assertions (for OpenActive maintainers)"
+            ],
+            "duration": 1,
+            "failureMessages": [],
+            "fullName": "single-seller multiple-sellers-implemented _NoFlow_ _NoOpportunityType_ Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+          }
+        ]
+      }
+    }
+  },
+  "logs": [
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "single-seller",
+        "multiple-sellers-implemented",
+        "_NoFlow_",
+        "_NoOpportunityType_",
+        "Feature"
+      ],
+      "title": "must be implemented if other features: 'multiple-sellers' are NOT",
+      "fullName": "single-seller multiple-sellers-implemented _NoFlow_ _NoOpportunityType_ Feature must be implemented if other features: 'multiple-sellers' are NOT",
+      "spec": {
+        "ancestorTitles": [
+          "single-seller",
+          "multiple-sellers-implemented",
+          "_NoFlow_",
+          "_NoOpportunityType_",
+          "Feature"
+        ],
+        "duration": 3,
+        "failureMessages": [],
+        "fullName": "single-seller multiple-sellers-implemented _NoFlow_ _NoOpportunityType_ Feature must be implemented if other features: 'multiple-sellers' are NOT",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "must be implemented if other features: 'multiple-sellers' are NOT"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "single-seller",
+        "multiple-sellers-implemented",
+        "_NoFlow_",
+        "_NoOpportunityType_",
+        "Feature Description Assertions (for OpenActive maintainers)"
+      ],
+      "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "fullName": "single-seller multiple-sellers-implemented _NoFlow_ _NoOpportunityType_ Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "spec": {
+        "ancestorTitles": [
+          "single-seller",
+          "multiple-sellers-implemented",
+          "_NoFlow_",
+          "_NoOpportunityType_",
+          "Feature Description Assertions (for OpenActive maintainers)"
+        ],
+        "duration": 1,
+        "failureMessages": [],
+        "fullName": "single-seller multiple-sellers-implemented _NoFlow_ _NoOpportunityType_ Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+      }
+    }
+  ],
+  "timestamp": "Fri Jan 31 2025 11:34:27 GMT+0000 (Coordinated Universal Time)",
+  "config": {
+    "testDescription": "Either one, and only one, of the Multiple Sellers feature and Single Seller feature must be implemented",
+    "skipMultiple": true,
+    "doesNotUseOpportunitiesMode": true,
+    "testCategory": "core",
+    "testFeature": "single-seller",
+    "testFeatureImplemented": false,
+    "testIdentifier": "multiple-sellers-implemented",
+    "testName": "Multiple Sellers feature must be implemented if Single Seller is not implemented",
+    "otherFeaturesWhichAreMutuallyExclusiveWithThisOne": [
+      "multiple-sellers"
+    ]
+  },
+  "implemented": false,
+  "testFileIdentifier": "single-seller multiple-sellers-implemented _NoFlow_ _NoOpportunityType_",
+  "suites": [
+    [
+      "single-seller",
+      "multiple-sellers-implemented",
+      "_NoFlow_",
+      "_NoOpportunityType_"
+    ],
+    [
+      "single-seller",
+      "multiple-sellers-implemented",
+      "_NoFlow_",
+      "_NoOpportunityType_",
+      "Feature"
+    ],
+    [
+      "single-seller",
+      "multiple-sellers-implemented",
+      "_NoFlow_",
+      "_NoOpportunityType_",
+      "Feature Description Assertions (for OpenActive maintainers)"
+    ]
+  ],
+  "title": "single-seller >> multiple-sellers-implemented",
+  "workingLog": "",
+  "specs": {
+    "single-seller,multiple-sellers-implemented,_NoFlow_,_NoOpportunityType_,Feature": [
+      "must be implemented if other features: 'multiple-sellers' are NOT"
+    ],
+    "single-seller,multiple-sellers-implemented,_NoFlow_,_NoOpportunityType_,Feature Description Assertions (for OpenActive maintainers)": [
+      "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+    ]
+  },
+  "description": "Either one, and only one, of the Multiple Sellers feature and Single Seller feature must be implemented",
+  "baseAncestorTitles": [
+    "single-seller",
+    "multiple-sellers-implemented",
+    "_NoFlow_",
+    "_NoOpportunityType_"
+  ]
+}

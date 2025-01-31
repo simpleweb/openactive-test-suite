@@ -1,0 +1,365 @@
+{
+  "flow": {
+    "Assert Unmatched Criteria 'TestOpportunityBookableFreePrepaymentOptional' for 'ScheduledSession'": {
+      "events": [],
+      "request": {
+        "@type": "ScheduledSession",
+        "superEvent": {
+          "@type": "SessionSeries"
+        },
+        "@context": [
+          "https://openactive.io/",
+          "https://openactive.io/test-interface"
+        ],
+        "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional",
+        "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+      },
+      "response": {
+        "responseTime": 9.636356,
+        "status": 204,
+        "statusMessage": "No Content",
+        "headers": {
+          "x-powered-by": "Express",
+          "date": "Fri, 31 Jan 2025 11:34:23 GMT",
+          "connection": "close"
+        }
+      }
+    },
+    "Assert Unmatched Criteria 'TestOpportunityBookableFreePrepaymentRequired' for 'ScheduledSession'": {
+      "events": [],
+      "request": {
+        "@type": "ScheduledSession",
+        "superEvent": {
+          "@type": "SessionSeries"
+        },
+        "@context": [
+          "https://openactive.io/",
+          "https://openactive.io/test-interface"
+        ],
+        "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired",
+        "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+      },
+      "response": {
+        "responseTime": 12.10257,
+        "status": 204,
+        "statusMessage": "No Content",
+        "headers": {
+          "x-powered-by": "Express",
+          "date": "Fri, 31 Jan 2025 11:34:23 GMT",
+          "connection": "close"
+        }
+      }
+    },
+    "TestOpportunityBookableFreePrepaymentOptional opportunity feed items": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "free-opportunities",
+              "opportunity-free-must-not-include-prepayment",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "TestOpportunityBookableFreePrepaymentOptional opportunity feed items"
+            ],
+            "duration": 11,
+            "failureMessages": [],
+            "fullName": "free-opportunities opportunity-free-must-not-include-prepayment OpenBookingApprovalFlow ScheduledSession TestOpportunityBookableFreePrepaymentOptional opportunity feed items should be no events matching the [TestOpportunityBookableFreePrepaymentOptional](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional) criteria in the 'ScheduledSession' feed(s)",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should be no events matching the [TestOpportunityBookableFreePrepaymentOptional](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional) criteria in the 'ScheduledSession' feed(s)"
+          }
+        ]
+      }
+    },
+    "TestOpportunityBookableFreePrepaymentRequired opportunity feed items": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "free-opportunities",
+              "opportunity-free-must-not-include-prepayment",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "TestOpportunityBookableFreePrepaymentRequired opportunity feed items"
+            ],
+            "duration": 13,
+            "failureMessages": [],
+            "fullName": "free-opportunities opportunity-free-must-not-include-prepayment OpenBookingApprovalFlow ScheduledSession TestOpportunityBookableFreePrepaymentRequired opportunity feed items should be no events matching the [TestOpportunityBookableFreePrepaymentRequired](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired) criteria in the 'ScheduledSession' feed(s)",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should be no events matching the [TestOpportunityBookableFreePrepaymentRequired](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired) criteria in the 'ScheduledSession' feed(s)"
+          }
+        ]
+      }
+    },
+    "Feature Description Assertions (for OpenActive maintainers)": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "free-opportunities",
+              "opportunity-free-must-not-include-prepayment",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Feature Description Assertions (for OpenActive maintainers)"
+            ],
+            "duration": 0,
+            "failureMessages": [],
+            "fullName": "free-opportunities opportunity-free-must-not-include-prepayment OpenBookingApprovalFlow ScheduledSession Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+          }
+        ]
+      }
+    }
+  },
+  "logs": [
+    {
+      "ancestorTitles": [
+        "free-opportunities",
+        "opportunity-free-must-not-include-prepayment",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "TestOpportunityBookableFreePrepaymentOptional opportunity feed items"
+      ],
+      "title": "should be no events matching the [TestOpportunityBookableFreePrepaymentOptional](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional) criteria in the 'ScheduledSession' feed(s)",
+      "fullName": "free-opportunities opportunity-free-must-not-include-prepayment OpenBookingApprovalFlow ScheduledSession TestOpportunityBookableFreePrepaymentOptional opportunity feed items should be no events matching the [TestOpportunityBookableFreePrepaymentOptional](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional) criteria in the 'ScheduledSession' feed(s)",
+      "type": "request",
+      "stage": "Assert Unmatched Criteria 'TestOpportunityBookableFreePrepaymentOptional' for 'ScheduledSession'",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:3000/assert-unmatched-criteria",
+        "jsonBody": {
+          "@type": "ScheduledSession",
+          "superEvent": {
+            "@type": "SessionSeries"
+          },
+          "@context": [
+            "https://openactive.io/",
+            "https://openactive.io/test-interface"
+          ],
+          "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional",
+          "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+        },
+        "requestOptions": {
+          "timeout": 20000
+        }
+      },
+      "isPending": false,
+      "duration": 0,
+      "response": {
+        "responseTime": 9.636356,
+        "status": 204,
+        "statusMessage": "No Content",
+        "headers": {
+          "x-powered-by": "Express",
+          "date": "Fri, 31 Jan 2025 11:34:23 GMT",
+          "connection": "close"
+        }
+      }
+    },
+    {
+      "ancestorTitles": [
+        "free-opportunities",
+        "opportunity-free-must-not-include-prepayment",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "TestOpportunityBookableFreePrepaymentRequired opportunity feed items"
+      ],
+      "title": "should be no events matching the [TestOpportunityBookableFreePrepaymentRequired](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired) criteria in the 'ScheduledSession' feed(s)",
+      "fullName": "free-opportunities opportunity-free-must-not-include-prepayment OpenBookingApprovalFlow ScheduledSession TestOpportunityBookableFreePrepaymentRequired opportunity feed items should be no events matching the [TestOpportunityBookableFreePrepaymentRequired](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired) criteria in the 'ScheduledSession' feed(s)",
+      "type": "request",
+      "stage": "Assert Unmatched Criteria 'TestOpportunityBookableFreePrepaymentRequired' for 'ScheduledSession'",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:3000/assert-unmatched-criteria",
+        "jsonBody": {
+          "@type": "ScheduledSession",
+          "superEvent": {
+            "@type": "SessionSeries"
+          },
+          "@context": [
+            "https://openactive.io/",
+            "https://openactive.io/test-interface"
+          ],
+          "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired",
+          "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+        },
+        "requestOptions": {
+          "timeout": 20000
+        }
+      },
+      "isPending": false,
+      "duration": 0,
+      "response": {
+        "responseTime": 12.10257,
+        "status": 204,
+        "statusMessage": "No Content",
+        "headers": {
+          "x-powered-by": "Express",
+          "date": "Fri, 31 Jan 2025 11:34:23 GMT",
+          "connection": "close"
+        }
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "free-opportunities",
+        "opportunity-free-must-not-include-prepayment",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "TestOpportunityBookableFreePrepaymentOptional opportunity feed items"
+      ],
+      "title": "should be no events matching the [TestOpportunityBookableFreePrepaymentOptional](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional) criteria in the 'ScheduledSession' feed(s)",
+      "fullName": "free-opportunities opportunity-free-must-not-include-prepayment OpenBookingApprovalFlow ScheduledSession TestOpportunityBookableFreePrepaymentOptional opportunity feed items should be no events matching the [TestOpportunityBookableFreePrepaymentOptional](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional) criteria in the 'ScheduledSession' feed(s)",
+      "spec": {
+        "ancestorTitles": [
+          "free-opportunities",
+          "opportunity-free-must-not-include-prepayment",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "TestOpportunityBookableFreePrepaymentOptional opportunity feed items"
+        ],
+        "duration": 11,
+        "failureMessages": [],
+        "fullName": "free-opportunities opportunity-free-must-not-include-prepayment OpenBookingApprovalFlow ScheduledSession TestOpportunityBookableFreePrepaymentOptional opportunity feed items should be no events matching the [TestOpportunityBookableFreePrepaymentOptional](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional) criteria in the 'ScheduledSession' feed(s)",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should be no events matching the [TestOpportunityBookableFreePrepaymentOptional](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional) criteria in the 'ScheduledSession' feed(s)"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "free-opportunities",
+        "opportunity-free-must-not-include-prepayment",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "TestOpportunityBookableFreePrepaymentRequired opportunity feed items"
+      ],
+      "title": "should be no events matching the [TestOpportunityBookableFreePrepaymentRequired](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired) criteria in the 'ScheduledSession' feed(s)",
+      "fullName": "free-opportunities opportunity-free-must-not-include-prepayment OpenBookingApprovalFlow ScheduledSession TestOpportunityBookableFreePrepaymentRequired opportunity feed items should be no events matching the [TestOpportunityBookableFreePrepaymentRequired](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired) criteria in the 'ScheduledSession' feed(s)",
+      "spec": {
+        "ancestorTitles": [
+          "free-opportunities",
+          "opportunity-free-must-not-include-prepayment",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "TestOpportunityBookableFreePrepaymentRequired opportunity feed items"
+        ],
+        "duration": 13,
+        "failureMessages": [],
+        "fullName": "free-opportunities opportunity-free-must-not-include-prepayment OpenBookingApprovalFlow ScheduledSession TestOpportunityBookableFreePrepaymentRequired opportunity feed items should be no events matching the [TestOpportunityBookableFreePrepaymentRequired](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired) criteria in the 'ScheduledSession' feed(s)",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should be no events matching the [TestOpportunityBookableFreePrepaymentRequired](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired) criteria in the 'ScheduledSession' feed(s)"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "free-opportunities",
+        "opportunity-free-must-not-include-prepayment",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Feature Description Assertions (for OpenActive maintainers)"
+      ],
+      "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "fullName": "free-opportunities opportunity-free-must-not-include-prepayment OpenBookingApprovalFlow ScheduledSession Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "spec": {
+        "ancestorTitles": [
+          "free-opportunities",
+          "opportunity-free-must-not-include-prepayment",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Feature Description Assertions (for OpenActive maintainers)"
+        ],
+        "duration": 0,
+        "failureMessages": [],
+        "fullName": "free-opportunities opportunity-free-must-not-include-prepayment OpenBookingApprovalFlow ScheduledSession Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+      }
+    }
+  ],
+  "timestamp": "Fri Jan 31 2025 11:34:23 GMT+0000 (Coordinated Universal Time)",
+  "config": {
+    "testDescription": "Assert that no opportunities that match criteria 'TestOpportunityBookableFreePrepaymentOptional' or 'TestOpportunityBookableFreePrepaymentRequired' are available in the opportunity feeds.",
+    "skipMultiple": true,
+    "doesNotUseOpportunitiesMode": false,
+    "testCategory": "payment",
+    "testFeature": "free-opportunities",
+    "testFeatureImplemented": true,
+    "testIdentifier": "opportunity-free-must-not-include-prepayment",
+    "testName": "Free opportunities must have either a `openBookingPrepayment` value of Unspecified, or have no `openBookingPrepayment` specified",
+    "unmatchedOpportunityCriteria": [
+      "TestOpportunityBookableFreePrepaymentOptional",
+      "TestOpportunityBookableFreePrepaymentRequired"
+    ]
+  },
+  "implemented": true,
+  "testFileIdentifier": "free-opportunities opportunity-free-must-not-include-prepayment OpenBookingApprovalFlow ScheduledSession",
+  "suites": [
+    [
+      "free-opportunities",
+      "opportunity-free-must-not-include-prepayment",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession"
+    ],
+    [
+      "free-opportunities",
+      "opportunity-free-must-not-include-prepayment",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "TestOpportunityBookableFreePrepaymentOptional opportunity feed items"
+    ],
+    [
+      "free-opportunities",
+      "opportunity-free-must-not-include-prepayment",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "TestOpportunityBookableFreePrepaymentRequired opportunity feed items"
+    ],
+    [
+      "free-opportunities",
+      "opportunity-free-must-not-include-prepayment",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "Feature Description Assertions (for OpenActive maintainers)"
+    ]
+  ],
+  "title": "free-opportunities >> opportunity-free-must-not-include-prepayment (OpenBookingApprovalFlow >> ScheduledSession)",
+  "workingLog": "",
+  "specs": {
+    "free-opportunities,opportunity-free-must-not-include-prepayment,OpenBookingApprovalFlow,ScheduledSession,TestOpportunityBookableFreePrepaymentOptional opportunity feed items": [
+      "should be no events matching the [TestOpportunityBookableFreePrepaymentOptional](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional) criteria in the 'ScheduledSession' feed(s)"
+    ],
+    "free-opportunities,opportunity-free-must-not-include-prepayment,OpenBookingApprovalFlow,ScheduledSession,TestOpportunityBookableFreePrepaymentRequired opportunity feed items": [
+      "should be no events matching the [TestOpportunityBookableFreePrepaymentRequired](https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired) criteria in the 'ScheduledSession' feed(s)"
+    ],
+    "free-opportunities,opportunity-free-must-not-include-prepayment,OpenBookingApprovalFlow,ScheduledSession,Feature Description Assertions (for OpenActive maintainers)": [
+      "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+    ]
+  },
+  "description": "Assert that no opportunities that match criteria 'TestOpportunityBookableFreePrepaymentOptional' or 'TestOpportunityBookableFreePrepaymentRequired' are available in the opportunity feeds.",
+  "bookingFlow": "OpenBookingApprovalFlow",
+  "opportunityType": "ScheduledSession",
+  "baseAncestorTitles": [
+    "free-opportunities",
+    "opportunity-free-must-not-include-prepayment",
+    "OpenBookingApprovalFlow",
+    "ScheduledSession"
+  ]
+}

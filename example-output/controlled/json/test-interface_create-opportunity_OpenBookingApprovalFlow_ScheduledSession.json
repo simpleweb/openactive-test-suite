@@ -1,0 +1,1096 @@
+{
+  "flow": {
+    "Booking System Test Interface for OrderItem 0": {
+      "events": [],
+      "request": {
+        "@type": "ScheduledSession",
+        "superEvent": {
+          "@type": "SessionSeries",
+          "organizer": {
+            "@type": "Organization",
+            "@id": "https://localhost:5001/api/identifiers/sellers/1"
+          }
+        },
+        "@context": [
+          "https://openactive.io/",
+          "https://openactive.io/test-interface"
+        ],
+        "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable",
+        "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+      },
+      "response": {
+        "body": {
+          "@context": "https://openactive.io/",
+          "@type": "ScheduledSession",
+          "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/2507/events/20507"
+        },
+        "responseTime": 1237.429517,
+        "status": 200,
+        "statusMessage": "OK",
+        "headers": {
+          "connection": "close",
+          "date": "Fri, 31 Jan 2025 11:29:12 GMT",
+          "content-type": "application/vnd.openactive.booking+json; version=1",
+          "server": "Kestrel",
+          "content-length": "148"
+        }
+      }
+    },
+    "Opportunity Feed extract for OrderItem 0": {
+      "events": [],
+      "response": {
+        "body": {
+          "state": "updated",
+          "id": "https://localhost:5001/api/identifiers/scheduled-sessions/2507/events/20507",
+          "modified": "1738322954264",
+          "data": {
+            "@context": [
+              "https://openactive.io/"
+            ],
+            "@type": "ScheduledSession",
+            "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/2507/events/20507",
+            "startDate": "2025-02-01T11:29:11+00:00",
+            "endDate": "2025-02-01T12:29:11+00:00",
+            "superEvent": {
+              "@type": "SessionSeries",
+              "@id": "https://localhost:5001/api/identifiers/session-series/2507",
+              "identifier": 2507,
+              "name": "[OPEN BOOKING API TEST INTERFACE] Bookable Event",
+              "activity": [
+                {
+                  "@type": "Concept",
+                  "@id": "https://openactive.io/activity-list#c07d63a0-8eb9-4602-8bcc-23be6deb8f83",
+                  "inScheme": "https://openactive.io/activity-list",
+                  "prefLabel": "Jet Skiing"
+                }
+              ],
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "location": {
+                "@type": "Place",
+                "@id": "https://example.com/place/3",
+                "identifier": 3,
+                "name": "Stroll & Stretch",
+                "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "GB",
+                  "addressLocality": "Oxford",
+                  "addressRegion": "Oxfordshire",
+                  "postalCode": "OX1 1UU",
+                  "streetAddress": "Norfolk Street"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 51.749826,
+                  "longitude": -1.261492
+                },
+                "image": [
+                  {
+                    "@type": "ImageObject",
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+                  }
+                ],
+                "openingHoursSpecification": [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "17:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Sunday"
+                    ],
+                    "opens": "09:00"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Monday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Tuesday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Wednesday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Thursday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Friday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "17:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Saturday"
+                    ],
+                    "opens": "09:00"
+                  }
+                ],
+                "telephone": "01865 000003",
+                "url": "https://en.wikipedia.org/wiki/Shopping_center"
+              },
+              "offers": [
+                {
+                  "@type": "Offer",
+                  "@id": "https://localhost:5001/api/identifiers/session-series/2507#/offers/0",
+                  "name": "Senior",
+                  "acceptedPaymentMethod": [
+                    "http://purl.org/goodrelations/v1#Cash",
+                    "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+                  ],
+                  "ageRestriction": {
+                    "@type": "QuantitativeValue",
+                    "name": "Senior",
+                    "minValue": 60
+                  },
+                  "allowCustomerCancellationFullRefund": true,
+                  "openBookingFlowRequirement": [
+                    "https://openactive.io/OpenBookingApproval"
+                  ],
+                  "price": 14.99,
+                  "priceCurrency": "GBP"
+                },
+                {
+                  "@type": "Offer",
+                  "@id": "https://localhost:5001/api/identifiers/session-series/2507#/offers/0",
+                  "name": "Adult (off-peak)",
+                  "acceptedPaymentMethod": [
+                    "http://purl.org/goodrelations/v1#Cash",
+                    "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+                  ],
+                  "ageRestriction": {
+                    "@type": "QuantitativeValue",
+                    "name": "Adult (off-peak)",
+                    "maxValue": 59,
+                    "minValue": 18
+                  },
+                  "allowCustomerCancellationFullRefund": true,
+                  "openBookingFlowRequirement": [
+                    "https://openactive.io/OpenBookingApproval"
+                  ],
+                  "price": 14.99,
+                  "priceCurrency": "GBP"
+                }
+              ],
+              "organizer": {
+                "@type": "Organization",
+                "@id": "https://localhost:5001/api/identifiers/sellers/1",
+                "name": "Acme Fitness Ltd",
+                "isOpenBookingAllowed": true,
+                "sameAs": [
+                  "https://socialmedia.com/AcmeFitnessLtd"
+                ],
+                "taxMode": "https://openactive.io/TaxGross",
+                "telephone": "00411 172707",
+                "termsOfService": [
+                  {
+                    "@type": "PrivacyPolicy",
+                    "name": "Privacy Policy",
+                    "requiresExplicitConsent": false,
+                    "url": "https://example.com/privacy.html"
+                  }
+                ],
+                "url": "http://brenda.name"
+              },
+              "url": "https://www.example.com/sessions/2507"
+            },
+            "duration": "PT1H",
+            "maximumAttendeeCapacity": 10,
+            "remainingAttendeeCapacity": 10
+          }
+        },
+        "responseTime": 488.593868,
+        "status": 200,
+        "statusMessage": "OK",
+        "headers": {
+          "x-powered-by": "Express",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4257",
+          "etag": "W/\"10a1-qjk8Un/UvFqXawHiW9kfINLe0Bw\"",
+          "date": "Fri, 31 Jan 2025 11:29:13 GMT",
+          "connection": "close"
+        },
+        "validations": [
+          {
+            "path": "$.eventStatus",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `eventStatus` is missing from `ScheduledSession`.\n\nA full example looks like this:\n\n```\n\"eventStatus\": \"https://schema.org/EventScheduled\"\n```"
+          },
+          {
+            "path": "$.leader",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `leader` is missing from `ScheduledSession`.\n\nA full example looks like this:\n\n```\n\"leader\": [\n  {\n    \"@type\": \"Person\",\n    \"familyName\": \"Smith\",\n    \"givenName\": \"Nicole\",\n    \"gender\": \"https://schema.org/Male\",\n    \"@id\": \"https://example.com/locations/1234ABCD/leaders/89\",\n    \"identifier\": 89\n  }\n]\n```"
+          },
+          {
+            "path": "$.url",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `url` is missing from `ScheduledSession`.\n\nA full example looks like this:\n\n```\n\"url\": \"https://example.com/event/1234\"\n```"
+          },
+          {
+            "path": "$.superEvent.description",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `description` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"description\": \"A fast paced game that incorporates netball, handball and football.\"\n```"
+          },
+          {
+            "path": "$.superEvent.image",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `image` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"image\": [\n  {\n    \"@type\": \"ImageObject\",\n    \"url\": \"http://example.com/static/image/speedball_large.jpg\",\n    \"thumbnail\": [\n      {\n        \"@type\": \"ImageObject\",\n        \"url\": \"http://example.com/static/image/speedball_thumbnail.jpg\"\n      }\n    ]\n  }\n]\n```"
+          },
+          {
+            "path": "$.superEvent.ageRange",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `ageRange` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"ageRange\": {\n  \"@type\": \"QuantitativeValue\",\n  \"minValue\": 50,\n  \"maxValue\": 60\n}\n```"
+          },
+          {
+            "path": "$.superEvent.genderRestriction",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `genderRestriction` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"genderRestriction\": \"https://openactive.io/FemaleOnly\"\n```"
+          },
+          {
+            "path": "$.superEvent.leader",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `leader` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"leader\": [\n  {\n    \"@type\": \"Person\",\n    \"familyName\": \"Smith\",\n    \"givenName\": \"Nicole\",\n    \"gender\": \"https://schema.org/Male\",\n    \"@id\": \"https://example.com/locations/1234ABCD/leaders/89\",\n    \"identifier\": 89\n  }\n]\n```"
+          },
+          {
+            "path": "$.superEvent.level",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `level` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"level\": [\n  \"Beginner\"\n]\n```"
+          },
+          {
+            "path": "$.superEvent.location.amenityFeature",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `amenityFeature` is missing from `Place`.\n\nA full example looks like this:\n\n```\n\"amenityFeature\": [\n  {\n    \"name\": \"Changing Facilities\",\n    \"value\": true,\n    \"@type\": \"ChangingFacilities\"\n  },\n  {\n    \"name\": \"Showers\",\n    \"value\": false,\n    \"@type\": \"Showers\"\n  },\n  {\n    \"name\": \"Lockers\",\n    \"value\": true,\n    \"@type\": \"Lockers\"\n  },\n  {\n    \"name\": \"Towels\",\n    \"value\": false,\n    \"@type\": \"Towels\"\n  },\n  {\n    \"name\": \"Creche\",\n    \"value\": false,\n    \"@type\": \"Creche\"\n  },\n  {\n    \"name\": \"Parking\",\n    \"value\": true,\n    \"@type\": \"Parking\"\n  }\n]\n```"
+          },
+          {
+            "path": "$.genderRestriction",
+            "rule": "AssumeNoGenderRestrictionRule",
+            "category": "data-quality",
+            "type": "consumer_assume_no_gender_restriction",
+            "severity": "suggestion",
+            "message": "Data consumers will assume that there is no gender restriction when no valid `genderRestriction` is supplied on a `ScheduledSession`."
+          },
+          {
+            "path": "$.ageRange",
+            "rule": "AssumeAgeRangeRule",
+            "category": "data-quality",
+            "type": "consumer_assume_age_range",
+            "severity": "suggestion",
+            "message": "Data consumers will assume that the `ageRange` is 18+ when not specified.\n\nThis `ScheduledSession` is currently assumed to have the equivalent of:\n\n```\n\"ageRange\": {\n  \"minValue\": 18\n}```"
+          },
+          {
+            "path": "$.eventStatus",
+            "rule": "AssumeEventStatusRule",
+            "category": "data-quality",
+            "type": "consumer_assume_event_status",
+            "severity": "suggestion",
+            "message": "Data consumers will assume the `eventStatus` is scheduled if not specified or invalid.\n\nThis `ScheduledSession` is currently assumed to have the equivalent of:\n\n```\n\"eventStatus\": \"https://schema.org/EventScheduled\"\n```"
+          },
+          {
+            "path": "$.superEvent.genderRestriction",
+            "rule": "AssumeNoGenderRestrictionRule",
+            "category": "data-quality",
+            "type": "consumer_assume_no_gender_restriction",
+            "severity": "suggestion",
+            "message": "Data consumers will assume that there is no gender restriction when no valid `genderRestriction` is supplied on a `SessionSeries`."
+          },
+          {
+            "path": "$.superEvent.ageRange",
+            "rule": "AssumeAgeRangeRule",
+            "category": "data-quality",
+            "type": "consumer_assume_age_range",
+            "severity": "suggestion",
+            "message": "Data consumers will assume that the `ageRange` is 18+ when not specified.\n\nThis `SessionSeries` is currently assumed to have the equivalent of:\n\n```\n\"ageRange\": {\n  \"minValue\": 18\n}```"
+          },
+          {
+            "path": "$.superEvent.eventStatus",
+            "rule": "AssumeEventStatusRule",
+            "category": "data-quality",
+            "type": "consumer_assume_event_status",
+            "severity": "suggestion",
+            "message": "Data consumers will assume the `eventStatus` is scheduled if not specified or invalid.\n\nThis `SessionSeries` is currently assumed to have the equivalent of:\n\n```\n\"eventStatus\": \"https://schema.org/EventScheduled\"\n```"
+          },
+          {
+            "value": "Senior",
+            "path": "$.superEvent.offers[0].ageRestriction.name",
+            "rule": "FieldsNotInModelRule",
+            "category": "conformance",
+            "type": "schema_org_fields_not_checked",
+            "severity": "notice",
+            "message": "`schema:name` is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for [schema:name](https://schema.org/name) for additional guidance."
+          },
+          {
+            "value": "Adult (off-peak)",
+            "path": "$.superEvent.offers[1].ageRestriction.name",
+            "rule": "FieldsNotInModelRule",
+            "category": "conformance",
+            "type": "schema_org_fields_not_checked",
+            "severity": "notice",
+            "message": "`schema:name` is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for [schema:name](https://schema.org/name) for additional guidance."
+          }
+        ]
+      }
+    },
+    "Fetch Opportunities": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "test-interface",
+              "create-opportunity",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Fetch Opportunities"
+            ],
+            "duration": 0,
+            "failureMessages": [],
+            "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Fetch Opportunities should return 200 on success for request relevant to OrderItem 0",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should return 200 on success for request relevant to OrderItem 0"
+          },
+          {
+            "ancestorTitles": [
+              "test-interface",
+              "create-opportunity",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Fetch Opportunities",
+              "validation of Opportunity Feed extract for OrderItem 0"
+            ],
+            "duration": 809,
+            "failureMessages": [],
+            "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 passes validation checks",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "passes validation checks"
+          },
+          {
+            "ancestorTitles": [
+              "test-interface",
+              "create-opportunity",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Fetch Opportunities",
+              "validation of Opportunity Feed extract for OrderItem 0"
+            ],
+            "duration": 0,
+            "failureMessages": [],
+            "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 matches the criteria 'TestOpportunityBookable' required for this test",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "matches the criteria 'TestOpportunityBookable' required for this test"
+          }
+        ]
+      }
+    },
+    "Feature Description Assertions (for OpenActive maintainers)": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "test-interface",
+              "create-opportunity",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Feature Description Assertions (for OpenActive maintainers)"
+            ],
+            "duration": 0,
+            "failureMessages": [],
+            "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+          }
+        ]
+      }
+    }
+  },
+  "logs": [
+    {
+      "ancestorTitles": [
+        "test-interface",
+        "create-opportunity",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Fetch Opportunities"
+      ],
+      "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "fullName": "test-interface create-opportunity OpenBookingSimpleFlow IndividualFacilityUseSlot Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "type": "request",
+      "stage": "Booking System Test Interface for OrderItem 0",
+      "request": {
+        "method": "POST",
+        "url": "https://localhost:5001/api/openbooking/test-interface/datasets/uat-ci/opportunities",
+        "jsonBody": {
+          "@type": "ScheduledSession",
+          "superEvent": {
+            "@type": "SessionSeries",
+            "organizer": {
+              "@type": "Organization",
+              "@id": "https://localhost:5001/api/identifiers/sellers/1"
+            }
+          },
+          "@context": [
+            "https://openactive.io/",
+            "https://openactive.io/test-interface"
+          ],
+          "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable",
+          "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+        },
+        "requestOptions": {
+          "headers": {
+            "Content-Type": "application/vnd.openactive.booking+json; version=1",
+            "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0MjEsImV4cCI6MTczODMyNTAyMSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiN2YxMWYwMGQtYzk2OC00ZjQzLWExNmUtYzkwYjBkZDJjOGQ4IiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiN2YxMWYwMGQtYzk2OC00ZjQzLWExNmUtYzkwYjBkZDJjOGQ4Iiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDIxLCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3RkRCMDc2RDMyNjcxQjA3NzgzMjE3QTVGRTRBQTE5Iiwic2lkIjoiQzkxQkMyQUM3MzQyNDkzRkI3NzgwMzg1N0IzRTYyNTgiLCJpYXQiOjE3MzgzMjE0MjEsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.hlNK9s6r1uLy48egBIWYvXW7tpi6svfs04-iNEL1ZiLGtrgqyBYqLJku4pKH66S7WhNDBevEuGY_58FhFIX0iOXE0yCjX6NoSrqUuVQM9wU_m5BCxGspHQOWEZ79v4v4KlFQRN8oxMpM2UJ2zj8g4sgRmYl1dS5E_ulJTiq3L4iCd3GAfsKGCEBwBRh_xgpjI6SiinMkGKVv6i8r4kkc1AKi3rxNyNSajaT9yOpnTnIhBwMRlL9YQsyuTQbADiRAyn6h8n2-H7VhROyvOdm86HSOS8v9f9PhmVWQuzRGqdpgWpvu5XKEXAri12um8krYbE56_Xf9pimguZpTf30fbw"
+          },
+          "timeout": 20000
+        }
+      },
+      "isPending": false,
+      "duration": 1200,
+      "response": {
+        "body": {
+          "@context": "https://openactive.io/",
+          "@type": "ScheduledSession",
+          "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/2507/events/20507"
+        },
+        "responseTime": 1237.429517,
+        "status": 200,
+        "statusMessage": "OK",
+        "headers": {
+          "connection": "close",
+          "date": "Fri, 31 Jan 2025 11:29:12 GMT",
+          "content-type": "application/vnd.openactive.booking+json; version=1",
+          "server": "Kestrel",
+          "content-length": "148"
+        }
+      }
+    },
+    {
+      "ancestorTitles": [
+        "test-interface",
+        "create-opportunity",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Fetch Opportunities"
+      ],
+      "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "fullName": "test-interface create-opportunity OpenBookingSimpleFlow IndividualFacilityUseSlot Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "type": "request",
+      "stage": "Opportunity Feed extract for OrderItem 0",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F2507%2Fevents%2F20507?useCacheIfAvailable=true",
+        "jsonBody": null,
+        "requestOptions": {
+          "timeout": 60000
+        }
+      },
+      "isPending": false,
+      "requestMetadata": {
+        "feedExtract": {
+          "id": "https://localhost:5001/api/identifiers/scheduled-sessions/2507/events/20507",
+          "type": "opportunities"
+        }
+      },
+      "duration": 400,
+      "response": {
+        "body": {
+          "state": "updated",
+          "id": "https://localhost:5001/api/identifiers/scheduled-sessions/2507/events/20507",
+          "modified": "1738322954264",
+          "data": {
+            "@context": [
+              "https://openactive.io/"
+            ],
+            "@type": "ScheduledSession",
+            "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/2507/events/20507",
+            "startDate": "2025-02-01T11:29:11+00:00",
+            "endDate": "2025-02-01T12:29:11+00:00",
+            "superEvent": {
+              "@type": "SessionSeries",
+              "@id": "https://localhost:5001/api/identifiers/session-series/2507",
+              "identifier": 2507,
+              "name": "[OPEN BOOKING API TEST INTERFACE] Bookable Event",
+              "activity": [
+                {
+                  "@type": "Concept",
+                  "@id": "https://openactive.io/activity-list#c07d63a0-8eb9-4602-8bcc-23be6deb8f83",
+                  "inScheme": "https://openactive.io/activity-list",
+                  "prefLabel": "Jet Skiing"
+                }
+              ],
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "location": {
+                "@type": "Place",
+                "@id": "https://example.com/place/3",
+                "identifier": 3,
+                "name": "Stroll & Stretch",
+                "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "GB",
+                  "addressLocality": "Oxford",
+                  "addressRegion": "Oxfordshire",
+                  "postalCode": "OX1 1UU",
+                  "streetAddress": "Norfolk Street"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 51.749826,
+                  "longitude": -1.261492
+                },
+                "image": [
+                  {
+                    "@type": "ImageObject",
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+                  }
+                ],
+                "openingHoursSpecification": [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "17:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Sunday"
+                    ],
+                    "opens": "09:00"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Monday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Tuesday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Wednesday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Thursday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Friday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "17:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Saturday"
+                    ],
+                    "opens": "09:00"
+                  }
+                ],
+                "telephone": "01865 000003",
+                "url": "https://en.wikipedia.org/wiki/Shopping_center"
+              },
+              "offers": [
+                {
+                  "@type": "Offer",
+                  "@id": "https://localhost:5001/api/identifiers/session-series/2507#/offers/0",
+                  "name": "Senior",
+                  "acceptedPaymentMethod": [
+                    "http://purl.org/goodrelations/v1#Cash",
+                    "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+                  ],
+                  "ageRestriction": {
+                    "@type": "QuantitativeValue",
+                    "name": "Senior",
+                    "minValue": 60
+                  },
+                  "allowCustomerCancellationFullRefund": true,
+                  "openBookingFlowRequirement": [
+                    "https://openactive.io/OpenBookingApproval"
+                  ],
+                  "price": 14.99,
+                  "priceCurrency": "GBP"
+                },
+                {
+                  "@type": "Offer",
+                  "@id": "https://localhost:5001/api/identifiers/session-series/2507#/offers/0",
+                  "name": "Adult (off-peak)",
+                  "acceptedPaymentMethod": [
+                    "http://purl.org/goodrelations/v1#Cash",
+                    "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+                  ],
+                  "ageRestriction": {
+                    "@type": "QuantitativeValue",
+                    "name": "Adult (off-peak)",
+                    "maxValue": 59,
+                    "minValue": 18
+                  },
+                  "allowCustomerCancellationFullRefund": true,
+                  "openBookingFlowRequirement": [
+                    "https://openactive.io/OpenBookingApproval"
+                  ],
+                  "price": 14.99,
+                  "priceCurrency": "GBP"
+                }
+              ],
+              "organizer": {
+                "@type": "Organization",
+                "@id": "https://localhost:5001/api/identifiers/sellers/1",
+                "name": "Acme Fitness Ltd",
+                "isOpenBookingAllowed": true,
+                "sameAs": [
+                  "https://socialmedia.com/AcmeFitnessLtd"
+                ],
+                "taxMode": "https://openactive.io/TaxGross",
+                "telephone": "00411 172707",
+                "termsOfService": [
+                  {
+                    "@type": "PrivacyPolicy",
+                    "name": "Privacy Policy",
+                    "requiresExplicitConsent": false,
+                    "url": "https://example.com/privacy.html"
+                  }
+                ],
+                "url": "http://brenda.name"
+              },
+              "url": "https://www.example.com/sessions/2507"
+            },
+            "duration": "PT1H",
+            "maximumAttendeeCapacity": 10,
+            "remainingAttendeeCapacity": 10
+          }
+        },
+        "responseTime": 488.593868,
+        "status": 200,
+        "statusMessage": "OK",
+        "headers": {
+          "x-powered-by": "Express",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4257",
+          "etag": "W/\"10a1-qjk8Un/UvFqXawHiW9kfINLe0Bw\"",
+          "date": "Fri, 31 Jan 2025 11:29:13 GMT",
+          "connection": "close"
+        }
+      }
+    },
+    {
+      "ancestorTitles": [
+        "test-interface",
+        "create-opportunity",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Fetch Opportunities",
+        "validation of Opportunity Feed extract for OrderItem 0"
+      ],
+      "title": "passes validation checks",
+      "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 passes validation checks",
+      "type": "validations",
+      "stage": "Opportunity Feed extract for OrderItem 0",
+      "validations": [
+        {
+          "path": "$.eventStatus",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `eventStatus` is missing from `ScheduledSession`.\n\nA full example looks like this:\n\n```\n\"eventStatus\": \"https://schema.org/EventScheduled\"\n```"
+        },
+        {
+          "path": "$.leader",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `leader` is missing from `ScheduledSession`.\n\nA full example looks like this:\n\n```\n\"leader\": [\n  {\n    \"@type\": \"Person\",\n    \"familyName\": \"Smith\",\n    \"givenName\": \"Nicole\",\n    \"gender\": \"https://schema.org/Male\",\n    \"@id\": \"https://example.com/locations/1234ABCD/leaders/89\",\n    \"identifier\": 89\n  }\n]\n```"
+        },
+        {
+          "path": "$.url",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `url` is missing from `ScheduledSession`.\n\nA full example looks like this:\n\n```\n\"url\": \"https://example.com/event/1234\"\n```"
+        },
+        {
+          "path": "$.superEvent.description",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `description` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"description\": \"A fast paced game that incorporates netball, handball and football.\"\n```"
+        },
+        {
+          "path": "$.superEvent.image",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `image` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"image\": [\n  {\n    \"@type\": \"ImageObject\",\n    \"url\": \"http://example.com/static/image/speedball_large.jpg\",\n    \"thumbnail\": [\n      {\n        \"@type\": \"ImageObject\",\n        \"url\": \"http://example.com/static/image/speedball_thumbnail.jpg\"\n      }\n    ]\n  }\n]\n```"
+        },
+        {
+          "path": "$.superEvent.ageRange",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `ageRange` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"ageRange\": {\n  \"@type\": \"QuantitativeValue\",\n  \"minValue\": 50,\n  \"maxValue\": 60\n}\n```"
+        },
+        {
+          "path": "$.superEvent.genderRestriction",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `genderRestriction` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"genderRestriction\": \"https://openactive.io/FemaleOnly\"\n```"
+        },
+        {
+          "path": "$.superEvent.leader",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `leader` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"leader\": [\n  {\n    \"@type\": \"Person\",\n    \"familyName\": \"Smith\",\n    \"givenName\": \"Nicole\",\n    \"gender\": \"https://schema.org/Male\",\n    \"@id\": \"https://example.com/locations/1234ABCD/leaders/89\",\n    \"identifier\": 89\n  }\n]\n```"
+        },
+        {
+          "path": "$.superEvent.level",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `level` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"level\": [\n  \"Beginner\"\n]\n```"
+        },
+        {
+          "path": "$.superEvent.location.amenityFeature",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `amenityFeature` is missing from `Place`.\n\nA full example looks like this:\n\n```\n\"amenityFeature\": [\n  {\n    \"name\": \"Changing Facilities\",\n    \"value\": true,\n    \"@type\": \"ChangingFacilities\"\n  },\n  {\n    \"name\": \"Showers\",\n    \"value\": false,\n    \"@type\": \"Showers\"\n  },\n  {\n    \"name\": \"Lockers\",\n    \"value\": true,\n    \"@type\": \"Lockers\"\n  },\n  {\n    \"name\": \"Towels\",\n    \"value\": false,\n    \"@type\": \"Towels\"\n  },\n  {\n    \"name\": \"Creche\",\n    \"value\": false,\n    \"@type\": \"Creche\"\n  },\n  {\n    \"name\": \"Parking\",\n    \"value\": true,\n    \"@type\": \"Parking\"\n  }\n]\n```"
+        },
+        {
+          "path": "$.genderRestriction",
+          "rule": "AssumeNoGenderRestrictionRule",
+          "category": "data-quality",
+          "type": "consumer_assume_no_gender_restriction",
+          "severity": "suggestion",
+          "message": "Data consumers will assume that there is no gender restriction when no valid `genderRestriction` is supplied on a `ScheduledSession`."
+        },
+        {
+          "path": "$.ageRange",
+          "rule": "AssumeAgeRangeRule",
+          "category": "data-quality",
+          "type": "consumer_assume_age_range",
+          "severity": "suggestion",
+          "message": "Data consumers will assume that the `ageRange` is 18+ when not specified.\n\nThis `ScheduledSession` is currently assumed to have the equivalent of:\n\n```\n\"ageRange\": {\n  \"minValue\": 18\n}```"
+        },
+        {
+          "path": "$.eventStatus",
+          "rule": "AssumeEventStatusRule",
+          "category": "data-quality",
+          "type": "consumer_assume_event_status",
+          "severity": "suggestion",
+          "message": "Data consumers will assume the `eventStatus` is scheduled if not specified or invalid.\n\nThis `ScheduledSession` is currently assumed to have the equivalent of:\n\n```\n\"eventStatus\": \"https://schema.org/EventScheduled\"\n```"
+        },
+        {
+          "path": "$.superEvent.genderRestriction",
+          "rule": "AssumeNoGenderRestrictionRule",
+          "category": "data-quality",
+          "type": "consumer_assume_no_gender_restriction",
+          "severity": "suggestion",
+          "message": "Data consumers will assume that there is no gender restriction when no valid `genderRestriction` is supplied on a `SessionSeries`."
+        },
+        {
+          "path": "$.superEvent.ageRange",
+          "rule": "AssumeAgeRangeRule",
+          "category": "data-quality",
+          "type": "consumer_assume_age_range",
+          "severity": "suggestion",
+          "message": "Data consumers will assume that the `ageRange` is 18+ when not specified.\n\nThis `SessionSeries` is currently assumed to have the equivalent of:\n\n```\n\"ageRange\": {\n  \"minValue\": 18\n}```"
+        },
+        {
+          "path": "$.superEvent.eventStatus",
+          "rule": "AssumeEventStatusRule",
+          "category": "data-quality",
+          "type": "consumer_assume_event_status",
+          "severity": "suggestion",
+          "message": "Data consumers will assume the `eventStatus` is scheduled if not specified or invalid.\n\nThis `SessionSeries` is currently assumed to have the equivalent of:\n\n```\n\"eventStatus\": \"https://schema.org/EventScheduled\"\n```"
+        },
+        {
+          "value": "Senior",
+          "path": "$.superEvent.offers[0].ageRestriction.name",
+          "rule": "FieldsNotInModelRule",
+          "category": "conformance",
+          "type": "schema_org_fields_not_checked",
+          "severity": "notice",
+          "message": "`schema:name` is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for [schema:name](https://schema.org/name) for additional guidance."
+        },
+        {
+          "value": "Adult (off-peak)",
+          "path": "$.superEvent.offers[1].ageRestriction.name",
+          "rule": "FieldsNotInModelRule",
+          "category": "conformance",
+          "type": "schema_org_fields_not_checked",
+          "severity": "notice",
+          "message": "`schema:name` is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for [schema:name](https://schema.org/name) for additional guidance."
+        }
+      ]
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "test-interface",
+        "create-opportunity",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Fetch Opportunities"
+      ],
+      "title": "should return 200 on success for request relevant to OrderItem 0",
+      "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Fetch Opportunities should return 200 on success for request relevant to OrderItem 0",
+      "spec": {
+        "ancestorTitles": [
+          "test-interface",
+          "create-opportunity",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Fetch Opportunities"
+        ],
+        "duration": 0,
+        "failureMessages": [],
+        "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Fetch Opportunities should return 200 on success for request relevant to OrderItem 0",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should return 200 on success for request relevant to OrderItem 0"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "test-interface",
+        "create-opportunity",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Fetch Opportunities",
+        "validation of Opportunity Feed extract for OrderItem 0"
+      ],
+      "title": "passes validation checks",
+      "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 passes validation checks",
+      "spec": {
+        "ancestorTitles": [
+          "test-interface",
+          "create-opportunity",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Fetch Opportunities",
+          "validation of Opportunity Feed extract for OrderItem 0"
+        ],
+        "duration": 809,
+        "failureMessages": [],
+        "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 passes validation checks",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "passes validation checks"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "test-interface",
+        "create-opportunity",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Fetch Opportunities",
+        "validation of Opportunity Feed extract for OrderItem 0"
+      ],
+      "title": "matches the criteria 'TestOpportunityBookable' required for this test",
+      "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 matches the criteria 'TestOpportunityBookable' required for this test",
+      "spec": {
+        "ancestorTitles": [
+          "test-interface",
+          "create-opportunity",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Fetch Opportunities",
+          "validation of Opportunity Feed extract for OrderItem 0"
+        ],
+        "duration": 0,
+        "failureMessages": [],
+        "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 matches the criteria 'TestOpportunityBookable' required for this test",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "matches the criteria 'TestOpportunityBookable' required for this test"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "test-interface",
+        "create-opportunity",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Feature Description Assertions (for OpenActive maintainers)"
+      ],
+      "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "spec": {
+        "ancestorTitles": [
+          "test-interface",
+          "create-opportunity",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Feature Description Assertions (for OpenActive maintainers)"
+        ],
+        "duration": 0,
+        "failureMessages": [],
+        "fullName": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+      }
+    }
+  ],
+  "timestamp": "Fri Jan 31 2025 11:29:08 GMT+0000 (Coordinated Universal Time)",
+  "config": {
+    "testCategory": "core",
+    "testFeature": "test-interface",
+    "testFeatureImplemented": true,
+    "testIdentifier": "create-opportunity",
+    "testName": "Create opportunity",
+    "testDescription": "Creates an opportunity using the booking system's test interface, and validates the resulting feed item matches the criteria.",
+    "testOpportunityCriteria": "TestOpportunityBookable",
+    "skipMultiple": true,
+    "runOnlyIf": true
+  },
+  "implemented": true,
+  "testFileIdentifier": "test-interface create-opportunity OpenBookingApprovalFlow ScheduledSession",
+  "suites": [
+    [
+      "test-interface",
+      "create-opportunity",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession"
+    ],
+    [
+      "test-interface",
+      "create-opportunity",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "Fetch Opportunities"
+    ],
+    [
+      "test-interface",
+      "create-opportunity",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "Fetch Opportunities",
+      "validation of Opportunity Feed extract for OrderItem 0"
+    ],
+    [
+      "test-interface",
+      "create-opportunity",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "Feature Description Assertions (for OpenActive maintainers)"
+    ]
+  ],
+  "title": "test-interface >> create-opportunity (OpenBookingApprovalFlow >> ScheduledSession)",
+  "workingLog": "",
+  "specs": {
+    "test-interface,create-opportunity,OpenBookingApprovalFlow,ScheduledSession,Fetch Opportunities": [
+      "should return 200 on success for request relevant to OrderItem 0"
+    ],
+    "test-interface,create-opportunity,OpenBookingApprovalFlow,ScheduledSession,Fetch Opportunities,validation of Opportunity Feed extract for OrderItem 0": [
+      "passes validation checks",
+      "matches the criteria 'TestOpportunityBookable' required for this test"
+    ],
+    "test-interface,create-opportunity,OpenBookingApprovalFlow,ScheduledSession,Feature Description Assertions (for OpenActive maintainers)": [
+      "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+    ]
+  },
+  "description": "Creates an opportunity using the booking system's test interface, and validates the resulting feed item matches the criteria.",
+  "bookingFlow": "OpenBookingApprovalFlow",
+  "opportunityType": "ScheduledSession",
+  "baseAncestorTitles": [
+    "test-interface",
+    "create-opportunity",
+    "OpenBookingApprovalFlow",
+    "ScheduledSession"
+  ]
+}

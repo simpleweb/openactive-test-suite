@@ -1,0 +1,3410 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<p><head>
+  </p>
+<style>
+h2 {
+    cursor: pointer;
+    border-top-color: #CCC;
+    border-top-width: 1px;
+    border-top-style: solid;
+    padding-top: 5px;
+}
+h2:hover {
+    color: #0056b3; /* Example color change on hover */
+}
+</style>
+<p></head></p>
+<p><a href="summary.html" rel="noopener noreferrer" target="_blank">< Return to Summary</a> | File Generated: Fri Jan 31 2025 11:09:14 GMT+0000 (Coordinated Universal Time)</p>
+<p><button id="collapseH2Button">Collapse All Sections</button>
+<button id="showH2Button">Show All Sections</button>
+<button id="collapseAllButFirstError">Show Only First Error</button></p>
+<h1 id="amendingorderquoteamendc2openbookingapprovalflowindividualfacilityuseslot">amending-order-quote &gt;&gt; amend-c2 (OpenBookingApprovalFlow &gt;&gt; IndividualFacilityUseSlot)</h1>
+<p><strong>Booking Flow:</strong> OpenBookingApprovalFlow</p>
+<p><strong>Opportunity Type:</strong> IndividualFacilityUseSlot</p>
+<p><strong>Feature:</strong> Core / Amending the OrderQuote before B (Implemented) </p>
+<p><strong>Test:</strong>  Amend, at C2, an existing OrderQuote</p>
+<p>Run C1,C2 with X opportunities, then - with the same Order UUID - run C2 with Y opportunities and different customer details, then runs B. The resulting Order should include confirmed bookings for only Y opportunities</p>
+<h3 id="runningonlythistest">Running only this test</h3>
+<pre><code class="bash language-bash">npm start -- --runInBand test/features/core/amending-order-quote/implemented/amend-c2-test.js
+</code></pre>
+<h3 id="isthistestfailing">Is this test failing?</h3>
+<p>The <a href="https://openactive.io/openactive-test-suite/example-output/random/amending-order-quote_amend-c2_OpenBookingApprovalFlow_IndividualFacilityUseSlot.html" rel="noopener noreferrer" target="_blank">OpenActive Reference Implementation test result for this test</a> can be used as a reference to help with debugging.</p>
+<hr />
+<p>⚠️ 30 passed with 0 failures, 185 warnings and 0 suggestions </p>
+<hr />
+<h2 id="firstattemptc1c2fetchopportunities">✅ First Attempt - C1 -&gt; C2 &gt;&gt; Fetch Opportunities</h2>
+<h3 id="localmicroservicetestinterfacefororderitem0request">Local Microservice Test Interface for OrderItem 0 Request</h3>
+<p>POST http://localhost:3000/test-interface/datasets/uat-ci/opportunities</p>
+<pre><code class="json language-json">{
+  "@type": "Slot",
+  "facilityUse": {
+    "@type": "IndividualFacilityUse",
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://localhost:5001/api/identifiers/sellers/1"
+    }
+  },
+  "@context": [
+    "https://openactive.io/",
+    "https://openactive.io/test-interface"
+  ],
+  "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable",
+  "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 4.280817ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "Slot",
+  "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281"
+}
+</code></pre>
+<h3 id="opportunityfeedextractfororderitem0request">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Ffacility-uses%2F1529%2Findividual-facility-uses%2F0%2Fslots%2F15281?useCacheIfAvailable=true</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 3.463666ms.</p>
+<pre><code class="json language-json">{
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "Slot",
+    "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281",
+    "identifier": 15281,
+    "duration": "PT4H25M",
+    "facilityUse": {
+      "@type": "IndividualFacilityUse",
+      "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0",
+      "name": "Court 0 at Steel Sports Hall",
+      "aggregateFacilityUse": {
+        "@type": "FacilityUse",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529",
+        "identifier": 1529,
+        "name": "GOLDEN: Steel Sports Hall",
+        "facilityType": [
+          {
+            "@type": "Concept",
+            "@id": "https://openactive.io/facility-types#da364f9b-8bb2-490e-9e2f-1068790b9e35",
+            "inScheme": "https://openactive.io/facility-types",
+            "prefLabel": "Sports Hall"
+          }
+        ],
+        "location": {
+          "@type": "Place",
+          "@id": "https://example.com/place/1",
+          "identifier": 1,
+          "name": "Post-ercise Plaza",
+          "description": "Sorting Out Your Fitness One Parcel Lift at a Time! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB",
+            "addressLocality": "Oxford",
+            "addressRegion": "Oxfordshire",
+            "postalCode": "OX1 1AA",
+            "streetAddress": "Kings Mead House"
+          },
+          "amenityFeature": [
+            {
+              "@type": "ChangingFacilities",
+              "name": "Changing Facilities",
+              "value": true
+            },
+            {
+              "@type": "Showers",
+              "name": "Showers",
+              "value": true
+            },
+            {
+              "@type": "Lockers",
+              "name": "Lockers",
+              "value": true
+            },
+            {
+              "@type": "Towels",
+              "name": "Towels",
+              "value": false
+            },
+            {
+              "@type": "Creche",
+              "name": "Creche",
+              "value": false
+            },
+            {
+              "@type": "Parking",
+              "name": "Parking",
+              "value": false
+            }
+          ],
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.7502,
+            "longitude": -1.2674
+          },
+          "image": [
+            {
+              "@type": "ImageObject",
+              "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Oxford_StAldates_PostOffice.jpg"
+            }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "17:30",
+              "dayOfWeek": [
+                "https://schema.org/Sunday"
+              ],
+              "opens": "09:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Monday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Tuesday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Wednesday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Thursday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Friday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "17:30",
+              "dayOfWeek": [
+                "https://schema.org/Saturday"
+              ],
+              "opens": "09:00"
+            }
+          ],
+          "telephone": "01865 000001",
+          "url": "https://en.wikipedia.org/wiki/Post_Office_Limited"
+        },
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://localhost:5001/api/identifiers/sellers/1",
+          "name": "Acme Fitness Ltd",
+          "isOpenBookingAllowed": true,
+          "sameAs": [
+            "https://socialmedia.com/AcmeFitnessLtd"
+          ],
+          "taxMode": "https://openactive.io/TaxGross",
+          "telephone": "05795 107179",
+          "termsOfService": [
+            {
+              "@type": "PrivacyPolicy",
+              "name": "Privacy Policy",
+              "requiresExplicitConsent": false,
+              "url": "https://example.com/privacy.html"
+            }
+          ],
+          "url": "http://josue.org"
+        },
+        "url": "https://www.example.com/facilities/1529"
+      }
+    },
+    "maximumUses": 1,
+    "offers": [
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      }
+    ],
+    "remainingUses": 1,
+    "startDate": "2025-02-05T15:23:56+00:00",
+    "endDate": "2025-02-05T19:48:56+00:00"
+  }
+}
+</code></pre>
+<h3 id="specs">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="firstattemptc1c2fetchopportunitiesvalidationofopportunityfeedextractfororderitem0">✅ First Attempt - C1 -&gt; C2 &gt;&gt; Fetch Opportunities &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-1">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+<li>✅ matches the criteria 'TestOpportunityBookable' required for this test</li>
+</ul>
+<h3 id="validations">Validations</h3>
+<ul>
+<li>⚠️ $.facilityUse.description: Recommended property <code>description</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.image: Recommended property <code>image</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.description: Recommended property <code>description</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.image: Recommended property <code>image</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.offers: Recommended property <code>offers</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.offers[0].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[0].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+</ul>
+<h2 id="firstattemptc1c2c1">✅ First Attempt - C1 -&gt; C2 &gt;&gt; C1</h2>
+<h3 id="c1request">C1 Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-quote-templates/8f6b701e-2b76-4764-9f4d-572cc950cdc8</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com",
+    "description": "A fitness app for all the community",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alan Peacock Way",
+      "addressLocality": "Village East",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "seller": "https://localhost:5001/api/identifiers/sellers/1",
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281"
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 66.298318ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "@id": "https://localhost:5001/api/openbooking/order-quotes/8f6b701e-2b76-4764-9f4d-572cc950cdc8",
+  "lease": {
+    "@type": "Lease",
+    "leaseExpires": "2025-01-31T11:15:04+00:00"
+  },
+  "orderRequiresApproval": true,
+  "bookingService": {
+    "@type": "BookingService",
+    "name": "Acme booking system",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ],
+    "url": "https://example.com"
+  },
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com"
+  },
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "acceptedOffer": {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      },
+      "orderedItem": {
+        "@type": "Slot",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281",
+        "facilityUse": {
+          "@type": "IndividualFacilityUse",
+          "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0",
+          "aggregateFacilityUse": {
+            "@type": "FacilityUse",
+            "@id": "https://localhost:5001/api/identifiers/facility-uses/1529",
+            "name": "Steel Sports Hall",
+            "facilityType": [
+              {
+                "@type": "Concept",
+                "@id": "https://openactive.io/facility-types#a1f82b7a-1258-4d9a-8dc5-bfc2ae961651",
+                "inScheme": "https://openactive.io/facility-types",
+                "prefLabel": "Squash Court"
+              }
+            ],
+            "location": {
+              "@type": "Place",
+              "@id": "https://example.com/place/1",
+              "identifier": 1,
+              "name": "Post-ercise Plaza",
+              "description": "Sorting Out Your Fitness One Parcel Lift at a Time! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "GB",
+                "addressLocality": "Oxford",
+                "addressRegion": "Oxfordshire",
+                "postalCode": "OX1 1AA",
+                "streetAddress": "Kings Mead House"
+              },
+              "amenityFeature": [
+                {
+                  "@type": "ChangingFacilities",
+                  "name": "Changing Facilities",
+                  "value": true
+                },
+                {
+                  "@type": "Showers",
+                  "name": "Showers",
+                  "value": true
+                },
+                {
+                  "@type": "Lockers",
+                  "name": "Lockers",
+                  "value": true
+                },
+                {
+                  "@type": "Towels",
+                  "name": "Towels",
+                  "value": false
+                },
+                {
+                  "@type": "Creche",
+                  "name": "Creche",
+                  "value": false
+                },
+                {
+                  "@type": "Parking",
+                  "name": "Parking",
+                  "value": false
+                }
+              ],
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 51.7502,
+                "longitude": -1.2674
+              },
+              "image": [
+                {
+                  "@type": "ImageObject",
+                  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Oxford_StAldates_PostOffice.jpg"
+                }
+              ],
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "17:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Sunday"
+                  ],
+                  "opens": "09:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Monday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Tuesday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Wednesday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Thursday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Friday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "17:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Saturday"
+                  ],
+                  "opens": "09:00"
+                }
+              ],
+              "telephone": "01865 000001",
+              "url": "https://en.wikipedia.org/wiki/Post_Office_Limited"
+            },
+            "url": "https://example.com/events/1529"
+          },
+          "name": "Court 0 at Steel Sports Hall"
+        },
+        "maximumUses": 1,
+        "remainingUses": 1,
+        "startDate": "2025-02-05T15:23:56+00:00",
+        "endDate": "2025-02-05T19:48:56+00:00"
+      },
+      "position": 0,
+      "unitTaxSpecification": [
+        {
+          "@type": "TaxChargeSpecification",
+          "name": "VAT at 20%",
+          "price": 0,
+          "priceCurrency": "GBP",
+          "rate": 0.2
+        }
+      ]
+    }
+  ],
+  "seller": {
+    "@type": "Organization",
+    "@id": "https://localhost:5001/api/identifiers/sellers/1",
+    "name": "Acme Fitness Ltd",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB",
+      "addressLocality": "Another town",
+      "addressRegion": "Oxfordshire",
+      "postalCode": "OX1 1AA",
+      "streetAddress": "1 Hidden Gem"
+    },
+    "isOpenBookingAllowed": true,
+    "legalName": "Acme Fitness Ltd",
+    "taxMode": "https://openactive.io/TaxGross",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ]
+  },
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "openBookingPrepayment": "https://openactive.io/Unavailable",
+    "price": 0,
+    "priceCurrency": "GBP"
+  },
+  "totalPaymentTax": [
+    {
+      "@type": "TaxChargeSpecification",
+      "name": "VAT at 20%",
+      "price": 0,
+      "priceCurrency": "GBP",
+      "rate": 0.2
+    }
+  ]
+}
+</code></pre>
+<h3 id="specs-2">Specs</h3>
+<ul>
+<li>✅ should return 200 on success</li>
+<li>✅ Should have the same number of OrderItems as criteria</li>
+<li>✅ OrderItem at position 0 - capacities should not have changed from their initial values after C1/C2 (regardless of leasing)</li>
+</ul>
+<h2 id="firstattemptc1c2c1validationofc1">✅ First Attempt - C1 -&gt; C2 &gt;&gt; C1 &gt;&gt; validation of C1</h2>
+<h3 id="specs-3">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-1">Validations</h3>
+<ul>
+<li>⚠️ $.orderedItem[0].acceptedOffer.name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.duration: Recommended property <code>duration</code> is missing from <code>Slot</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.description: Recommended property <code>description</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.image: Recommended property <code>image</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.description: Recommended property <code>description</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.image: Recommended property <code>image</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.offers: Recommended property <code>offers</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.seller.email: Recommended property <code>email</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.url: Recommended property <code>url</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.logo: Recommended property <code>logo</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.vatID: Recommended property <code>vatID</code> is missing from <code>Organization</code>.</li>
+</ul>
+<h2 id="firstattemptc1c2assertopportunitycapacityafterc1">✅ First Attempt - C1 -&gt; C2 &gt;&gt; Assert Opportunity Capacity (after C1)</h2>
+<h3 id="opportunityfeedextractfororderitem0request-1">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Ffacility-uses%2F1529%2Findividual-facility-uses%2F0%2Fslots%2F15281?useCacheIfAvailable=true&amp;expectedCapacity=0</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 396.871541ms.</p>
+<pre><code class="json language-json">{
+  "state": "updated",
+  "id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281",
+  "modified": "1738321806235",
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "Slot",
+    "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281",
+    "identifier": 15281,
+    "duration": "PT4H25M",
+    "facilityUse": {
+      "@type": "IndividualFacilityUse",
+      "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0",
+      "name": "Court 0 at Steel Sports Hall",
+      "aggregateFacilityUse": {
+        "@type": "FacilityUse",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529",
+        "identifier": 1529,
+        "name": "GOLDEN: Steel Sports Hall",
+        "facilityType": [
+          {
+            "@type": "Concept",
+            "@id": "https://openactive.io/facility-types#da364f9b-8bb2-490e-9e2f-1068790b9e35",
+            "inScheme": "https://openactive.io/facility-types",
+            "prefLabel": "Sports Hall"
+          }
+        ],
+        "location": {
+          "@type": "Place",
+          "@id": "https://example.com/place/1",
+          "identifier": 1,
+          "name": "Post-ercise Plaza",
+          "description": "Sorting Out Your Fitness One Parcel Lift at a Time! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB",
+            "addressLocality": "Oxford",
+            "addressRegion": "Oxfordshire",
+            "postalCode": "OX1 1AA",
+            "streetAddress": "Kings Mead House"
+          },
+          "amenityFeature": [
+            {
+              "@type": "ChangingFacilities",
+              "name": "Changing Facilities",
+              "value": true
+            },
+            {
+              "@type": "Showers",
+              "name": "Showers",
+              "value": true
+            },
+            {
+              "@type": "Lockers",
+              "name": "Lockers",
+              "value": true
+            },
+            {
+              "@type": "Towels",
+              "name": "Towels",
+              "value": false
+            },
+            {
+              "@type": "Creche",
+              "name": "Creche",
+              "value": false
+            },
+            {
+              "@type": "Parking",
+              "name": "Parking",
+              "value": false
+            }
+          ],
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.7502,
+            "longitude": -1.2674
+          },
+          "image": [
+            {
+              "@type": "ImageObject",
+              "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Oxford_StAldates_PostOffice.jpg"
+            }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "17:30",
+              "dayOfWeek": [
+                "https://schema.org/Sunday"
+              ],
+              "opens": "09:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Monday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Tuesday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Wednesday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Thursday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Friday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "17:30",
+              "dayOfWeek": [
+                "https://schema.org/Saturday"
+              ],
+              "opens": "09:00"
+            }
+          ],
+          "telephone": "01865 000001",
+          "url": "https://en.wikipedia.org/wiki/Post_Office_Limited"
+        },
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://localhost:5001/api/identifiers/sellers/1",
+          "name": "Acme Fitness Ltd",
+          "isOpenBookingAllowed": true,
+          "sameAs": [
+            "https://socialmedia.com/AcmeFitnessLtd"
+          ],
+          "taxMode": "https://openactive.io/TaxGross",
+          "telephone": "05795 107179",
+          "termsOfService": [
+            {
+              "@type": "PrivacyPolicy",
+              "name": "Privacy Policy",
+              "requiresExplicitConsent": false,
+              "url": "https://example.com/privacy.html"
+            }
+          ],
+          "url": "http://josue.org"
+        },
+        "url": "https://www.example.com/facilities/1529"
+      }
+    },
+    "maximumUses": 1,
+    "offers": [
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      }
+    ],
+    "remainingUses": 0,
+    "startDate": "2025-02-05T15:23:56+00:00",
+    "endDate": "2025-02-05T19:48:56+00:00"
+  }
+}
+</code></pre>
+<h3 id="specs-4">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="firstattemptc1c2assertopportunitycapacityafterc1validationofopportunityfeedextractfororderitem0">✅ First Attempt - C1 -&gt; C2 &gt;&gt; Assert Opportunity Capacity (after C1) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-5">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-2">Validations</h3>
+<ul>
+<li>⚠️ $.facilityUse.description: Recommended property <code>description</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.image: Recommended property <code>image</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.description: Recommended property <code>description</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.image: Recommended property <code>image</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.offers: Recommended property <code>offers</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.offers[0].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[0].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+</ul>
+<h2 id="firstattemptc1c2c2">✅ First Attempt - C1 -&gt; C2 &gt;&gt; C2</h2>
+<h3 id="c2request">C2 Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-quotes/8f6b701e-2b76-4764-9f4d-572cc950cdc8</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com",
+    "description": "A fitness app for all the community",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alan Peacock Way",
+      "addressLocality": "Village East",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "seller": "https://localhost:5001/api/identifiers/sellers/1",
+  "customer": {
+    "@type": "Person",
+    "email": "Jaden_Bruen60@yahoo.com",
+    "telephone": "1-434-572-9506 x675"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281"
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 72.653899ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "@id": "https://localhost:5001/api/openbooking/order-quotes/8f6b701e-2b76-4764-9f4d-572cc950cdc8",
+  "lease": {
+    "@type": "Lease",
+    "leaseExpires": "2025-01-31T11:15:05+00:00"
+  },
+  "orderRequiresApproval": true,
+  "bookingService": {
+    "@type": "BookingService",
+    "name": "Acme booking system",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ],
+    "url": "https://example.com"
+  },
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com"
+  },
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "customer": {
+    "@type": "Person",
+    "email": "Jaden_Bruen60@yahoo.com",
+    "telephone": "1-434-572-9506 x675"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "acceptedOffer": {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      },
+      "orderedItem": {
+        "@type": "Slot",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281",
+        "facilityUse": {
+          "@type": "IndividualFacilityUse",
+          "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0",
+          "aggregateFacilityUse": {
+            "@type": "FacilityUse",
+            "@id": "https://localhost:5001/api/identifiers/facility-uses/1529",
+            "name": "Steel Sports Hall",
+            "facilityType": [
+              {
+                "@type": "Concept",
+                "@id": "https://openactive.io/facility-types#a1f82b7a-1258-4d9a-8dc5-bfc2ae961651",
+                "inScheme": "https://openactive.io/facility-types",
+                "prefLabel": "Squash Court"
+              }
+            ],
+            "location": {
+              "@type": "Place",
+              "@id": "https://example.com/place/1",
+              "identifier": 1,
+              "name": "Post-ercise Plaza",
+              "description": "Sorting Out Your Fitness One Parcel Lift at a Time! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "GB",
+                "addressLocality": "Oxford",
+                "addressRegion": "Oxfordshire",
+                "postalCode": "OX1 1AA",
+                "streetAddress": "Kings Mead House"
+              },
+              "amenityFeature": [
+                {
+                  "@type": "ChangingFacilities",
+                  "name": "Changing Facilities",
+                  "value": true
+                },
+                {
+                  "@type": "Showers",
+                  "name": "Showers",
+                  "value": true
+                },
+                {
+                  "@type": "Lockers",
+                  "name": "Lockers",
+                  "value": true
+                },
+                {
+                  "@type": "Towels",
+                  "name": "Towels",
+                  "value": false
+                },
+                {
+                  "@type": "Creche",
+                  "name": "Creche",
+                  "value": false
+                },
+                {
+                  "@type": "Parking",
+                  "name": "Parking",
+                  "value": false
+                }
+              ],
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 51.7502,
+                "longitude": -1.2674
+              },
+              "image": [
+                {
+                  "@type": "ImageObject",
+                  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Oxford_StAldates_PostOffice.jpg"
+                }
+              ],
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "17:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Sunday"
+                  ],
+                  "opens": "09:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Monday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Tuesday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Wednesday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Thursday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Friday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "17:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Saturday"
+                  ],
+                  "opens": "09:00"
+                }
+              ],
+              "telephone": "01865 000001",
+              "url": "https://en.wikipedia.org/wiki/Post_Office_Limited"
+            },
+            "url": "https://example.com/events/1529"
+          },
+          "name": "Court 0 at Steel Sports Hall"
+        },
+        "maximumUses": 1,
+        "remainingUses": 1,
+        "startDate": "2025-02-05T15:23:56+00:00",
+        "endDate": "2025-02-05T19:48:56+00:00"
+      },
+      "position": 0,
+      "unitTaxSpecification": [
+        {
+          "@type": "TaxChargeSpecification",
+          "name": "VAT at 20%",
+          "price": 0,
+          "priceCurrency": "GBP",
+          "rate": 0.2
+        }
+      ]
+    }
+  ],
+  "seller": {
+    "@type": "Organization",
+    "@id": "https://localhost:5001/api/identifiers/sellers/1",
+    "name": "Acme Fitness Ltd",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB",
+      "addressLocality": "Another town",
+      "addressRegion": "Oxfordshire",
+      "postalCode": "OX1 1AA",
+      "streetAddress": "1 Hidden Gem"
+    },
+    "isOpenBookingAllowed": true,
+    "legalName": "Acme Fitness Ltd",
+    "taxMode": "https://openactive.io/TaxGross",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ]
+  },
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "openBookingPrepayment": "https://openactive.io/Unavailable",
+    "price": 0,
+    "priceCurrency": "GBP"
+  },
+  "totalPaymentTax": [
+    {
+      "@type": "TaxChargeSpecification",
+      "name": "VAT at 20%",
+      "price": 0,
+      "priceCurrency": "GBP",
+      "rate": 0.2
+    }
+  ]
+}
+</code></pre>
+<h3 id="specs-6">Specs</h3>
+<ul>
+<li>✅ should return 200 on success</li>
+<li>✅ Should have the same number of OrderItems as criteria</li>
+<li>✅ OrderItem at position 0 - capacities should not have changed from their initial values after C1/C2 (regardless of leasing)</li>
+</ul>
+<h2 id="firstattemptc1c2c2validationofc2">✅ First Attempt - C1 -&gt; C2 &gt;&gt; C2 &gt;&gt; validation of C2</h2>
+<h3 id="specs-7">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-3">Validations</h3>
+<ul>
+<li>⚠️ $.orderedItem[0].acceptedOffer.name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.duration: Recommended property <code>duration</code> is missing from <code>Slot</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.description: Recommended property <code>description</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.image: Recommended property <code>image</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.description: Recommended property <code>description</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.image: Recommended property <code>image</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.offers: Recommended property <code>offers</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.seller.email: Recommended property <code>email</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.url: Recommended property <code>url</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.logo: Recommended property <code>logo</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.vatID: Recommended property <code>vatID</code> is missing from <code>Organization</code>.</li>
+</ul>
+<h2 id="firstattemptc1c2assertopportunitycapacityafterc2">✅ First Attempt - C1 -&gt; C2 &gt;&gt; Assert Opportunity Capacity (after C2)</h2>
+<h3 id="opportunityfeedextractfororderitem0request-2">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Ffacility-uses%2F1529%2Findividual-facility-uses%2F0%2Fslots%2F15281?useCacheIfAvailable=true&amp;expectedCapacity=0</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 49.864487ms.</p>
+<pre><code class="json language-json">{
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "Slot",
+    "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281",
+    "identifier": 15281,
+    "duration": "PT4H25M",
+    "facilityUse": {
+      "@type": "IndividualFacilityUse",
+      "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0",
+      "name": "Court 0 at Steel Sports Hall",
+      "aggregateFacilityUse": {
+        "@type": "FacilityUse",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529",
+        "identifier": 1529,
+        "name": "GOLDEN: Steel Sports Hall",
+        "facilityType": [
+          {
+            "@type": "Concept",
+            "@id": "https://openactive.io/facility-types#da364f9b-8bb2-490e-9e2f-1068790b9e35",
+            "inScheme": "https://openactive.io/facility-types",
+            "prefLabel": "Sports Hall"
+          }
+        ],
+        "location": {
+          "@type": "Place",
+          "@id": "https://example.com/place/1",
+          "identifier": 1,
+          "name": "Post-ercise Plaza",
+          "description": "Sorting Out Your Fitness One Parcel Lift at a Time! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB",
+            "addressLocality": "Oxford",
+            "addressRegion": "Oxfordshire",
+            "postalCode": "OX1 1AA",
+            "streetAddress": "Kings Mead House"
+          },
+          "amenityFeature": [
+            {
+              "@type": "ChangingFacilities",
+              "name": "Changing Facilities",
+              "value": true
+            },
+            {
+              "@type": "Showers",
+              "name": "Showers",
+              "value": true
+            },
+            {
+              "@type": "Lockers",
+              "name": "Lockers",
+              "value": true
+            },
+            {
+              "@type": "Towels",
+              "name": "Towels",
+              "value": false
+            },
+            {
+              "@type": "Creche",
+              "name": "Creche",
+              "value": false
+            },
+            {
+              "@type": "Parking",
+              "name": "Parking",
+              "value": false
+            }
+          ],
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.7502,
+            "longitude": -1.2674
+          },
+          "image": [
+            {
+              "@type": "ImageObject",
+              "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Oxford_StAldates_PostOffice.jpg"
+            }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "17:30",
+              "dayOfWeek": [
+                "https://schema.org/Sunday"
+              ],
+              "opens": "09:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Monday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Tuesday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Wednesday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Thursday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Friday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "17:30",
+              "dayOfWeek": [
+                "https://schema.org/Saturday"
+              ],
+              "opens": "09:00"
+            }
+          ],
+          "telephone": "01865 000001",
+          "url": "https://en.wikipedia.org/wiki/Post_Office_Limited"
+        },
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://localhost:5001/api/identifiers/sellers/1",
+          "name": "Acme Fitness Ltd",
+          "isOpenBookingAllowed": true,
+          "sameAs": [
+            "https://socialmedia.com/AcmeFitnessLtd"
+          ],
+          "taxMode": "https://openactive.io/TaxGross",
+          "telephone": "05795 107179",
+          "termsOfService": [
+            {
+              "@type": "PrivacyPolicy",
+              "name": "Privacy Policy",
+              "requiresExplicitConsent": false,
+              "url": "https://example.com/privacy.html"
+            }
+          ],
+          "url": "http://josue.org"
+        },
+        "url": "https://www.example.com/facilities/1529"
+      }
+    },
+    "maximumUses": 1,
+    "offers": [
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1529/individual-facility-uses/0/slots/15281#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1DT16H",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P11DT4H21M"
+      }
+    ],
+    "remainingUses": 0,
+    "startDate": "2025-02-05T15:23:56+00:00",
+    "endDate": "2025-02-05T19:48:56+00:00"
+  }
+}
+</code></pre>
+<h3 id="specs-8">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="firstattemptc1c2assertopportunitycapacityafterc2validationofopportunityfeedextractfororderitem0">✅ First Attempt - C1 -&gt; C2 &gt;&gt; Assert Opportunity Capacity (after C2) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-9">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-4">Validations</h3>
+<ul>
+<li>⚠️ $.facilityUse.description: Recommended property <code>description</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.image: Recommended property <code>image</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.description: Recommended property <code>description</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.image: Recommended property <code>image</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.offers: Recommended property <code>offers</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.offers[0].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[0].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+</ul>
+<h2 id="secondattemptc2bfetchopportunities">✅ Second Attempt - C2 -&gt; B &gt;&gt; Fetch Opportunities</h2>
+<h3 id="localmicroservicetestinterfacefororderitem0request-1">Local Microservice Test Interface for OrderItem 0 Request</h3>
+<p>POST http://localhost:3000/test-interface/datasets/uat-ci/opportunities</p>
+<pre><code class="json language-json">{
+  "@type": "Slot",
+  "facilityUse": {
+    "@type": "IndividualFacilityUse",
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://localhost:5001/api/identifiers/sellers/1"
+    }
+  },
+  "@context": [
+    "https://openactive.io/",
+    "https://openactive.io/test-interface"
+  ],
+  "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable",
+  "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 5.267475ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "Slot",
+  "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628"
+}
+</code></pre>
+<h3 id="opportunityfeedextractfororderitem0request-3">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Ffacility-uses%2F1463%2Findividual-facility-uses%2F7%2Fslots%2F14628?useCacheIfAvailable=true</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 9.441853ms.</p>
+<pre><code class="json language-json">{
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "Slot",
+    "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628",
+    "identifier": 14628,
+    "duration": "PT3H4M",
+    "facilityUse": {
+      "@type": "IndividualFacilityUse",
+      "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7",
+      "name": "Court 7 at Granite Squash Court",
+      "aggregateFacilityUse": {
+        "@type": "FacilityUse",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463",
+        "identifier": 1463,
+        "name": "Granite Squash Court",
+        "facilityType": [
+          {
+            "@type": "Concept",
+            "@id": "https://openactive.io/facility-types#a1f82b7a-1258-4d9a-8dc5-bfc2ae961651",
+            "inScheme": "https://openactive.io/facility-types",
+            "prefLabel": "Squash Court"
+          }
+        ],
+        "location": {
+          "@type": "Place",
+          "@id": "https://example.com/place/3",
+          "identifier": 3,
+          "name": "Stroll &amp; Stretch",
+          "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB",
+            "addressLocality": "Oxford",
+            "addressRegion": "Oxfordshire",
+            "postalCode": "OX1 1UU",
+            "streetAddress": "Norfolk Street"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.749826,
+            "longitude": -1.261492
+          },
+          "image": [
+            {
+              "@type": "ImageObject",
+              "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+            }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "17:30",
+              "dayOfWeek": [
+                "https://schema.org/Sunday"
+              ],
+              "opens": "09:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Monday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Tuesday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Wednesday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Thursday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Friday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "17:30",
+              "dayOfWeek": [
+                "https://schema.org/Saturday"
+              ],
+              "opens": "09:00"
+            }
+          ],
+          "telephone": "01865 000003",
+          "url": "https://en.wikipedia.org/wiki/Shopping_center"
+        },
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://localhost:5001/api/identifiers/sellers/1",
+          "name": "Acme Fitness Ltd",
+          "isOpenBookingAllowed": true,
+          "sameAs": [
+            "https://socialmedia.com/AcmeFitnessLtd"
+          ],
+          "taxMode": "https://openactive.io/TaxGross",
+          "telephone": "07044 971636",
+          "termsOfService": [
+            {
+              "@type": "PrivacyPolicy",
+              "name": "Privacy Policy",
+              "requiresExplicitConsent": false,
+              "url": "https://example.com/privacy.html"
+            }
+          ],
+          "url": "http://gianni.net"
+        },
+        "url": "https://www.example.com/facilities/1463"
+      }
+    },
+    "maximumUses": 1,
+    "offers": [
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      }
+    ],
+    "remainingUses": 1,
+    "startDate": "2025-02-06T12:28:56+00:00",
+    "endDate": "2025-02-06T15:32:56+00:00"
+  }
+}
+</code></pre>
+<h3 id="specs-10">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="secondattemptc2bfetchopportunitiesvalidationofopportunityfeedextractfororderitem0">✅ Second Attempt - C2 -&gt; B &gt;&gt; Fetch Opportunities &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-11">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+<li>✅ matches the criteria 'TestOpportunityBookable' required for this test</li>
+</ul>
+<h3 id="validations-5">Validations</h3>
+<ul>
+<li>⚠️ $.facilityUse.description: Recommended property <code>description</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.image: Recommended property <code>image</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.description: Recommended property <code>description</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.image: Recommended property <code>image</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.offers: Recommended property <code>offers</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>⚠️ $.offers[0].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[0].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+</ul>
+<h2 id="secondattemptc2bc2">✅ Second Attempt - C2 -&gt; B &gt;&gt; C2</h2>
+<h3 id="c2request-1">C2 Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-quotes/8f6b701e-2b76-4764-9f4d-572cc950cdc8</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com",
+    "description": "A fitness app for all the community",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alan Peacock Way",
+      "addressLocality": "Village East",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "seller": "https://localhost:5001/api/identifiers/sellers/1",
+  "customer": {
+    "@type": "Person",
+    "email": "Bobbie.Nolan@yahoo.com",
+    "telephone": "873-981-1842 x789",
+    "familyName": "Jermey",
+    "identifier": "8fd091a2-59e6-4bad-98f0-c63d160cd29c"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628"
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 32.440346ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "@id": "https://localhost:5001/api/openbooking/order-quotes/8f6b701e-2b76-4764-9f4d-572cc950cdc8",
+  "lease": {
+    "@type": "Lease",
+    "leaseExpires": "2025-01-31T11:15:06+00:00"
+  },
+  "orderRequiresApproval": true,
+  "bookingService": {
+    "@type": "BookingService",
+    "name": "Acme booking system",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ],
+    "url": "https://example.com"
+  },
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com"
+  },
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "customer": {
+    "@type": "Person",
+    "identifier": "8fd091a2-59e6-4bad-98f0-c63d160cd29c",
+    "email": "Bobbie.Nolan@yahoo.com",
+    "familyName": "Jermey",
+    "telephone": "873-981-1842 x789"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "acceptedOffer": {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      },
+      "orderedItem": {
+        "@type": "Slot",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628",
+        "facilityUse": {
+          "@type": "IndividualFacilityUse",
+          "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7",
+          "aggregateFacilityUse": {
+            "@type": "FacilityUse",
+            "@id": "https://localhost:5001/api/identifiers/facility-uses/1463",
+            "name": "Granite Squash Court",
+            "facilityType": [
+              {
+                "@type": "Concept",
+                "@id": "https://openactive.io/facility-types#a1f82b7a-1258-4d9a-8dc5-bfc2ae961651",
+                "inScheme": "https://openactive.io/facility-types",
+                "prefLabel": "Squash Court"
+              }
+            ],
+            "location": {
+              "@type": "Place",
+              "@id": "https://example.com/place/3",
+              "identifier": 3,
+              "name": "Stroll &amp; Stretch",
+              "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "GB",
+                "addressLocality": "Oxford",
+                "addressRegion": "Oxfordshire",
+                "postalCode": "OX1 1UU",
+                "streetAddress": "Norfolk Street"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 51.749826,
+                "longitude": -1.261492
+              },
+              "image": [
+                {
+                  "@type": "ImageObject",
+                  "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+                }
+              ],
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "17:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Sunday"
+                  ],
+                  "opens": "09:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Monday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Tuesday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Wednesday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Thursday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Friday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "17:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Saturday"
+                  ],
+                  "opens": "09:00"
+                }
+              ],
+              "telephone": "01865 000003",
+              "url": "https://en.wikipedia.org/wiki/Shopping_center"
+            },
+            "url": "https://example.com/events/1463"
+          },
+          "name": "Court 7 at Granite Squash Court"
+        },
+        "maximumUses": 1,
+        "remainingUses": 1,
+        "startDate": "2025-02-06T12:28:56+00:00",
+        "endDate": "2025-02-06T15:32:56+00:00"
+      },
+      "position": 0,
+      "unitTaxSpecification": [
+        {
+          "@type": "TaxChargeSpecification",
+          "name": "VAT at 20%",
+          "price": 0,
+          "priceCurrency": "GBP",
+          "rate": 0.2
+        }
+      ]
+    }
+  ],
+  "seller": {
+    "@type": "Organization",
+    "@id": "https://localhost:5001/api/identifiers/sellers/1",
+    "name": "Acme Fitness Ltd",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB",
+      "addressLocality": "Another town",
+      "addressRegion": "Oxfordshire",
+      "postalCode": "OX1 1AA",
+      "streetAddress": "1 Hidden Gem"
+    },
+    "isOpenBookingAllowed": true,
+    "legalName": "Acme Fitness Ltd",
+    "taxMode": "https://openactive.io/TaxGross",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ]
+  },
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "openBookingPrepayment": "https://openactive.io/Unavailable",
+    "price": 0,
+    "priceCurrency": "GBP"
+  },
+  "totalPaymentTax": [
+    {
+      "@type": "TaxChargeSpecification",
+      "name": "VAT at 20%",
+      "price": 0,
+      "priceCurrency": "GBP",
+      "rate": 0.2
+    }
+  ]
+}
+</code></pre>
+<h3 id="specs-12">Specs</h3>
+<ul>
+<li>✅ should return 200 on success</li>
+<li>✅ Should have the same number of OrderItems as criteria</li>
+<li>✅ OrderItem at position 0 - capacities should not have changed from their initial values after C1/C2 (regardless of leasing)</li>
+</ul>
+<h2 id="secondattemptc2bc2validationofc2">✅ Second Attempt - C2 -&gt; B &gt;&gt; C2 &gt;&gt; validation of C2</h2>
+<h3 id="specs-13">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-6">Validations</h3>
+<ul>
+<li>⚠️ $.orderedItem[0].acceptedOffer.name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.duration: Recommended property <code>duration</code> is missing from <code>Slot</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.description: Recommended property <code>description</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.image: Recommended property <code>image</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.description: Recommended property <code>description</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.image: Recommended property <code>image</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.offers: Recommended property <code>offers</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>⚠️ $.seller.email: Recommended property <code>email</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.url: Recommended property <code>url</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.logo: Recommended property <code>logo</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.vatID: Recommended property <code>vatID</code> is missing from <code>Organization</code>.</li>
+</ul>
+<h2 id="secondattemptc2bassertopportunitycapacityafterc2">✅ Second Attempt - C2 -&gt; B &gt;&gt; Assert Opportunity Capacity (after C2)</h2>
+<h3 id="opportunityfeedextractfororderitem0request-4">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Ffacility-uses%2F1463%2Findividual-facility-uses%2F7%2Fslots%2F14628?useCacheIfAvailable=true&amp;expectedCapacity=0</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 720.389962ms.</p>
+<pre><code class="json language-json">{
+  "state": "updated",
+  "id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628",
+  "modified": "1738321807881",
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "Slot",
+    "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628",
+    "identifier": 14628,
+    "duration": "PT3H4M",
+    "facilityUse": {
+      "@type": "IndividualFacilityUse",
+      "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7",
+      "name": "Court 7 at Granite Squash Court",
+      "aggregateFacilityUse": {
+        "@type": "FacilityUse",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463",
+        "identifier": 1463,
+        "name": "Granite Squash Court",
+        "facilityType": [
+          {
+            "@type": "Concept",
+            "@id": "https://openactive.io/facility-types#a1f82b7a-1258-4d9a-8dc5-bfc2ae961651",
+            "inScheme": "https://openactive.io/facility-types",
+            "prefLabel": "Squash Court"
+          }
+        ],
+        "location": {
+          "@type": "Place",
+          "@id": "https://example.com/place/3",
+          "identifier": 3,
+          "name": "Stroll &amp; Stretch",
+          "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB",
+            "addressLocality": "Oxford",
+            "addressRegion": "Oxfordshire",
+            "postalCode": "OX1 1UU",
+            "streetAddress": "Norfolk Street"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.749826,
+            "longitude": -1.261492
+          },
+          "image": [
+            {
+              "@type": "ImageObject",
+              "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+            }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "17:30",
+              "dayOfWeek": [
+                "https://schema.org/Sunday"
+              ],
+              "opens": "09:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Monday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Tuesday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Wednesday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Thursday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Friday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "17:30",
+              "dayOfWeek": [
+                "https://schema.org/Saturday"
+              ],
+              "opens": "09:00"
+            }
+          ],
+          "telephone": "01865 000003",
+          "url": "https://en.wikipedia.org/wiki/Shopping_center"
+        },
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://localhost:5001/api/identifiers/sellers/1",
+          "name": "Acme Fitness Ltd",
+          "isOpenBookingAllowed": true,
+          "sameAs": [
+            "https://socialmedia.com/AcmeFitnessLtd"
+          ],
+          "taxMode": "https://openactive.io/TaxGross",
+          "telephone": "07044 971636",
+          "termsOfService": [
+            {
+              "@type": "PrivacyPolicy",
+              "name": "Privacy Policy",
+              "requiresExplicitConsent": false,
+              "url": "https://example.com/privacy.html"
+            }
+          ],
+          "url": "http://gianni.net"
+        },
+        "url": "https://www.example.com/facilities/1463"
+      }
+    },
+    "maximumUses": 1,
+    "offers": [
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      }
+    ],
+    "remainingUses": 0,
+    "startDate": "2025-02-06T12:28:56+00:00",
+    "endDate": "2025-02-06T15:32:56+00:00"
+  }
+}
+</code></pre>
+<h3 id="specs-14">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+<li>✅ Should have the same number of OrderItems as criteria</li>
+<li>✅ OrderItem at position 0 - ID should match the one specified in the open data feed</li>
+<li>✅ should include expected email address</li>
+</ul>
+<h2 id="secondattemptc2bassertopportunitycapacityafterc2validationofopportunityfeedextractfororderitem0">✅ Second Attempt - C2 -&gt; B &gt;&gt; Assert Opportunity Capacity (after C2) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-15">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-7">Validations</h3>
+<ul>
+<li>⚠️ $.facilityUse.description: Recommended property <code>description</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.image: Recommended property <code>image</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.description: Recommended property <code>description</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.image: Recommended property <code>image</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.offers: Recommended property <code>offers</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>⚠️ $.offers[0].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[0].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+</ul>
+<h2 id="secondattemptc2bp">✅ Second Attempt - C2 -&gt; B &gt;&gt; P</h2>
+<h3 id="prequest">P Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-proposals/8f6b701e-2b76-4764-9f4d-572cc950cdc8</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderProposal",
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com",
+    "description": "A fitness app for all the community",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alan Peacock Way",
+      "addressLocality": "Village East",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "seller": "https://localhost:5001/api/identifiers/sellers/1",
+  "customer": {
+    "@type": "Person",
+    "email": "Bobbie.Nolan@yahoo.com",
+    "telephone": "873-981-1842 x789",
+    "familyName": "Jermey",
+    "identifier": "8fd091a2-59e6-4bad-98f0-c63d160cd29c"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628"
+    }
+  ],
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "price": 0,
+    "priceCurrency": "GBP"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 201 Created. Responded in 54.93791ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderProposal",
+  "@id": "https://localhost:5001/api/openbooking/order-proposals/8f6b701e-2b76-4764-9f4d-572cc950cdc8",
+  "orderProposalStatus": "https://openactive.io/AwaitingSellerConfirmation",
+  "bookingService": {
+    "@type": "BookingService",
+    "name": "Acme booking system",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ],
+    "url": "https://example.com"
+  },
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com"
+  },
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "customer": {
+    "@type": "Person",
+    "identifier": "8fd091a2-59e6-4bad-98f0-c63d160cd29c",
+    "email": "Bobbie.Nolan@yahoo.com",
+    "familyName": "Jermey",
+    "telephone": "873-981-1842 x789"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "@id": "https://localhost:5001/api/openbooking/orders/8f6b701e-2b76-4764-9f4d-572cc950cdc8#/orderedItems/137",
+      "acceptedOffer": {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      },
+      "orderedItem": {
+        "@type": "Slot",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628",
+        "facilityUse": {
+          "@type": "IndividualFacilityUse",
+          "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7",
+          "aggregateFacilityUse": {
+            "@type": "FacilityUse",
+            "@id": "https://localhost:5001/api/identifiers/facility-uses/1463",
+            "name": "Granite Squash Court",
+            "facilityType": [
+              {
+                "@type": "Concept",
+                "@id": "https://openactive.io/facility-types#a1f82b7a-1258-4d9a-8dc5-bfc2ae961651",
+                "inScheme": "https://openactive.io/facility-types",
+                "prefLabel": "Squash Court"
+              }
+            ],
+            "location": {
+              "@type": "Place",
+              "@id": "https://example.com/place/3",
+              "identifier": 3,
+              "name": "Stroll &amp; Stretch",
+              "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "GB",
+                "addressLocality": "Oxford",
+                "addressRegion": "Oxfordshire",
+                "postalCode": "OX1 1UU",
+                "streetAddress": "Norfolk Street"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 51.749826,
+                "longitude": -1.261492
+              },
+              "image": [
+                {
+                  "@type": "ImageObject",
+                  "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+                }
+              ],
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "17:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Sunday"
+                  ],
+                  "opens": "09:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Monday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Tuesday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Wednesday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Thursday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Friday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "17:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Saturday"
+                  ],
+                  "opens": "09:00"
+                }
+              ],
+              "telephone": "01865 000003",
+              "url": "https://en.wikipedia.org/wiki/Shopping_center"
+            },
+            "url": "https://example.com/events/1463"
+          },
+          "name": "Court 7 at Granite Squash Court"
+        },
+        "maximumUses": 1,
+        "remainingUses": 1,
+        "startDate": "2025-02-06T12:28:56+00:00",
+        "endDate": "2025-02-06T15:32:56+00:00"
+      },
+      "position": 0,
+      "unitTaxSpecification": [
+        {
+          "@type": "TaxChargeSpecification",
+          "name": "VAT at 20%",
+          "price": 0,
+          "priceCurrency": "GBP",
+          "rate": 0.2
+        }
+      ]
+    }
+  ],
+  "orderProposalVersion": "https://localhost:5001/api/openbooking/order-proposals/8f6b701e-2b76-4764-9f4d-572cc950cdc8/versions/4c641994-d3af-48fb-ac99-3d647ed26cee",
+  "seller": {
+    "@type": "Organization",
+    "@id": "https://localhost:5001/api/identifiers/sellers/1",
+    "name": "Acme Fitness Ltd",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB",
+      "addressLocality": "Another town",
+      "addressRegion": "Oxfordshire",
+      "postalCode": "OX1 1AA",
+      "streetAddress": "1 Hidden Gem"
+    },
+    "isOpenBookingAllowed": true,
+    "legalName": "Acme Fitness Ltd",
+    "taxMode": "https://openactive.io/TaxGross",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ]
+  },
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "openBookingPrepayment": "https://openactive.io/Unavailable",
+    "price": 0,
+    "priceCurrency": "GBP"
+  },
+  "totalPaymentTax": [
+    {
+      "@type": "TaxChargeSpecification",
+      "name": "VAT at 20%",
+      "price": 0,
+      "priceCurrency": "GBP",
+      "rate": 0.2
+    }
+  ]
+}
+</code></pre>
+<h3 id="specs-16">Specs</h3>
+<ul>
+<li>✅ should return 201 on success</li>
+</ul>
+<h2 id="secondattemptc2bpvalidationofp">✅ Second Attempt - C2 -&gt; B &gt;&gt; P &gt;&gt; validation of P</h2>
+<h3 id="specs-17">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-8">Validations</h3>
+<ul>
+<li>⚠️ $.orderedItem[0].acceptedOffer.name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.duration: Recommended property <code>duration</code> is missing from <code>Slot</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.description: Recommended property <code>description</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.image: Recommended property <code>image</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.description: Recommended property <code>description</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.image: Recommended property <code>image</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.offers: Recommended property <code>offers</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>⚠️ $.seller.email: Recommended property <code>email</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.url: Recommended property <code>url</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.logo: Recommended property <code>logo</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.vatID: Recommended property <code>vatID</code> is missing from <code>Organization</code>.</li>
+</ul>
+<h2 id="secondattemptc2bsimulatesellerapprovaltestinterfaceaction">✅ Second Attempt - C2 -&gt; B &gt;&gt; Simulate Seller Approval (Test Interface Action)</h2>
+<h3 id="ordersorderproposalsfeedlistenforx278f6b701e2b7647649f4d572cc950cdc8x27changeauthprimaryrequest">Orders (order-proposals) Feed listen for &#x27;8f6b701e-2b76-4764-9f4d-572cc950cdc8&#x27; change (auth: primary) Request</h3>
+<p>POST http://localhost:3000/order-listeners/order-proposals/primary/8f6b701e-2b76-4764-9f4d-572cc950cdc8</p>
+<pre><code class="json language-json">{}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 4.093546ms.</p>
+<pre><code class="json language-json">{
+  "headers": {
+    "Accept": "application/json, application/vnd.openactive.booking+json; version=1",
+    "Cache-Control": "max-age=0",
+    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0MzgsImV4cCI6MTczODMyNTAzOCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwianRpIjoiRDgyQzlDRkFCNDY4NUExRUZBOTI4RTZGRTk1ODdGQjgiLCJpYXQiOjE3MzgzMjE0MzgsInNjb3BlIjpbIm9wZW5hY3RpdmUtb3JkZXJzZmVlZCJdfQ.UKISQd5IBJrrjlHk_dbvnlUUkT8AGYP8BsioJb7fbyl9bldSpLM5qNIH9LsJaIZObymymPsYJEuBSaf5BJx8q0Vh3eQOHMwWuakK6Zn_V4HQQOx9hKO_BRqhF8Km8Xkkwybr225QpYIBCsySfgbRicctkyjsmlkUmV0rSLcAmpFkXcNcCrAz9D6Ir5Pi2YmrQIeWqbnmT-iP4Cz9XA_SIaQ7RqXGoxrYZI7snZGCyvlQecY3gMFLBjw65yz3bn6Lmthx2OMHN9OUFhLMximRU9XGNHsQtpTBamAkE79MfhX1httze_jjYeYWLwgH_EfVPmJgEvk7qm5rfKpFt5Di1g"
+  },
+  "startingFeedPage": "https://localhost:5001/api/openbooking/order-proposals-rpde?afterTimestamp=638739186029432196&amp;afterId=caefda39-679e-484f-bb92-fb4d4c6e0041",
+  "message": "Listening for UUID: '8f6b701e-2b76-4764-9f4d-572cc950cdc8' in feed: order-proposals, for Booking Partner: primary from startingFeedPage using headers"
+}
+</code></pre>
+<h3 id="calltestinterfaceactionoftypetestselleracceptorderproposalsimulateactionrequest">Call TestInterface Action of type: test:SellerAcceptOrderProposalSimulateAction Request</h3>
+<p>POST https://localhost:5001/api/openbooking/test-interface/actions</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": [
+    "https://openactive.io/",
+    "https://openactive.io/test-interface"
+  ],
+  "@type": "test:SellerAcceptOrderProposalSimulateAction",
+  "object": {
+    "@type": "OrderProposal",
+    "@id": "https://localhost:5001/api/openbooking/order-proposals/8f6b701e-2b76-4764-9f4d-572cc950cdc8"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 204 No Content. Responded in 21.707575ms.</p>
+<h3 id="specs-18">Specs</h3>
+<ul>
+<li>✅ should return 204 on success</li>
+</ul>
+<h2 id="secondattemptc2borderproposalfeedupdateaftersimulatesellerapproval">✅ Second Attempt - C2 -&gt; B &gt;&gt; OrderProposal Feed Update (after Simulate Seller Approval)</h2>
+<h3 id="ordersorderproposalsfeedcollectforx278f6b701e2b7647649f4d572cc950cdc8x27changeauthprimaryrequest">Orders (order-proposals) Feed collect for &#x27;8f6b701e-2b76-4764-9f4d-572cc950cdc8&#x27; change (auth: primary) Request</h3>
+<p>GET http://localhost:3000/order-listeners/order-proposals/primary/8f6b701e-2b76-4764-9f4d-572cc950cdc8</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 2454.394402ms.</p>
+<pre><code class="json language-json">{
+  "state": "updated",
+  "kind": "Order",
+  "id": "8f6b701e-2b76-4764-9f4d-572cc950cdc8",
+  "modified": "638739186071949148",
+  "data": {
+    "@context": "https://openactive.io/",
+    "@type": "OrderProposal",
+    "@id": "https://localhost:5001/api/openbooking/order-proposals/8f6b701e-2b76-4764-9f4d-572cc950cdc8",
+    "identifier": "8f6b701e-2b76-4764-9f4d-572cc950cdc8",
+    "orderProposalStatus": "https://openactive.io/SellerAccepted",
+    "orderedItem": [
+      {
+        "@type": "OrderItem",
+        "@id": "https://localhost:5001/api/openbooking/orders/8f6b701e-2b76-4764-9f4d-572cc950cdc8#/orderedItems/137",
+        "acceptedOffer": {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+          "price": 0,
+          "priceCurrency": "GBP"
+        },
+        "orderedItem": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628"
+      }
+    ],
+    "orderProposalVersion": "https://localhost:5001/api/openbooking/order-proposals/8f6b701e-2b76-4764-9f4d-572cc950cdc8/versions/4c641994-d3af-48fb-ac99-3d647ed26cee",
+    "totalPaymentDue": {
+      "@type": "PriceSpecification",
+      "openBookingPrepayment": "https://openactive.io/Unavailable",
+      "price": 0,
+      "priceCurrency": "GBP"
+    }
+  }
+}
+</code></pre>
+<h3 id="specs-19">Specs</h3>
+<ul>
+<li>✅ should return 200 on success</li>
+</ul>
+<h2 id="secondattemptc2borderproposalfeedupdateaftersimulatesellerapprovalvalidationoforderfeed">✅ Second Attempt - C2 -&gt; B &gt;&gt; OrderProposal Feed Update (after Simulate Seller Approval) &gt;&gt; validation of OrderFeed</h2>
+<h3 id="specs-20">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-9">Validations</h3>
+<ul>
+<li>⚠️ $.orderedItem[0].acceptedOffer.name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.allowCustomerCancellationFullRefund: Recommended property <code>allowCustomerCancellationFullRefund</code> is missing from <code>Offer</code>.</li>
+</ul>
+<h2 id="secondattemptc2bb">✅ Second Attempt - C2 -&gt; B &gt;&gt; B</h2>
+<h3 id="ordersorderproposalsfeedlistenforx278f6b701e2b7647649f4d572cc950cdc8x27changeauthprimaryrequest-1">Orders (order-proposals) Feed listen for &#x27;8f6b701e-2b76-4764-9f4d-572cc950cdc8&#x27; change (auth: primary) Request</h3>
+<p>POST http://localhost:3000/order-listeners/order-proposals/primary/8f6b701e-2b76-4764-9f4d-572cc950cdc8</p>
+<pre><code class="json language-json">{}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 5.293927ms.</p>
+<pre><code class="json language-json">{
+  "headers": {
+    "Accept": "application/json, application/vnd.openactive.booking+json; version=1",
+    "Cache-Control": "max-age=0",
+    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0MzgsImV4cCI6MTczODMyNTAzOCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwianRpIjoiRDgyQzlDRkFCNDY4NUExRUZBOTI4RTZGRTk1ODdGQjgiLCJpYXQiOjE3MzgzMjE0MzgsInNjb3BlIjpbIm9wZW5hY3RpdmUtb3JkZXJzZmVlZCJdfQ.UKISQd5IBJrrjlHk_dbvnlUUkT8AGYP8BsioJb7fbyl9bldSpLM5qNIH9LsJaIZObymymPsYJEuBSaf5BJx8q0Vh3eQOHMwWuakK6Zn_V4HQQOx9hKO_BRqhF8Km8Xkkwybr225QpYIBCsySfgbRicctkyjsmlkUmV0rSLcAmpFkXcNcCrAz9D6Ir5Pi2YmrQIeWqbnmT-iP4Cz9XA_SIaQ7RqXGoxrYZI7snZGCyvlQecY3gMFLBjw65yz3bn6Lmthx2OMHN9OUFhLMximRU9XGNHsQtpTBamAkE79MfhX1httze_jjYeYWLwgH_EfVPmJgEvk7qm5rfKpFt5Di1g"
+  },
+  "startingFeedPage": "https://localhost:5001/api/openbooking/order-proposals-rpde?afterTimestamp=638739186071949148&amp;afterId=8f6b701e-2b76-4764-9f4d-572cc950cdc8",
+  "message": "Listening for UUID: '8f6b701e-2b76-4764-9f4d-572cc950cdc8' in feed: order-proposals, for Booking Partner: primary from startingFeedPage using headers"
+}
+</code></pre>
+<h3 id="brequest">B Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/orders/8f6b701e-2b76-4764-9f4d-572cc950cdc8</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "Order",
+  "orderProposalVersion": "https://localhost:5001/api/openbooking/order-proposals/8f6b701e-2b76-4764-9f4d-572cc950cdc8/versions/4c641994-d3af-48fb-ac99-3d647ed26cee"
+}
+</code></pre>
+<hr />
+<p>Response status code: 201 Created. Responded in 26.941608ms.</p>
+<pre><code class="json language-json">{
+  "@context": [
+    "https://openactive.io/",
+    "https://openactive.io/ns-beta"
+  ],
+  "@type": "Order",
+  "@id": "https://localhost:5001/api/openbooking/orders/8f6b701e-2b76-4764-9f4d-572cc950cdc8",
+  "identifier": "8f6b701e-2b76-4764-9f4d-572cc950cdc8",
+  "bookingService": {
+    "@type": "BookingService",
+    "name": "Acme booking system",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ],
+    "url": "https://example.com"
+  },
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com/"
+  },
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "customer": {
+    "@type": "Person",
+    "identifier": "8fd091a2-59e6-4bad-98f0-c63d160cd29c",
+    "email": "Bobbie.Nolan@yahoo.com",
+    "familyName": "Jermey",
+    "telephone": "873-981-1842 x789"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "@id": "https://localhost:5001/api/openbooking/orders/8f6b701e-2b76-4764-9f4d-572cc950cdc8#/orderedItems/137",
+      "acceptedOffer": {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      },
+      "accessCode": [
+        {
+          "@type": "PropertyValue",
+          "name": "Pin Code",
+          "description": "976789"
+        }
+      ],
+      "accessPass": [
+        {
+          "@type": "ImageObject",
+          "url": "https://via.placeholder.com/25x25/cccccc/9c9c9c.png"
+        },
+        {
+          "@type": "Barcode",
+          "text": "9064250015",
+          "url": "https://via.placeholder.com/25x25/cccccc/9c9c9c.png",
+          "beta:codeType": "code128"
+        }
+      ],
+      "orderedItem": {
+        "@type": "Slot",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628",
+        "facilityUse": {
+          "@type": "IndividualFacilityUse",
+          "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7",
+          "aggregateFacilityUse": {
+            "@type": "FacilityUse",
+            "@id": "https://localhost:5001/api/identifiers/facility-uses/1463",
+            "name": "Granite Squash Court",
+            "facilityType": [
+              {
+                "@type": "Concept",
+                "@id": "https://openactive.io/facility-types#a1f82b7a-1258-4d9a-8dc5-bfc2ae961651",
+                "inScheme": "https://openactive.io/facility-types",
+                "prefLabel": "Squash Court"
+              }
+            ],
+            "location": {
+              "@type": "Place",
+              "@id": "https://example.com/place/3",
+              "identifier": 3,
+              "name": "Stroll &amp; Stretch",
+              "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "GB",
+                "addressLocality": "Oxford",
+                "addressRegion": "Oxfordshire",
+                "postalCode": "OX1 1UU",
+                "streetAddress": "Norfolk Street"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 51.749826,
+                "longitude": -1.261492
+              },
+              "image": [
+                {
+                  "@type": "ImageObject",
+                  "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+                }
+              ],
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "17:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Sunday"
+                  ],
+                  "opens": "09:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Monday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Tuesday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Wednesday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Thursday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "21:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Friday"
+                  ],
+                  "opens": "06:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "closes": "17:30",
+                  "dayOfWeek": [
+                    "https://schema.org/Saturday"
+                  ],
+                  "opens": "09:00"
+                }
+              ],
+              "telephone": "01865 000003",
+              "url": "https://en.wikipedia.org/wiki/Shopping_center"
+            },
+            "url": "https://example.com/events/1463"
+          },
+          "name": "Court 7 at Granite Squash Court"
+        },
+        "maximumUses": 1,
+        "remainingUses": 1,
+        "startDate": "2025-02-06T12:28:56+00:00",
+        "endDate": "2025-02-06T15:32:56+00:00"
+      },
+      "orderItemStatus": "https://openactive.io/OrderItemConfirmed",
+      "unitTaxSpecification": [
+        {
+          "@type": "TaxChargeSpecification",
+          "name": "VAT at 20%",
+          "price": 0,
+          "priceCurrency": "GBP",
+          "rate": 0.2
+        }
+      ]
+    }
+  ],
+  "seller": {
+    "@type": "Organization",
+    "@id": "https://localhost:5001/api/identifiers/sellers/1",
+    "name": "Acme Fitness Ltd",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB",
+      "addressLocality": "Another town",
+      "addressRegion": "Oxfordshire",
+      "postalCode": "OX1 1AA",
+      "streetAddress": "1 Hidden Gem"
+    },
+    "isOpenBookingAllowed": true,
+    "legalName": "Acme Fitness Ltd",
+    "taxMode": "https://openactive.io/TaxGross",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ]
+  },
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "openBookingPrepayment": "https://openactive.io/Unavailable",
+    "price": 0,
+    "priceCurrency": "GBP"
+  },
+  "totalPaymentTax": [
+    {
+      "@type": "TaxChargeSpecification",
+      "name": "VAT at 20%",
+      "price": 0,
+      "priceCurrency": "GBP",
+      "rate": 0.2
+    }
+  ]
+}
+</code></pre>
+<h3 id="specs-21">Specs</h3>
+<ul>
+<li>✅ should return 201 on success</li>
+</ul>
+<h2 id="secondattemptc2bbvalidationofb">✅ Second Attempt - C2 -&gt; B &gt;&gt; B &gt;&gt; validation of B</h2>
+<h3 id="specs-22">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-10">Validations</h3>
+<ul>
+<li>⚠️ $.orderedItem[0].accessChannel: Recommended property <code>accessChannel</code> is missing from <code>OrderItem</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.duration: Recommended property <code>duration</code> is missing from <code>Slot</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.description: Recommended property <code>description</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.image: Recommended property <code>image</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.description: Recommended property <code>description</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.image: Recommended property <code>image</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.offers: Recommended property <code>offers</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.facilityUse.aggregateFacilityUse.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>⚠️ $.seller.email: Recommended property <code>email</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.url: Recommended property <code>url</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.logo: Recommended property <code>logo</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.vatID: Recommended property <code>vatID</code> is missing from <code>Organization</code>.</li>
+</ul>
+<h2 id="secondattemptc2borderproposalfeeddeletionafterb">✅ Second Attempt - C2 -&gt; B &gt;&gt; OrderProposal Feed Deletion (after B)</h2>
+<h3 id="ordersorderproposalsfeedcollectforx278f6b701e2b7647649f4d572cc950cdc8x27changeauthprimaryrequest-1">Orders (order-proposals) Feed collect for &#x27;8f6b701e-2b76-4764-9f4d-572cc950cdc8&#x27; change (auth: primary) Request</h3>
+<p>GET http://localhost:3000/order-listeners/order-proposals/primary/8f6b701e-2b76-4764-9f4d-572cc950cdc8</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 1557.5333839999998ms.</p>
+<pre><code class="json language-json">{
+  "state": "deleted",
+  "kind": "Order",
+  "id": "8f6b701e-2b76-4764-9f4d-572cc950cdc8",
+  "modified": "638739186096985282"
+}
+</code></pre>
+<h3 id="specs-23">Specs</h3>
+<ul>
+<li>✅ should return 200 on success</li>
+</ul>
+<h2 id="secondattemptc2borderproposalfeeddeletionafterbvalidationoforderfeed">✅ Second Attempt - C2 -&gt; B &gt;&gt; OrderProposal Feed Deletion (after B) &gt;&gt; validation of OrderFeed</h2>
+<h3 id="specs-24">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-11">Validations</h3>
+<h2 id="secondattemptc2bassertopportunitycapacityafterorderproposalfeeddeletionafterb">✅ Second Attempt - C2 -&gt; B &gt;&gt; Assert Opportunity Capacity (after OrderProposal Feed Deletion (after B))</h2>
+<h3 id="opportunityfeedextractfororderitem0request-5">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Ffacility-uses%2F1463%2Findividual-facility-uses%2F7%2Fslots%2F14628?useCacheIfAvailable=true&amp;expectedCapacity=0</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 4.064855ms.</p>
+<pre><code class="json language-json">{
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "Slot",
+    "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628",
+    "identifier": 14628,
+    "duration": "PT3H4M",
+    "facilityUse": {
+      "@type": "IndividualFacilityUse",
+      "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7",
+      "name": "Court 7 at Granite Squash Court",
+      "aggregateFacilityUse": {
+        "@type": "FacilityUse",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463",
+        "identifier": 1463,
+        "name": "Granite Squash Court",
+        "facilityType": [
+          {
+            "@type": "Concept",
+            "@id": "https://openactive.io/facility-types#a1f82b7a-1258-4d9a-8dc5-bfc2ae961651",
+            "inScheme": "https://openactive.io/facility-types",
+            "prefLabel": "Squash Court"
+          }
+        ],
+        "location": {
+          "@type": "Place",
+          "@id": "https://example.com/place/3",
+          "identifier": 3,
+          "name": "Stroll &amp; Stretch",
+          "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB",
+            "addressLocality": "Oxford",
+            "addressRegion": "Oxfordshire",
+            "postalCode": "OX1 1UU",
+            "streetAddress": "Norfolk Street"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.749826,
+            "longitude": -1.261492
+          },
+          "image": [
+            {
+              "@type": "ImageObject",
+              "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+            }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "17:30",
+              "dayOfWeek": [
+                "https://schema.org/Sunday"
+              ],
+              "opens": "09:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Monday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Tuesday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Wednesday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Thursday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "21:30",
+              "dayOfWeek": [
+                "https://schema.org/Friday"
+              ],
+              "opens": "06:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "closes": "17:30",
+              "dayOfWeek": [
+                "https://schema.org/Saturday"
+              ],
+              "opens": "09:00"
+            }
+          ],
+          "telephone": "01865 000003",
+          "url": "https://en.wikipedia.org/wiki/Shopping_center"
+        },
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://localhost:5001/api/identifiers/sellers/1",
+          "name": "Acme Fitness Ltd",
+          "isOpenBookingAllowed": true,
+          "sameAs": [
+            "https://socialmedia.com/AcmeFitnessLtd"
+          ],
+          "taxMode": "https://openactive.io/TaxGross",
+          "telephone": "07044 971636",
+          "termsOfService": [
+            {
+              "@type": "PrivacyPolicy",
+              "name": "Privacy Policy",
+              "requiresExplicitConsent": false,
+              "url": "https://example.com/privacy.html"
+            }
+          ],
+          "url": "http://gianni.net"
+        },
+        "url": "https://www.example.com/facilities/1463"
+      }
+    },
+    "maximumUses": 1,
+    "offers": [
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/facility-uses/1463/individual-facility-uses/7/slots/14628#/offers/0",
+        "acceptedPaymentMethod": [
+          "http://purl.org/goodrelations/v1#Cash",
+          "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+        ],
+        "allowCustomerCancellationFullRefund": false,
+        "latestCancellationBeforeStartDate": "P1D",
+        "openBookingFlowRequirement": [
+          "https://openactive.io/OpenBookingApproval"
+        ],
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P14DT21H9M"
+      }
+    ],
+    "remainingUses": 0,
+    "startDate": "2025-02-06T12:28:56+00:00",
+    "endDate": "2025-02-06T15:32:56+00:00"
+  }
+}
+</code></pre>
+<h3 id="specs-25">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+<li>✅ Should have the same number of OrderItems as criteria</li>
+<li>✅ OrderItem at position 0 - ID should match the one specified in the open data feed</li>
+<li>✅ should include expected email address</li>
+</ul>
+<h2 id="secondattemptc2bassertopportunitycapacityafterorderproposalfeeddeletionafterbvalidationofopportunityfeedextractfororderitem0">✅ Second Attempt - C2 -&gt; B &gt;&gt; Assert Opportunity Capacity (after OrderProposal Feed Deletion (after B)) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-26">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-12">Validations</h3>
+<ul>
+<li>⚠️ $.facilityUse.description: Recommended property <code>description</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.image: Recommended property <code>image</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.description: Recommended property <code>description</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.image: Recommended property <code>image</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.offers: Recommended property <code>offers</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>⚠️ $.offers[0].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[0].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+</ul>
+<h2 id="aftersecondattemptshouldrestorecapacityforopportunitiesfromfirstattemptassertopportunitycapacityaftersecondattemptb">✅ After Second Attempt, should restore capacity for Opportunities from First Attempt &gt;&gt; Assert Opportunity Capacity (after Second Attempt - B)</h2>
+<h3 id="specs-27">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="aftersecondattemptshouldrestorecapacityforopportunitiesfromfirstattemptassertopportunitycapacityaftersecondattemptbvalidationofopportunityfeedextractfororderitem0">✅ After Second Attempt, should restore capacity for Opportunities from First Attempt &gt;&gt; Assert Opportunity Capacity (after Second Attempt - B) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-28">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-13">Validations</h3>
+<ul>
+<li>⚠️ $.facilityUse.description: Recommended property <code>description</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.image: Recommended property <code>image</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>IndividualFacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.description: Recommended property <code>description</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.image: Recommended property <code>image</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.hoursAvailable: Recommended property <code>hoursAvailable</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.facilityUse.aggregateFacilityUse.offers: Recommended property <code>offers</code> is missing from <code>FacilityUse</code>.</li>
+<li>⚠️ $.offers[0].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[0].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[1].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[2].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.offers[3].ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+</ul>
+<script>
+  function collapseH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== 'none') {
+            nextElement.style.display = 'none';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function showH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== '') {
+            nextElement.style.display = '';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function toggleH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+              // Toggle visibility
+              nextElement.style.display = nextElement.style.display === 'none' ? '' : 'none';
+              nextElement = nextElement.nextElementSibling;
+          }
+  }
+
+  function collapseAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        collapseH2Section(nextElement);
+    });
+  }
+  function showAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        showH2Section(nextElement);
+    });
+  }
+
+  function collapseExceptFirstSpecialH2Section() {
+    const h2Elements = document.querySelectorAll('h2');
+    let specialSectionFound = false;
+
+    h2Elements.forEach((h2) => {
+        let nextNode = h2.nextElementSibling;
+        let sectionContainsSpecialChar = false;
+
+        // Iterate through sibling elements until the next H2 or no more siblings until the error section is found
+        while (nextNode && nextNode.tagName !== 'H2') {
+            if (!specialSectionFound && nextNode.textContent.includes('❌')) {
+                sectionContainsSpecialChar = true;
+                specialSectionFound = true; 
+                break;
+              }
+              showH2Section(nextNode);
+            nextNode = nextNode.nextElementSibling;
+        }
+
+        // If this section is not the one with the error, collapse it
+        if (!sectionContainsSpecialChar) {
+            nextNode = h2.nextElementSibling; 
+            collapseH2Section(nextNode);
+        }
+    });
+}
+
+
+  // Show/Hide each header section
+  document.querySelectorAll('h2').forEach(function(h2) {
+      h2.addEventListener('click', function() {
+          let nextElement = this.nextElementSibling;
+          toggleH2Section(nextElement)
+      });
+  });
+
+  // Show all header sections
+  document.getElementById('showH2Button').addEventListener('click', function() {
+      showAllH2Sections();
+  });
+
+  // Collapse all header sections
+  document.getElementById('collapseH2Button').addEventListener('click', function() {
+      collapseAllH2Sections();
+  });
+
+  // Collapse all but first error section button
+    document.getElementById('collapseAllButFirstError').addEventListener('click', function() {
+      collapseExceptFirstSpecialH2Section();
+  });
+
+  // Hide all header sections by default
+  collapseExceptFirstSpecialH2Section();
+  </script>
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<p><head>
+  </p>
+<style>
+h2 {
+    cursor: pointer;
+    border-top-color: #CCC;
+    border-top-width: 1px;
+    border-top-style: solid;
+    padding-top: 5px;
+}
+h2:hover {
+    color: #0056b3; /* Example color change on hover */
+}
+</style>
+<p></head></p>
+<p><a href="summary.html" rel="noopener noreferrer" target="_blank">< Return to Summary</a> | File Generated: Fri Jan 31 2025 11:33:13 GMT+0000 (Coordinated Universal Time)</p>
+<p><button id="collapseH2Button">Collapse All Sections</button>
+<button id="showH2Button">Show All Sections</button>
+<button id="collapseAllButFirstError">Show Only First Error</button></p>
+<h1 id="singlesellermultiplesellersimplemented">single-seller &gt;&gt; multiple-sellers-implemented</h1>
+<p><strong>Booking Flow:</strong> </p>
+<p><strong>Opportunity Type:</strong> </p>
+<p><strong>Feature:</strong> Core / Single Seller (Not Implemented) </p>
+<p><strong>Test:</strong>  Multiple Sellers feature must be implemented if Single Seller is not implemented</p>
+<p>Either one, and only one, of the Multiple Sellers feature and Single Seller feature must be implemented</p>
+<h3 id="runningonlythistest">Running only this test</h3>
+<pre><code class="bash language-bash">npm start -- --runInBand test/features/core/single-seller/not-implemented/multiple-sellers-implemented-test.js
+</code></pre>
+<h3 id="isthistestfailing">Is this test failing?</h3>
+<p>The <a href="https://openactive.io/openactive-test-suite/example-output/random/single-seller_multiple-sellers-implemented_undefined_undefined.html" rel="noopener noreferrer" target="_blank">OpenActive Reference Implementation test result for this test</a> can be used as a reference to help with debugging.</p>
+<hr />
+<p>✅ 2 passed with 0 failures, 0 warnings and 0 suggestions </p>
+<hr />
+<h2 id="feature">✅ Feature</h2>
+<h3 id="specs">Specs</h3>
+<ul>
+<li>✅ must be implemented if other features: 'multiple-sellers' are NOT</li>
+</ul>
+<script>
+  function collapseH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== 'none') {
+            nextElement.style.display = 'none';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function showH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== '') {
+            nextElement.style.display = '';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function toggleH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+              // Toggle visibility
+              nextElement.style.display = nextElement.style.display === 'none' ? '' : 'none';
+              nextElement = nextElement.nextElementSibling;
+          }
+  }
+
+  function collapseAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        collapseH2Section(nextElement);
+    });
+  }
+  function showAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        showH2Section(nextElement);
+    });
+  }
+
+  function collapseExceptFirstSpecialH2Section() {
+    const h2Elements = document.querySelectorAll('h2');
+    let specialSectionFound = false;
+
+    h2Elements.forEach((h2) => {
+        let nextNode = h2.nextElementSibling;
+        let sectionContainsSpecialChar = false;
+
+        // Iterate through sibling elements until the next H2 or no more siblings until the error section is found
+        while (nextNode && nextNode.tagName !== 'H2') {
+            if (!specialSectionFound && nextNode.textContent.includes('❌')) {
+                sectionContainsSpecialChar = true;
+                specialSectionFound = true; 
+                break;
+              }
+              showH2Section(nextNode);
+            nextNode = nextNode.nextElementSibling;
+        }
+
+        // If this section is not the one with the error, collapse it
+        if (!sectionContainsSpecialChar) {
+            nextNode = h2.nextElementSibling; 
+            collapseH2Section(nextNode);
+        }
+    });
+}
+
+
+  // Show/Hide each header section
+  document.querySelectorAll('h2').forEach(function(h2) {
+      h2.addEventListener('click', function() {
+          let nextElement = this.nextElementSibling;
+          toggleH2Section(nextElement)
+      });
+  });
+
+  // Show all header sections
+  document.getElementById('showH2Button').addEventListener('click', function() {
+      showAllH2Sections();
+  });
+
+  // Collapse all header sections
+  document.getElementById('collapseH2Button').addEventListener('click', function() {
+      collapseAllH2Sections();
+  });
+
+  // Collapse all but first error section button
+    document.getElementById('collapseAllButFirstError').addEventListener('click', function() {
+      collapseExceptFirstSpecialH2Section();
+  });
+
+  // Hide all header sections by default
+  collapseExceptFirstSpecialH2Section();
+  </script>
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -1,0 +1,1866 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<p><head>
+  </p>
+<style>
+h2 {
+    cursor: pointer;
+    border-top-color: #CCC;
+    border-top-width: 1px;
+    border-top-style: solid;
+    padding-top: 5px;
+}
+h2:hover {
+    color: #0056b3; /* Example color change on hover */
+}
+</style>
+<p></head></p>
+<p><a href="summary.html" rel="noopener noreferrer" target="_blank">< Return to Summary</a> | File Generated: Fri Jan 31 2025 11:26:56 GMT+0000 (Coordinated Universal Time)</p>
+<p><button id="collapseH2Button">Collapse All Sections</button>
+<button id="showH2Button">Show All Sections</button>
+<button id="collapseAllButFirstError">Show Only First Error</button></p>
+<h1 id="businesstobusinesstaxcalculationnetbusinesstobusinesstaxcalculationnetopenbookingsimpleflowscheduledsession">business-to-business-tax-calculation-net &gt;&gt; business-to-business-tax-calculation-net (OpenBookingSimpleFlow &gt;&gt; ScheduledSession)</h1>
+<p><strong>Booking Flow:</strong> OpenBookingSimpleFlow</p>
+<p><strong>Opportunity Type:</strong> ScheduledSession</p>
+<p><strong>Feature:</strong> Tax / Business-to-business Tax Calculation (TaxNet) (Implemented) </p>
+<p><strong>Test:</strong>  Tax calculations</p>
+<p>The totals of totalPaymentTax should match the sum of the unitTaxSpecification, and the totalPaymentDue.price should equal the total of all acceptedOffer.price PLUS TotalPaymentTax.price.</p>
+<h3 id="runningonlythistest">Running only this test</h3>
+<pre><code class="bash language-bash">npm start -- --runInBand test/features/tax/business-to-business-tax-calculation-net/implemented/business-to-business-tax-calculation-net-test.js
+</code></pre>
+<h3 id="isthistestfailing">Is this test failing?</h3>
+<p>The <a href="https://openactive.io/openactive-test-suite/example-output/controlled/business-to-business-tax-calculation-net_business-to-business-tax-calculation-net_OpenBookingSimpleFlow_ScheduledSession.html" rel="noopener noreferrer" target="_blank">OpenActive Reference Implementation test result for this test</a> can be used as a reference to help with debugging.</p>
+<hr />
+<p>⚠️ 16 passed with 0 failures, 76 warnings and 42 suggestions </p>
+<hr />
+<h2 id="fetchopportunities">✅ Fetch Opportunities</h2>
+<h3 id="bookingsystemtestinterfacefororderitem0request">Booking System Test Interface for OrderItem 0 Request</h3>
+<p>POST https://localhost:5001/api/openbooking/test-interface/datasets/uat-ci/opportunities</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0MjIsImV4cCI6MTczODMyNTAyMiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiN2YxMWYwMGQtYzk2OC00ZjQzLWExNmUtYzkwYjBkZDJjOGQ4IiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiN2YxMWYwMGQtYzk2OC00ZjQzLWExNmUtYzkwYjBkZDJjOGQ4Iiwic3ViIjoiMTAyIiwiYXV0aF90aW1lIjoxNzM4MzIxNDIxLCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMiIsImp0aSI6IjdGMTBDQjBGQTkwQjk3MDMzNENERDIwQjczNTA3NzM3Iiwic2lkIjoiNjYwMzUzQ0Y0RDFGMEQ2QTBFODAxMkQxQkUzRENBQUEiLCJpYXQiOjE3MzgzMjE0MjIsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.N0dmvGGZknhPqGNAWIS0aNCSeCQgnOC8ASN3kEbTtdS5bwvZ8gq2OhxrNfaomeAXQWVxixb75OYyJhaIg9sjm3c9RAeGeuyZf8E5ksN8WWnLC5iAlS0L89ghZXt0EQdCJNWIU2WLC1yTvvXrQ-Bt2lxfOGHyEmTv8PxND1rFu26-qYed_Zic6x0t0ejX0nLVpdOnq5QTeBltlUdLT196fIey5puBnMohufZO8NvGXKapSOey7F-OWWUuWT2pgSy3Z1w9zt3Z5azupUM-425Rz2yEARo88QRvScw7mEMRL9Eo2TKOkzhA27a5W7jD028Jv7V4Yl_RX2NF2r0r-Ufe8Q"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@type": "ScheduledSession",
+  "superEvent": {
+    "@type": "SessionSeries",
+    "organizer": {
+      "@type": "Organization",
+      "@id": "https://localhost:5001/api/identifiers/sellers/2"
+    }
+  },
+  "@context": [
+    "https://openactive.io/",
+    "https://openactive.io/test-interface"
+  ],
+  "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookableNonFreeTaxNet",
+  "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingSimpleFlow"
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 41.837336ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "ScheduledSession",
+  "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459"
+}
+</code></pre>
+<h3 id="opportunityfeedextractfororderitem0request">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F2459%2Fevents%2F20459?useCacheIfAvailable=true</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 428.227844ms.</p>
+<pre><code class="json language-json">{
+  "state": "updated",
+  "id": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459",
+  "modified": "1738322818103",
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "ScheduledSession",
+    "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459",
+    "startDate": "2025-02-01T11:26:56+00:00",
+    "endDate": "2025-02-01T12:26:56+00:00",
+    "superEvent": {
+      "@type": "SessionSeries",
+      "@id": "https://localhost:5001/api/identifiers/session-series/2459",
+      "identifier": 2459,
+      "name": "[OPEN BOOKING API TEST INTERFACE] Bookable Paid Event Tax Net",
+      "activity": [
+        {
+          "@type": "Concept",
+          "@id": "https://openactive.io/activity-list#c07d63a0-8eb9-4602-8bcc-23be6deb8f83",
+          "inScheme": "https://openactive.io/activity-list",
+          "prefLabel": "Jet Skiing"
+        }
+      ],
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "@id": "https://example.com/place/3",
+        "identifier": 3,
+        "name": "Stroll &amp; Stretch",
+        "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "GB",
+          "addressLocality": "Oxford",
+          "addressRegion": "Oxfordshire",
+          "postalCode": "OX1 1UU",
+          "streetAddress": "Norfolk Street"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 51.749826,
+          "longitude": -1.261492
+        },
+        "image": [
+          {
+            "@type": "ImageObject",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+          }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "17:30",
+            "dayOfWeek": [
+              "https://schema.org/Sunday"
+            ],
+            "opens": "09:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Monday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Tuesday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Wednesday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Thursday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Friday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "17:30",
+            "dayOfWeek": [
+              "https://schema.org/Saturday"
+            ],
+            "opens": "09:00"
+          }
+        ],
+        "telephone": "01865 000003",
+        "url": "https://en.wikipedia.org/wiki/Shopping_center"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/2459#/offers/0",
+          "name": "Senior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Senior",
+            "minValue": 60
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "price": 14.99,
+          "priceCurrency": "GBP"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "@id": "https://localhost:5001/api/identifiers/sellers/2",
+        "name": "Road Runner Bookcamp Ltd",
+        "isOpenBookingAllowed": true,
+        "sameAs": [
+          "https://socialmedia.com/RoadRunnerBookcampLtd"
+        ],
+        "taxMode": "https://openactive.io/TaxNet",
+        "telephone": "04460 109207",
+        "termsOfService": [
+          {
+            "@type": "PrivacyPolicy",
+            "name": "Privacy Policy",
+            "requiresExplicitConsent": false,
+            "url": "https://example.com/privacy.html"
+          }
+        ],
+        "url": "http://korbin.info"
+      },
+      "url": "https://www.example.com/sessions/2459"
+    },
+    "duration": "PT1H",
+    "maximumAttendeeCapacity": 10,
+    "remainingAttendeeCapacity": 10
+  }
+}
+</code></pre>
+<h3 id="specs">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="fetchopportunitiesvalidationofopportunityfeedextractfororderitem0">✅ Fetch Opportunities &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-1">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+<li>✅ matches the criteria 'TestOpportunityBookableNonFreeTaxNet' required for this test</li>
+</ul>
+<h3 id="validations">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="c1">✅ C1</h2>
+<h3 id="c1request">C1 Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-quote-templates/24efe61f-1e54-498a-8e4d-0561d6cd1cab</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0MjIsImV4cCI6MTczODMyNTAyMiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiN2YxMWYwMGQtYzk2OC00ZjQzLWExNmUtYzkwYjBkZDJjOGQ4IiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiN2YxMWYwMGQtYzk2OC00ZjQzLWExNmUtYzkwYjBkZDJjOGQ4Iiwic3ViIjoiMTAyIiwiYXV0aF90aW1lIjoxNzM4MzIxNDIxLCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMiIsImp0aSI6IjdGMTBDQjBGQTkwQjk3MDMzNENERDIwQjczNTA3NzM3Iiwic2lkIjoiNjYwMzUzQ0Y0RDFGMEQ2QTBFODAxMkQxQkUzRENBQUEiLCJpYXQiOjE3MzgzMjE0MjIsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.N0dmvGGZknhPqGNAWIS0aNCSeCQgnOC8ASN3kEbTtdS5bwvZ8gq2OhxrNfaomeAXQWVxixb75OYyJhaIg9sjm3c9RAeGeuyZf8E5ksN8WWnLC5iAlS0L89ghZXt0EQdCJNWIU2WLC1yTvvXrQ-Bt2lxfOGHyEmTv8PxND1rFu26-qYed_Zic6x0t0ejX0nLVpdOnq5QTeBltlUdLT196fIey5puBnMohufZO8NvGXKapSOey7F-OWWUuWT2pgSy3Z1w9zt3Z5azupUM-425Rz2yEARo88QRvScw7mEMRL9Eo2TKOkzhA27a5W7jD028Jv7V4Yl_RX2NF2r0r-Ufe8Q"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com",
+    "description": "A fitness app for all the community",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alan Peacock Way",
+      "addressLocality": "Village East",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "seller": "https://localhost:5001/api/identifiers/sellers/2",
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/session-series/2459#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459"
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 290.675236ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "@id": "https://localhost:5001/api/openbooking/order-quotes/24efe61f-1e54-498a-8e4d-0561d6cd1cab",
+  "lease": {
+    "@type": "Lease",
+    "leaseExpires": "2025-01-31T11:31:58+00:00"
+  },
+  "orderRequiresApproval": false,
+  "bookingService": {
+    "@type": "BookingService",
+    "name": "Acme booking system",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ],
+    "url": "https://example.com"
+  },
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com"
+  },
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "acceptedOffer": {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/session-series/2459#/offers/0",
+        "allowCustomerCancellationFullRefund": true,
+        "price": 14.99,
+        "priceCurrency": "GBP"
+      },
+      "orderedItem": {
+        "@type": "ScheduledSession",
+        "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459",
+        "startDate": "2025-02-01T11:26:56+00:00",
+        "endDate": "2025-02-01T12:26:56+00:00",
+        "superEvent": {
+          "@type": "SessionSeries",
+          "@id": "https://localhost:5001/api/identifiers/session-series/2459",
+          "name": "[OPEN BOOKING API TEST INTERFACE] Bookable Paid Event Tax Net",
+          "activity": [
+            {
+              "@type": "Concept",
+              "@id": "https://openactive.io/activity-list#6bdea630-ad22-4e58-98a3-bca26ee3f1da",
+              "inScheme": "https://openactive.io/activity-list",
+              "prefLabel": "Rave Fitness"
+            }
+          ],
+          "location": {
+            "@type": "Place",
+            "@id": "https://example.com/place/3",
+            "identifier": 3,
+            "name": "Stroll &amp; Stretch",
+            "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "GB",
+              "addressLocality": "Oxford",
+              "addressRegion": "Oxfordshire",
+              "postalCode": "OX1 1UU",
+              "streetAddress": "Norfolk Street"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 51.749826,
+              "longitude": -1.261492
+            },
+            "image": [
+              {
+                "@type": "ImageObject",
+                "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+              }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "17:30",
+                "dayOfWeek": [
+                  "https://schema.org/Sunday"
+                ],
+                "opens": "09:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Monday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Tuesday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Wednesday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Thursday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Friday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "17:30",
+                "dayOfWeek": [
+                  "https://schema.org/Saturday"
+                ],
+                "opens": "09:00"
+              }
+            ],
+            "telephone": "01865 000003",
+            "url": "https://en.wikipedia.org/wiki/Shopping_center"
+          },
+          "url": "https://example.com/events/2459"
+        },
+        "maximumAttendeeCapacity": 10,
+        "remainingAttendeeCapacity": 10
+      },
+      "position": 0,
+      "unitTaxSpecification": [
+        {
+          "@type": "TaxChargeSpecification",
+          "name": "VAT at 20%",
+          "price": 2.998,
+          "priceCurrency": "GBP",
+          "rate": 0.2
+        }
+      ]
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  },
+  "seller": {
+    "@type": "Organization",
+    "@id": "https://localhost:5001/api/identifiers/sellers/2",
+    "name": "Road Runner Bookcamp Ltd",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB",
+      "addressLocality": "Another town",
+      "addressRegion": "Oxfordshire",
+      "postalCode": "OX1 1AA",
+      "streetAddress": "1 Hidden Gem"
+    },
+    "isOpenBookingAllowed": true,
+    "legalName": "Road Runner Bookcamp Ltd",
+    "taxMode": "https://openactive.io/TaxNet",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ]
+  },
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "openBookingPrepayment": "https://openactive.io/Required",
+    "price": 17.988,
+    "priceCurrency": "GBP"
+  },
+  "totalPaymentTax": [
+    {
+      "@type": "TaxChargeSpecification",
+      "name": "VAT at 20%",
+      "price": 2.998,
+      "priceCurrency": "GBP",
+      "rate": 0.2
+    }
+  ]
+}
+</code></pre>
+<h3 id="specs-2">Specs</h3>
+<ul>
+<li>✅ should return 200 on success</li>
+<li>✅ Should have the same number of OrderItems as criteria</li>
+<li>✅ OrderItem at position 0 - capacities should not have changed from their initial values after C1/C2 (regardless of leasing)</li>
+</ul>
+<h2 id="c1validationofc1">✅ C1 &gt;&gt; validation of C1</h2>
+<h3 id="specs-3">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-1">Validations</h3>
+<ul>
+<li>⚠️ $.orderedItem[0].acceptedOffer.name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>⚠️ $.seller.email: Recommended property <code>email</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.url: Recommended property <code>url</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.logo: Recommended property <code>logo</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.vatID: Recommended property <code>vatID</code> is missing from <code>Organization</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.orderedItem[0].orderedItem.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+</ul>
+<h2 id="assertopportunitycapacityafterc1">✅ Assert Opportunity Capacity (after C1)</h2>
+<h3 id="opportunityfeedextractfororderitem0request-1">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F2459%2Fevents%2F20459?useCacheIfAvailable=true&amp;expectedCapacity=9</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 256.755882ms.</p>
+<pre><code class="json language-json">{
+  "state": "updated",
+  "id": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459",
+  "modified": "1738322820233",
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "ScheduledSession",
+    "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459",
+    "startDate": "2025-02-01T11:26:56+00:00",
+    "endDate": "2025-02-01T12:26:56+00:00",
+    "superEvent": {
+      "@type": "SessionSeries",
+      "@id": "https://localhost:5001/api/identifiers/session-series/2459",
+      "identifier": 2459,
+      "name": "[OPEN BOOKING API TEST INTERFACE] Bookable Paid Event Tax Net",
+      "activity": [
+        {
+          "@type": "Concept",
+          "@id": "https://openactive.io/activity-list#c07d63a0-8eb9-4602-8bcc-23be6deb8f83",
+          "inScheme": "https://openactive.io/activity-list",
+          "prefLabel": "Jet Skiing"
+        }
+      ],
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "@id": "https://example.com/place/3",
+        "identifier": 3,
+        "name": "Stroll &amp; Stretch",
+        "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "GB",
+          "addressLocality": "Oxford",
+          "addressRegion": "Oxfordshire",
+          "postalCode": "OX1 1UU",
+          "streetAddress": "Norfolk Street"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 51.749826,
+          "longitude": -1.261492
+        },
+        "image": [
+          {
+            "@type": "ImageObject",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+          }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "17:30",
+            "dayOfWeek": [
+              "https://schema.org/Sunday"
+            ],
+            "opens": "09:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Monday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Tuesday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Wednesday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Thursday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Friday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "17:30",
+            "dayOfWeek": [
+              "https://schema.org/Saturday"
+            ],
+            "opens": "09:00"
+          }
+        ],
+        "telephone": "01865 000003",
+        "url": "https://en.wikipedia.org/wiki/Shopping_center"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/2459#/offers/0",
+          "name": "Senior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Senior",
+            "minValue": 60
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "price": 14.99,
+          "priceCurrency": "GBP"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "@id": "https://localhost:5001/api/identifiers/sellers/2",
+        "name": "Road Runner Bookcamp Ltd",
+        "isOpenBookingAllowed": true,
+        "sameAs": [
+          "https://socialmedia.com/RoadRunnerBookcampLtd"
+        ],
+        "taxMode": "https://openactive.io/TaxNet",
+        "telephone": "04460 109207",
+        "termsOfService": [
+          {
+            "@type": "PrivacyPolicy",
+            "name": "Privacy Policy",
+            "requiresExplicitConsent": false,
+            "url": "https://example.com/privacy.html"
+          }
+        ],
+        "url": "http://korbin.info"
+      },
+      "url": "https://www.example.com/sessions/2459"
+    },
+    "duration": "PT1H",
+    "maximumAttendeeCapacity": 10,
+    "remainingAttendeeCapacity": 9
+  }
+}
+</code></pre>
+<h3 id="specs-4">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+<li>✅ should calculate net tax correctly</li>
+</ul>
+<h2 id="assertopportunitycapacityafterc1validationofopportunityfeedextractfororderitem0">✅ Assert Opportunity Capacity (after C1) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-5">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-2">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="c2">✅ C2</h2>
+<h3 id="c2request">C2 Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-quotes/24efe61f-1e54-498a-8e4d-0561d6cd1cab</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0MjIsImV4cCI6MTczODMyNTAyMiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiN2YxMWYwMGQtYzk2OC00ZjQzLWExNmUtYzkwYjBkZDJjOGQ4IiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiN2YxMWYwMGQtYzk2OC00ZjQzLWExNmUtYzkwYjBkZDJjOGQ4Iiwic3ViIjoiMTAyIiwiYXV0aF90aW1lIjoxNzM4MzIxNDIxLCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMiIsImp0aSI6IjdGMTBDQjBGQTkwQjk3MDMzNENERDIwQjczNTA3NzM3Iiwic2lkIjoiNjYwMzUzQ0Y0RDFGMEQ2QTBFODAxMkQxQkUzRENBQUEiLCJpYXQiOjE3MzgzMjE0MjIsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.N0dmvGGZknhPqGNAWIS0aNCSeCQgnOC8ASN3kEbTtdS5bwvZ8gq2OhxrNfaomeAXQWVxixb75OYyJhaIg9sjm3c9RAeGeuyZf8E5ksN8WWnLC5iAlS0L89ghZXt0EQdCJNWIU2WLC1yTvvXrQ-Bt2lxfOGHyEmTv8PxND1rFu26-qYed_Zic6x0t0ejX0nLVpdOnq5QTeBltlUdLT196fIey5puBnMohufZO8NvGXKapSOey7F-OWWUuWT2pgSy3Z1w9zt3Z5azupUM-425Rz2yEARo88QRvScw7mEMRL9Eo2TKOkzhA27a5W7jD028Jv7V4Yl_RX2NF2r0r-Ufe8Q"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com",
+    "description": "A fitness app for all the community",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alan Peacock Way",
+      "addressLocality": "Village East",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "seller": "https://localhost:5001/api/identifiers/sellers/2",
+  "customer": {
+    "@type": "Organization",
+    "name": "SomeCorporateClient",
+    "email": "mybooking@corporate-client.com",
+    "url": "https://corporate.client.com",
+    "description": "A corporate client using fitness services",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://corporate.client.com/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "A Street",
+      "addressLocality": "A Town",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/session-series/2459#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459"
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 188.445497ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "@id": "https://localhost:5001/api/openbooking/order-quotes/24efe61f-1e54-498a-8e4d-0561d6cd1cab",
+  "lease": {
+    "@type": "Lease",
+    "leaseExpires": "2025-01-31T11:31:59+00:00"
+  },
+  "orderRequiresApproval": false,
+  "bookingService": {
+    "@type": "BookingService",
+    "name": "Acme booking system",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ],
+    "url": "https://example.com"
+  },
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com"
+  },
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "customer": {
+    "@type": "Organization",
+    "name": "SomeCorporateClient",
+    "email": "mybooking@corporate-client.com"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "acceptedOffer": {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/session-series/2459#/offers/0",
+        "allowCustomerCancellationFullRefund": true,
+        "price": 14.99,
+        "priceCurrency": "GBP"
+      },
+      "orderedItem": {
+        "@type": "ScheduledSession",
+        "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459",
+        "startDate": "2025-02-01T11:26:56+00:00",
+        "endDate": "2025-02-01T12:26:56+00:00",
+        "superEvent": {
+          "@type": "SessionSeries",
+          "@id": "https://localhost:5001/api/identifiers/session-series/2459",
+          "name": "[OPEN BOOKING API TEST INTERFACE] Bookable Paid Event Tax Net",
+          "activity": [
+            {
+              "@type": "Concept",
+              "@id": "https://openactive.io/activity-list#6bdea630-ad22-4e58-98a3-bca26ee3f1da",
+              "inScheme": "https://openactive.io/activity-list",
+              "prefLabel": "Rave Fitness"
+            }
+          ],
+          "location": {
+            "@type": "Place",
+            "@id": "https://example.com/place/3",
+            "identifier": 3,
+            "name": "Stroll &amp; Stretch",
+            "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "GB",
+              "addressLocality": "Oxford",
+              "addressRegion": "Oxfordshire",
+              "postalCode": "OX1 1UU",
+              "streetAddress": "Norfolk Street"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 51.749826,
+              "longitude": -1.261492
+            },
+            "image": [
+              {
+                "@type": "ImageObject",
+                "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+              }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "17:30",
+                "dayOfWeek": [
+                  "https://schema.org/Sunday"
+                ],
+                "opens": "09:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Monday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Tuesday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Wednesday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Thursday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Friday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "17:30",
+                "dayOfWeek": [
+                  "https://schema.org/Saturday"
+                ],
+                "opens": "09:00"
+              }
+            ],
+            "telephone": "01865 000003",
+            "url": "https://en.wikipedia.org/wiki/Shopping_center"
+          },
+          "url": "https://example.com/events/2459"
+        },
+        "maximumAttendeeCapacity": 10,
+        "remainingAttendeeCapacity": 10
+      },
+      "position": 0,
+      "unitTaxSpecification": [
+        {
+          "@type": "TaxChargeSpecification",
+          "name": "VAT at 20%",
+          "price": 2.998,
+          "priceCurrency": "GBP",
+          "rate": 0.2
+        }
+      ]
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  },
+  "seller": {
+    "@type": "Organization",
+    "@id": "https://localhost:5001/api/identifiers/sellers/2",
+    "name": "Road Runner Bookcamp Ltd",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB",
+      "addressLocality": "Another town",
+      "addressRegion": "Oxfordshire",
+      "postalCode": "OX1 1AA",
+      "streetAddress": "1 Hidden Gem"
+    },
+    "isOpenBookingAllowed": true,
+    "legalName": "Road Runner Bookcamp Ltd",
+    "taxMode": "https://openactive.io/TaxNet",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ]
+  },
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "openBookingPrepayment": "https://openactive.io/Required",
+    "price": 17.988,
+    "priceCurrency": "GBP"
+  },
+  "totalPaymentTax": [
+    {
+      "@type": "TaxChargeSpecification",
+      "name": "VAT at 20%",
+      "price": 2.998,
+      "priceCurrency": "GBP",
+      "rate": 0.2
+    }
+  ]
+}
+</code></pre>
+<h3 id="specs-6">Specs</h3>
+<ul>
+<li>✅ should return 200 on success</li>
+<li>✅ Should have the same number of OrderItems as criteria</li>
+<li>✅ OrderItem at position 0 - capacities should not have changed from their initial values after C1/C2 (regardless of leasing)</li>
+</ul>
+<h2 id="c2validationofc2">✅ C2 &gt;&gt; validation of C2</h2>
+<h3 id="specs-7">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-3">Validations</h3>
+<ul>
+<li>⚠️ $.orderedItem[0].acceptedOffer.name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>⚠️ $.seller.email: Recommended property <code>email</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.url: Recommended property <code>url</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.logo: Recommended property <code>logo</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.vatID: Recommended property <code>vatID</code> is missing from <code>Organization</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.orderedItem[0].orderedItem.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+</ul>
+<h2 id="assertopportunitycapacityafterc2">✅ Assert Opportunity Capacity (after C2)</h2>
+<h3 id="opportunityfeedextractfororderitem0request-2">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F2459%2Fevents%2F20459?useCacheIfAvailable=true&amp;expectedCapacity=9</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 33.691252ms.</p>
+<pre><code class="json language-json">{
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "ScheduledSession",
+    "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459",
+    "startDate": "2025-02-01T11:26:56+00:00",
+    "endDate": "2025-02-01T12:26:56+00:00",
+    "superEvent": {
+      "@type": "SessionSeries",
+      "@id": "https://localhost:5001/api/identifiers/session-series/2459",
+      "identifier": 2459,
+      "name": "[OPEN BOOKING API TEST INTERFACE] Bookable Paid Event Tax Net",
+      "activity": [
+        {
+          "@type": "Concept",
+          "@id": "https://openactive.io/activity-list#c07d63a0-8eb9-4602-8bcc-23be6deb8f83",
+          "inScheme": "https://openactive.io/activity-list",
+          "prefLabel": "Jet Skiing"
+        }
+      ],
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "@id": "https://example.com/place/3",
+        "identifier": 3,
+        "name": "Stroll &amp; Stretch",
+        "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "GB",
+          "addressLocality": "Oxford",
+          "addressRegion": "Oxfordshire",
+          "postalCode": "OX1 1UU",
+          "streetAddress": "Norfolk Street"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 51.749826,
+          "longitude": -1.261492
+        },
+        "image": [
+          {
+            "@type": "ImageObject",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+          }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "17:30",
+            "dayOfWeek": [
+              "https://schema.org/Sunday"
+            ],
+            "opens": "09:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Monday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Tuesday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Wednesday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Thursday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Friday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "17:30",
+            "dayOfWeek": [
+              "https://schema.org/Saturday"
+            ],
+            "opens": "09:00"
+          }
+        ],
+        "telephone": "01865 000003",
+        "url": "https://en.wikipedia.org/wiki/Shopping_center"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/2459#/offers/0",
+          "name": "Senior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Senior",
+            "minValue": 60
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "price": 14.99,
+          "priceCurrency": "GBP"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "@id": "https://localhost:5001/api/identifiers/sellers/2",
+        "name": "Road Runner Bookcamp Ltd",
+        "isOpenBookingAllowed": true,
+        "sameAs": [
+          "https://socialmedia.com/RoadRunnerBookcampLtd"
+        ],
+        "taxMode": "https://openactive.io/TaxNet",
+        "telephone": "04460 109207",
+        "termsOfService": [
+          {
+            "@type": "PrivacyPolicy",
+            "name": "Privacy Policy",
+            "requiresExplicitConsent": false,
+            "url": "https://example.com/privacy.html"
+          }
+        ],
+        "url": "http://korbin.info"
+      },
+      "url": "https://www.example.com/sessions/2459"
+    },
+    "duration": "PT1H",
+    "maximumAttendeeCapacity": 10,
+    "remainingAttendeeCapacity": 9
+  }
+}
+</code></pre>
+<h3 id="specs-8">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+<li>✅ should calculate net tax correctly</li>
+</ul>
+<h2 id="assertopportunitycapacityafterc2validationofopportunityfeedextractfororderitem0">✅ Assert Opportunity Capacity (after C2) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-9">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-4">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="b">✅ B</h2>
+<h3 id="brequest">B Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/orders/24efe61f-1e54-498a-8e4d-0561d6cd1cab</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0MjIsImV4cCI6MTczODMyNTAyMiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiN2YxMWYwMGQtYzk2OC00ZjQzLWExNmUtYzkwYjBkZDJjOGQ4IiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiN2YxMWYwMGQtYzk2OC00ZjQzLWExNmUtYzkwYjBkZDJjOGQ4Iiwic3ViIjoiMTAyIiwiYXV0aF90aW1lIjoxNzM4MzIxNDIxLCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMiIsImp0aSI6IjdGMTBDQjBGQTkwQjk3MDMzNENERDIwQjczNTA3NzM3Iiwic2lkIjoiNjYwMzUzQ0Y0RDFGMEQ2QTBFODAxMkQxQkUzRENBQUEiLCJpYXQiOjE3MzgzMjE0MjIsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.N0dmvGGZknhPqGNAWIS0aNCSeCQgnOC8ASN3kEbTtdS5bwvZ8gq2OhxrNfaomeAXQWVxixb75OYyJhaIg9sjm3c9RAeGeuyZf8E5ksN8WWnLC5iAlS0L89ghZXt0EQdCJNWIU2WLC1yTvvXrQ-Bt2lxfOGHyEmTv8PxND1rFu26-qYed_Zic6x0t0ejX0nLVpdOnq5QTeBltlUdLT196fIey5puBnMohufZO8NvGXKapSOey7F-OWWUuWT2pgSy3Z1w9zt3Z5azupUM-425Rz2yEARo88QRvScw7mEMRL9Eo2TKOkzhA27a5W7jD028Jv7V4Yl_RX2NF2r0r-Ufe8Q"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "Order",
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com",
+    "description": "A fitness app for all the community",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alan Peacock Way",
+      "addressLocality": "Village East",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "seller": "https://localhost:5001/api/identifiers/sellers/2",
+  "customer": {
+    "@type": "Organization",
+    "name": "SomeCorporateClient",
+    "email": "mybooking@corporate-client.com",
+    "url": "https://corporate.client.com",
+    "description": "A corporate client using fitness services",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://corporate.client.com/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "A Street",
+      "addressLocality": "A Town",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/session-series/2459#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459"
+    }
+  ],
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "price": 17.988,
+    "priceCurrency": "GBP"
+  },
+  "payment": {
+    "@type": "Payment",
+    "identifier": "xExFk3ekM",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 201 Created. Responded in 202.966877ms.</p>
+<pre><code class="json language-json">{
+  "@context": [
+    "https://openactive.io/",
+    "https://openactive.io/ns-beta"
+  ],
+  "@type": "Order",
+  "@id": "https://localhost:5001/api/openbooking/orders/24efe61f-1e54-498a-8e4d-0561d6cd1cab",
+  "bookingService": {
+    "@type": "BookingService",
+    "name": "Acme booking system",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ],
+    "url": "https://example.com"
+  },
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com"
+  },
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "customer": {
+    "@type": "Organization",
+    "name": "SomeCorporateClient",
+    "email": "mybooking@corporate-client.com"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "@id": "https://localhost:5001/api/openbooking/orders/24efe61f-1e54-498a-8e4d-0561d6cd1cab#/orderedItems/2346",
+      "acceptedOffer": {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/session-series/2459#/offers/0",
+        "allowCustomerCancellationFullRefund": true,
+        "price": 14.99,
+        "priceCurrency": "GBP"
+      },
+      "accessCode": [
+        {
+          "@type": "PropertyValue",
+          "name": "Pin Code",
+          "description": "888258"
+        }
+      ],
+      "accessPass": [
+        {
+          "@type": "ImageObject",
+          "url": "https://via.placeholder.com/25x25/cccccc/9c9c9c.png"
+        },
+        {
+          "@type": "Barcode",
+          "text": "0315297944",
+          "url": "https://via.placeholder.com/25x25/cccccc/9c9c9c.png",
+          "beta:codeType": "code128"
+        }
+      ],
+      "orderedItem": {
+        "@type": "ScheduledSession",
+        "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459",
+        "startDate": "2025-02-01T11:26:56+00:00",
+        "endDate": "2025-02-01T12:26:56+00:00",
+        "superEvent": {
+          "@type": "SessionSeries",
+          "@id": "https://localhost:5001/api/identifiers/session-series/2459",
+          "name": "[OPEN BOOKING API TEST INTERFACE] Bookable Paid Event Tax Net",
+          "activity": [
+            {
+              "@type": "Concept",
+              "@id": "https://openactive.io/activity-list#6bdea630-ad22-4e58-98a3-bca26ee3f1da",
+              "inScheme": "https://openactive.io/activity-list",
+              "prefLabel": "Rave Fitness"
+            }
+          ],
+          "location": {
+            "@type": "Place",
+            "@id": "https://example.com/place/3",
+            "identifier": 3,
+            "name": "Stroll &amp; Stretch",
+            "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "GB",
+              "addressLocality": "Oxford",
+              "addressRegion": "Oxfordshire",
+              "postalCode": "OX1 1UU",
+              "streetAddress": "Norfolk Street"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 51.749826,
+              "longitude": -1.261492
+            },
+            "image": [
+              {
+                "@type": "ImageObject",
+                "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+              }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "17:30",
+                "dayOfWeek": [
+                  "https://schema.org/Sunday"
+                ],
+                "opens": "09:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Monday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Tuesday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Wednesday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Thursday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Friday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "17:30",
+                "dayOfWeek": [
+                  "https://schema.org/Saturday"
+                ],
+                "opens": "09:00"
+              }
+            ],
+            "telephone": "01865 000003",
+            "url": "https://en.wikipedia.org/wiki/Shopping_center"
+          },
+          "url": "https://example.com/events/2459"
+        }
+      },
+      "orderItemStatus": "https://openactive.io/OrderItemConfirmed",
+      "position": 0,
+      "unitTaxSpecification": [
+        {
+          "@type": "TaxChargeSpecification",
+          "name": "VAT at 20%",
+          "price": 2.998,
+          "priceCurrency": "GBP",
+          "rate": 0.2
+        }
+      ]
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "identifier": "xExFk3ekM",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  },
+  "seller": {
+    "@type": "Organization",
+    "@id": "https://localhost:5001/api/identifiers/sellers/2",
+    "name": "Road Runner Bookcamp Ltd",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB",
+      "addressLocality": "Another town",
+      "addressRegion": "Oxfordshire",
+      "postalCode": "OX1 1AA",
+      "streetAddress": "1 Hidden Gem"
+    },
+    "isOpenBookingAllowed": true,
+    "legalName": "Road Runner Bookcamp Ltd",
+    "taxMode": "https://openactive.io/TaxNet",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ]
+  },
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "openBookingPrepayment": "https://openactive.io/Required",
+    "price": 17.988,
+    "priceCurrency": "GBP"
+  },
+  "totalPaymentTax": [
+    {
+      "@type": "TaxChargeSpecification",
+      "name": "VAT at 20%",
+      "price": 2.998,
+      "priceCurrency": "GBP",
+      "rate": 0.2
+    }
+  ]
+}
+</code></pre>
+<h3 id="specs-10">Specs</h3>
+<ul>
+<li>✅ should return 201 on success</li>
+</ul>
+<h2 id="bvalidationofb">✅ B &gt;&gt; validation of B</h2>
+<h3 id="specs-11">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-5">Validations</h3>
+<ul>
+<li>⚠️ $.orderedItem[0].accessChannel: Recommended property <code>accessChannel</code> is missing from <code>OrderItem</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.maximumAttendeeCapacity: Recommended property <code>maximumAttendeeCapacity</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.remainingAttendeeCapacity: Recommended property <code>remainingAttendeeCapacity</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>⚠️ $.seller.email: Recommended property <code>email</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.url: Recommended property <code>url</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.logo: Recommended property <code>logo</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.vatID: Recommended property <code>vatID</code> is missing from <code>Organization</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.orderedItem[0].orderedItem.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+</ul>
+<h2 id="assertopportunitycapacityafterb">✅ Assert Opportunity Capacity (after B)</h2>
+<h3 id="opportunityfeedextractfororderitem0request-3">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F2459%2Fevents%2F20459?useCacheIfAvailable=true&amp;expectedCapacity=9</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 3.817485ms.</p>
+<pre><code class="json language-json">{
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "ScheduledSession",
+    "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/2459/events/20459",
+    "startDate": "2025-02-01T11:26:56+00:00",
+    "endDate": "2025-02-01T12:26:56+00:00",
+    "superEvent": {
+      "@type": "SessionSeries",
+      "@id": "https://localhost:5001/api/identifiers/session-series/2459",
+      "identifier": 2459,
+      "name": "[OPEN BOOKING API TEST INTERFACE] Bookable Paid Event Tax Net",
+      "activity": [
+        {
+          "@type": "Concept",
+          "@id": "https://openactive.io/activity-list#c07d63a0-8eb9-4602-8bcc-23be6deb8f83",
+          "inScheme": "https://openactive.io/activity-list",
+          "prefLabel": "Jet Skiing"
+        }
+      ],
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "@id": "https://example.com/place/3",
+        "identifier": 3,
+        "name": "Stroll &amp; Stretch",
+        "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "GB",
+          "addressLocality": "Oxford",
+          "addressRegion": "Oxfordshire",
+          "postalCode": "OX1 1UU",
+          "streetAddress": "Norfolk Street"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 51.749826,
+          "longitude": -1.261492
+        },
+        "image": [
+          {
+            "@type": "ImageObject",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+          }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "17:30",
+            "dayOfWeek": [
+              "https://schema.org/Sunday"
+            ],
+            "opens": "09:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Monday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Tuesday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Wednesday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Thursday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Friday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "17:30",
+            "dayOfWeek": [
+              "https://schema.org/Saturday"
+            ],
+            "opens": "09:00"
+          }
+        ],
+        "telephone": "01865 000003",
+        "url": "https://en.wikipedia.org/wiki/Shopping_center"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/2459#/offers/0",
+          "name": "Senior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Senior",
+            "minValue": 60
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "price": 14.99,
+          "priceCurrency": "GBP"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "@id": "https://localhost:5001/api/identifiers/sellers/2",
+        "name": "Road Runner Bookcamp Ltd",
+        "isOpenBookingAllowed": true,
+        "sameAs": [
+          "https://socialmedia.com/RoadRunnerBookcampLtd"
+        ],
+        "taxMode": "https://openactive.io/TaxNet",
+        "telephone": "04460 109207",
+        "termsOfService": [
+          {
+            "@type": "PrivacyPolicy",
+            "name": "Privacy Policy",
+            "requiresExplicitConsent": false,
+            "url": "https://example.com/privacy.html"
+          }
+        ],
+        "url": "http://korbin.info"
+      },
+      "url": "https://www.example.com/sessions/2459"
+    },
+    "duration": "PT1H",
+    "maximumAttendeeCapacity": 10,
+    "remainingAttendeeCapacity": 9
+  }
+}
+</code></pre>
+<h3 id="specs-12">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+<li>✅ should calculate net tax correctly</li>
+</ul>
+<h2 id="assertopportunitycapacityafterbvalidationofopportunityfeedextractfororderitem0">✅ Assert Opportunity Capacity (after B) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-13">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-6">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<script>
+  function collapseH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== 'none') {
+            nextElement.style.display = 'none';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function showH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== '') {
+            nextElement.style.display = '';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function toggleH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+              // Toggle visibility
+              nextElement.style.display = nextElement.style.display === 'none' ? '' : 'none';
+              nextElement = nextElement.nextElementSibling;
+          }
+  }
+
+  function collapseAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        collapseH2Section(nextElement);
+    });
+  }
+  function showAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        showH2Section(nextElement);
+    });
+  }
+
+  function collapseExceptFirstSpecialH2Section() {
+    const h2Elements = document.querySelectorAll('h2');
+    let specialSectionFound = false;
+
+    h2Elements.forEach((h2) => {
+        let nextNode = h2.nextElementSibling;
+        let sectionContainsSpecialChar = false;
+
+        // Iterate through sibling elements until the next H2 or no more siblings until the error section is found
+        while (nextNode && nextNode.tagName !== 'H2') {
+            if (!specialSectionFound && nextNode.textContent.includes('❌')) {
+                sectionContainsSpecialChar = true;
+                specialSectionFound = true; 
+                break;
+              }
+              showH2Section(nextNode);
+            nextNode = nextNode.nextElementSibling;
+        }
+
+        // If this section is not the one with the error, collapse it
+        if (!sectionContainsSpecialChar) {
+            nextNode = h2.nextElementSibling; 
+            collapseH2Section(nextNode);
+        }
+    });
+}
+
+
+  // Show/Hide each header section
+  document.querySelectorAll('h2').forEach(function(h2) {
+      h2.addEventListener('click', function() {
+          let nextElement = this.nextElementSibling;
+          toggleH2Section(nextElement)
+      });
+  });
+
+  // Show all header sections
+  document.getElementById('showH2Button').addEventListener('click', function() {
+      showAllH2Sections();
+  });
+
+  // Collapse all header sections
+  document.getElementById('collapseH2Button').addEventListener('click', function() {
+      collapseAllH2Sections();
+  });
+
+  // Collapse all but first error section button
+    document.getElementById('collapseAllButFirstError').addEventListener('click', function() {
+      collapseExceptFirstSpecialH2Section();
+  });
+
+  // Hide all header sections by default
+  collapseExceptFirstSpecialH2Section();
+  </script>
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<p><head>
+  </p>
+<style>
+h2 {
+    cursor: pointer;
+    border-top-color: #CCC;
+    border-top-width: 1px;
+    border-top-style: solid;
+    padding-top: 5px;
+}
+h2:hover {
+    color: #0056b3; /* Example color change on hover */
+}
+</style>
+<p></head></p>
+<p><a href="summary.html" rel="noopener noreferrer" target="_blank">< Return to Summary</a> | File Generated: Fri Jan 31 2025 11:19:27 GMT+0000 (Coordinated Universal Time)</p>
+<p><button id="collapseH2Button">Collapse All Sections</button>
+<button id="showH2Button">Show All Sections</button>
+<button id="collapseAllButFirstError">Show Only First Error</button></p>
+<h1 id="datasetsitedatasetsitejsonldvalid">dataset-site &gt;&gt; dataset-site-jsonld-valid</h1>
+<p><strong>Booking Flow:</strong> </p>
+<p><strong>Opportunity Type:</strong> </p>
+<p><strong>Feature:</strong> Core / Dataset Site (Implemented) </p>
+<p><strong>Test:</strong>  Dataset Site JSON-LD valid</p>
+<p>Validates the JSON-LD within the dataset site, using the microservice as a caching proxy. If you make changes to the dataset site, you must restart the microservice.</p>
+<h3 id="runningonlythistest">Running only this test</h3>
+<pre><code class="bash language-bash">npm start -- --runInBand test/features/core/dataset-site/implemented/dataset-site-jsonld-valid-test.js
+</code></pre>
+<h3 id="isthistestfailing">Is this test failing?</h3>
+<p>The <a href="https://openactive.io/openactive-test-suite/example-output/controlled/dataset-site_dataset-site-jsonld-valid_undefined_undefined.html" rel="noopener noreferrer" target="_blank">OpenActive Reference Implementation test result for this test</a> can be used as a reference to help with debugging.</p>
+<hr />
+<p>✅ 5 passed with 0 failures, 0 warnings and 0 suggestions </p>
+<hr />
+<h2 id="getdatasetsite">✅ Get Dataset Site</h2>
+<h3 id="datasetsitecachedproxyrequest">Dataset Site Cached Proxy Request</h3>
+<p>GET http://localhost:3000/dataset-site</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 53.092142ms.</p>
+<pre><code class="json language-json">{
+  "@context": [
+    "https://schema.org/",
+    "https://openactive.io/"
+  ],
+  "@type": "Dataset",
+  "@id": "https://localhost:5001/openactive/",
+  "name": "OpenActive Reference Implementation Sessions and Facilities",
+  "description": "Near real-time availability and rich descriptions relating to the sessions and facilities available from OpenActive Reference Implementation",
+  "accessService": {
+    "@type": "WebAPI",
+    "name": "Open Booking API",
+    "description": "API that allows for seamless booking experiences to be created for sessions and facilities available from OpenActive Reference Implementation",
+    "authenticationAuthority": "https://localhost:5003",
+    "conformsTo": [
+      "https://openactive.io/open-booking-api/EditorsDraft/"
+    ],
+    "documentation": "https://permalink.openactive.io/dataset-site/open-booking-api-documentation",
+    "endpointDescription": "https://www.openactive.io/open-booking-api/EditorsDraft/swagger.json",
+    "endpointUrl": "https://localhost:5001/api/openbooking",
+    "landingPage": "https://example.com/api-landing-page",
+    "termsOfService": "https://example.com/api-terms-page"
+  },
+  "backgroundImage": {
+    "@type": "ImageObject",
+    "url": "https://localhost:5001/images/placeholder-dataset-site-background.jpg"
+  },
+  "bookingService": {
+    "@type": "BookingService",
+    "name": "OpenActive Reference Implementation",
+    "hasCredential": "https://certificates.reference-implementation.openactive.io/examples/all-features/controlled/",
+    "softwareVersion": "1.0",
+    "url": "https://tutorials.openactive.io/open-booking-sdk/"
+  },
+  "dateModified": "2025-01-31T11:03:39+00:00",
+  "datePublished": "2019-01-14T00:00:00+00:00",
+  "discussionUrl": "https://github.com/openactive/OpenActive.Server.NET/issues",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "identifier": "ScheduledSession",
+      "name": "ScheduledSession",
+      "additionalType": "https://openactive.io/ScheduledSession",
+      "contentUrl": "https://localhost:5001/feeds/scheduled-sessions",
+      "encodingFormat": "application/vnd.openactive.rpde+json; version=1"
+    },
+    {
+      "@type": "DataDownload",
+      "identifier": "SessionSeries",
+      "name": "SessionSeries",
+      "additionalType": "https://openactive.io/SessionSeries",
+      "contentUrl": "https://localhost:5001/feeds/session-series",
+      "encodingFormat": "application/vnd.openactive.rpde+json; version=1"
+    },
+    {
+      "@type": "DataDownload",
+      "identifier": "FacilityUse",
+      "name": "FacilityUse",
+      "additionalType": "https://openactive.io/FacilityUse",
+      "contentUrl": "https://localhost:5001/feeds/facility-uses",
+      "encodingFormat": "application/vnd.openactive.rpde+json; version=1"
+    },
+    {
+      "@type": "DataDownload",
+      "identifier": "IndividualFacilityUseSlot",
+      "name": "Slot for IndividualFacilityUse",
+      "additionalType": "https://openactive.io/Slot",
+      "contentUrl": "https://localhost:5001/feeds/individual-facility-use-slots",
+      "encodingFormat": "application/vnd.openactive.rpde+json; version=1"
+    }
+  ],
+  "documentation": "https://developer.openactive.io/",
+  "inLanguage": [
+    "en-GB"
+  ],
+  "keywords": [
+    "Sessions",
+    "Facilities",
+    "Activities",
+    "Sports",
+    "Physical Activity",
+    "OpenActive"
+  ],
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "OpenActive Reference Implementation",
+    "description": "The Reference Implementation provides an example of an full conformant implementation of the OpenActive specifications.",
+    "email": "hello@example.com",
+    "legalName": "OpenActive Reference Implementation",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://localhost:5001/images/placeholder-logo.png"
+    },
+    "url": "https://www.example.com/"
+  },
+  "schemaVersion": "https://openactive.io/modelling-opportunity-data/2.0/",
+  "url": "https://localhost:5001/openactive/"
+}
+</code></pre>
+<h3 id="specs">Specs</h3>
+<ul>
+<li>✅ should contain JSON-LD representing the Dataset</li>
+<li>✅ should include accessService.endpointUrl of the Open Booking API</li>
+<li>✅ should include accessService.endpointUrl that does not end in a trailing "/"</li>
+<li>✅ should include <code>accessService.authenticationAuthority</code>, as the "booking-partner-openid-authentication" feature is "true" in the config</li>
+</ul>
+<h2 id="getdatasetsitevalidationofdatasetsite">✅ Get Dataset Site &gt;&gt; validation of Dataset Site</h2>
+<h3 id="specs-1">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations">Validations</h3>
+<script>
+  function collapseH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== 'none') {
+            nextElement.style.display = 'none';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function showH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== '') {
+            nextElement.style.display = '';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function toggleH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+              // Toggle visibility
+              nextElement.style.display = nextElement.style.display === 'none' ? '' : 'none';
+              nextElement = nextElement.nextElementSibling;
+          }
+  }
+
+  function collapseAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        collapseH2Section(nextElement);
+    });
+  }
+  function showAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        showH2Section(nextElement);
+    });
+  }
+
+  function collapseExceptFirstSpecialH2Section() {
+    const h2Elements = document.querySelectorAll('h2');
+    let specialSectionFound = false;
+
+    h2Elements.forEach((h2) => {
+        let nextNode = h2.nextElementSibling;
+        let sectionContainsSpecialChar = false;
+
+        // Iterate through sibling elements until the next H2 or no more siblings until the error section is found
+        while (nextNode && nextNode.tagName !== 'H2') {
+            if (!specialSectionFound && nextNode.textContent.includes('❌')) {
+                sectionContainsSpecialChar = true;
+                specialSectionFound = true; 
+                break;
+              }
+              showH2Section(nextNode);
+            nextNode = nextNode.nextElementSibling;
+        }
+
+        // If this section is not the one with the error, collapse it
+        if (!sectionContainsSpecialChar) {
+            nextNode = h2.nextElementSibling; 
+            collapseH2Section(nextNode);
+        }
+    });
+}
+
+
+  // Show/Hide each header section
+  document.querySelectorAll('h2').forEach(function(h2) {
+      h2.addEventListener('click', function() {
+          let nextElement = this.nextElementSibling;
+          toggleH2Section(nextElement)
+      });
+  });
+
+  // Show all header sections
+  document.getElementById('showH2Button').addEventListener('click', function() {
+      showAllH2Sections();
+  });
+
+  // Collapse all header sections
+  document.getElementById('collapseH2Button').addEventListener('click', function() {
+      collapseAllH2Sections();
+  });
+
+  // Collapse all but first error section button
+    document.getElementById('collapseAllButFirstError').addEventListener('click', function() {
+      collapseExceptFirstSpecialH2Section();
+  });
+
+  // Hide all header sections by default
+  collapseExceptFirstSpecialH2Section();
+  </script>
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<p><head>
+  </p>
+<style>
+h2 {
+    cursor: pointer;
+    border-top-color: #CCC;
+    border-top-width: 1px;
+    border-top-style: solid;
+    padding-top: 5px;
+}
+h2:hover {
+    color: #0056b3; /* Example color change on hover */
+}
+</style>
+<p></head></p>
+<p><a href="summary.html" rel="noopener noreferrer" target="_blank">< Return to Summary</a> | File Generated: Fri Jan 31 2025 11:31:16 GMT+0000 (Coordinated Universal Time)</p>
+<p><button id="collapseH2Button">Collapse All Sections</button>
+<button id="showH2Button">Show All Sections</button>
+<button id="collapseAllButFirstError">Show Only First Error</button></p>
+<h1 id="paymentreconciliationdetailvalidationpaymentreconciliationdetailvalidationincorrectdetailsnopaymentrequiredopenbookingsimpleflowscheduledsession">payment-reconciliation-detail-validation &gt;&gt; payment-reconciliation-detail-validation-incorrect-details-no-payment-required (OpenBookingSimpleFlow &gt;&gt; ScheduledSession)</h1>
+<p><strong>Booking Flow:</strong> OpenBookingSimpleFlow</p>
+<p><strong>Opportunity Type:</strong> ScheduledSession</p>
+<p><strong>Feature:</strong> Payment / Payment reconciliation detail validation (Implemented) </p>
+<p><strong>Test:</strong>  Payment reconciliation detail validation - incorrect reconciliation details, when no payment required</p>
+<p>B should return an InvalidPaymentDetailsError due to incorrect reconciliation data</p>
+<h3 id="runningonlythistest">Running only this test</h3>
+<pre><code class="bash language-bash">npm start -- --runInBand test/features/payment/payment-reconciliation-detail-validation/implemented/payment-reconciliation-detail-validation-incorrect-details-no-payment-required-test.js
+</code></pre>
+<h3 id="isthistestfailing">Is this test failing?</h3>
+<p>The <a href="https://openactive.io/openactive-test-suite/example-output/random/payment-reconciliation-detail-validation_payment-reconciliation-detail-validation-incorrect-details-no-payment-required_OpenBookingSimpleFlow_ScheduledSession.html" rel="noopener noreferrer" target="_blank">OpenActive Reference Implementation test result for this test</a> can be used as a reference to help with debugging.</p>
+<hr />
+<p>⚠️ 7 passed with 0 failures, 35 warnings and 18 suggestions </p>
+<hr />
+<h2 id="fetchopportunities">✅ Fetch Opportunities</h2>
+<h3 id="localmicroservicetestinterfacefororderitem0request">Local Microservice Test Interface for OrderItem 0 Request</h3>
+<p>POST http://localhost:3000/test-interface/datasets/uat-ci/opportunities</p>
+<pre><code class="json language-json">{
+  "@type": "ScheduledSession",
+  "superEvent": {
+    "@type": "SessionSeries",
+    "organizer": {
+      "@type": "Organization",
+      "@id": "https://localhost:5001/api/identifiers/sellers/1"
+    }
+  },
+  "@context": [
+    "https://openactive.io/",
+    "https://openactive.io/test-interface"
+  ],
+  "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookableFree",
+  "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingSimpleFlow"
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 105.402201ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "ScheduledSession",
+  "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/116/events/1154"
+}
+</code></pre>
+<h3 id="opportunityfeedextractfororderitem0request">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F116%2Fevents%2F1154?useCacheIfAvailable=true</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 28.510441ms.</p>
+<pre><code class="json language-json">{
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "ScheduledSession",
+    "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/116/events/1154",
+    "startDate": "2025-02-04T20:16:56+00:00",
+    "endDate": "2025-02-04T23:00:56+00:00",
+    "superEvent": {
+      "@type": "SessionSeries",
+      "@id": "https://localhost:5001/api/identifiers/session-series/116",
+      "identifier": 116,
+      "name": "Rubber Yoga",
+      "activity": [
+        {
+          "@type": "Concept",
+          "@id": "https://openactive.io/activity-list#bf1a5e00-cdcf-465d-8c5a-6f57040b7f7e",
+          "inScheme": "https://openactive.io/activity-list",
+          "prefLabel": "Yoga"
+        }
+      ],
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "offers": [
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/116#/offers/0",
+          "name": "Junior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Junior",
+            "maxValue": 17
+          },
+          "allowCustomerCancellationFullRefund": false,
+          "price": 0,
+          "priceCurrency": "GBP"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "@id": "https://localhost:5001/api/identifiers/sellers/1",
+        "name": "Acme Fitness Ltd",
+        "isOpenBookingAllowed": true,
+        "sameAs": [
+          "https://socialmedia.com/AcmeFitnessLtd"
+        ],
+        "taxMode": "https://openactive.io/TaxGross",
+        "telephone": "05986 307038",
+        "termsOfService": [
+          {
+            "@type": "PrivacyPolicy",
+            "name": "Privacy Policy",
+            "requiresExplicitConsent": false,
+            "url": "https://example.com/privacy.html"
+          }
+        ],
+        "url": "https://rowan.biz"
+      },
+      "url": "https://www.example.com/sessions/116"
+    },
+    "duration": "PT2H44M",
+    "maximumAttendeeCapacity": 11,
+    "remainingAttendeeCapacity": 11
+  }
+}
+</code></pre>
+<h3 id="specs">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="fetchopportunitiesvalidationofopportunityfeedextractfororderitem0">✅ Fetch Opportunities &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-1">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+<li>✅ matches the criteria 'TestOpportunityBookableFree' required for this test</li>
+</ul>
+<h3 id="validations">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.isAccessibleForFree: Where a <code>ScheduledSession</code> has at least one <code>Offer</code> with <code>price</code> set to <code>0</code>, it should also have a property named <code>isAccessibleForFree</code> set to <code>true</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.isAccessibleForFree: Where a <code>SessionSeries</code> has at least one <code>Offer</code> with <code>price</code> set to <code>0</code>, it should also have a property named <code>isAccessibleForFree</code> set to <code>true</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="c1">❔ C1</h2>
+<h3 id="c1request">C1 Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-quote-templates/6f47777b-b4de-4757-9891-39b9d4ab04d4</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com",
+    "description": "A fitness app for all the community",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alan Peacock Way",
+      "addressLocality": "Village East",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "seller": "https://localhost:5001/api/identifiers/sellers/1",
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/session-series/116#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/116/events/1154"
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "invalid-7iwCZ5MepB",
+    "accountId": "invalid-jXU8RU6CD",
+    "paymentProviderId": "invalid-ZIeOX6Z1px"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 400 Bad Request. Responded in 321.804356ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "InvalidPaymentDetailsError",
+  "name": "The 'payment' property of the 'OrderQuote' or 'Order' contains data that is not accepted by the Booking System for reconciliation, e.g. an invalid 'accountId'.",
+  "statusCode": 400,
+  "description": "Payment reconciliation details do not match"
+}
+</code></pre>
+<h2 id="c1validationofc1">✅ C1 &gt;&gt; validation of C1</h2>
+<h3 id="specs-2">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-1">Validations</h3>
+<ul>
+<li>⚠️ $.instance: Recommended property <code>instance</code> is missing from <code>InvalidPaymentDetailsError</code>.</li>
+</ul>
+<h2 id="assertopportunitycapacityafterc1">✅ Assert Opportunity Capacity (after C1)</h2>
+<h3 id="specs-3">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+<li>✅ should return a response containing <code>"@type": "InvalidPaymentDetailsError"</code> with status code <code>400</code></li>
+</ul>
+<h2 id="assertopportunitycapacityafterc1validationofopportunityfeedextractfororderitem0">✅ Assert Opportunity Capacity (after C1) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-4">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-2">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.isAccessibleForFree: Where a <code>ScheduledSession</code> has at least one <code>Offer</code> with <code>price</code> set to <code>0</code>, it should also have a property named <code>isAccessibleForFree</code> set to <code>true</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.isAccessibleForFree: Where a <code>SessionSeries</code> has at least one <code>Offer</code> with <code>price</code> set to <code>0</code>, it should also have a property named <code>isAccessibleForFree</code> set to <code>true</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="c2">❔ C2</h2>
+<h3 id="c2request">C2 Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-quotes/6f47777b-b4de-4757-9891-39b9d4ab04d4</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "brokerRole": "https://openactive.io/AgentBroker",
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com",
+    "description": "A fitness app for all the community",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alan Peacock Way",
+      "addressLocality": "Village East",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "seller": "https://localhost:5001/api/identifiers/sellers/1",
+  "customer": {
+    "@type": "Person",
+    "email": "Amara22@hotmail.com",
+    "telephone": "485.256.3227 x258",
+    "givenName": "Wiegand",
+    "identifier": "cb2fb8c2-bbc2-43bc-b075-915c0aa5ec5e"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/session-series/116#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/116/events/1154"
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "invalid-M5k8dIMouO",
+    "accountId": "invalid-olLqJ5cUz",
+    "paymentProviderId": "invalid-WeHYgzUFdo"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 400 Bad Request. Responded in 28.797146ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "InvalidPaymentDetailsError",
+  "name": "The 'payment' property of the 'OrderQuote' or 'Order' contains data that is not accepted by the Booking System for reconciliation, e.g. an invalid 'accountId'.",
+  "statusCode": 400,
+  "description": "Payment reconciliation details do not match"
+}
+</code></pre>
+<h2 id="c2validationofc2">✅ C2 &gt;&gt; validation of C2</h2>
+<h3 id="specs-5">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-3">Validations</h3>
+<ul>
+<li>⚠️ $.instance: Recommended property <code>instance</code> is missing from <code>InvalidPaymentDetailsError</code>.</li>
+</ul>
+<h2 id="assertopportunitycapacityafterc2">✅ Assert Opportunity Capacity (after C2)</h2>
+<h3 id="specs-6">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+<li>✅ should return a response containing <code>"@type": "InvalidPaymentDetailsError"</code> with status code <code>400</code></li>
+</ul>
+<h2 id="assertopportunitycapacityafterc2validationofopportunityfeedextractfororderitem0">✅ Assert Opportunity Capacity (after C2) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-7">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-4">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.isAccessibleForFree: Where a <code>ScheduledSession</code> has at least one <code>Offer</code> with <code>price</code> set to <code>0</code>, it should also have a property named <code>isAccessibleForFree</code> set to <code>true</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.isAccessibleForFree: Where a <code>SessionSeries</code> has at least one <code>Offer</code> with <code>price</code> set to <code>0</code>, it should also have a property named <code>isAccessibleForFree</code> set to <code>true</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<script>
+  function collapseH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== 'none') {
+            nextElement.style.display = 'none';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function showH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== '') {
+            nextElement.style.display = '';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function toggleH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+              // Toggle visibility
+              nextElement.style.display = nextElement.style.display === 'none' ? '' : 'none';
+              nextElement = nextElement.nextElementSibling;
+          }
+  }
+
+  function collapseAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        collapseH2Section(nextElement);
+    });
+  }
+  function showAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        showH2Section(nextElement);
+    });
+  }
+
+  function collapseExceptFirstSpecialH2Section() {
+    const h2Elements = document.querySelectorAll('h2');
+    let specialSectionFound = false;
+
+    h2Elements.forEach((h2) => {
+        let nextNode = h2.nextElementSibling;
+        let sectionContainsSpecialChar = false;
+
+        // Iterate through sibling elements until the next H2 or no more siblings until the error section is found
+        while (nextNode && nextNode.tagName !== 'H2') {
+            if (!specialSectionFound && nextNode.textContent.includes('❌')) {
+                sectionContainsSpecialChar = true;
+                specialSectionFound = true; 
+                break;
+              }
+              showH2Section(nextNode);
+            nextNode = nextNode.nextElementSibling;
+        }
+
+        // If this section is not the one with the error, collapse it
+        if (!sectionContainsSpecialChar) {
+            nextNode = h2.nextElementSibling; 
+            collapseH2Section(nextNode);
+        }
+    });
+}
+
+
+  // Show/Hide each header section
+  document.querySelectorAll('h2').forEach(function(h2) {
+      h2.addEventListener('click', function() {
+          let nextElement = this.nextElementSibling;
+          toggleH2Section(nextElement)
+      });
+  });
+
+  // Show all header sections
+  document.getElementById('showH2Button').addEventListener('click', function() {
+      showAllH2Sections();
+  });
+
+  // Collapse all header sections
+  document.getElementById('collapseH2Button').addEventListener('click', function() {
+      collapseAllH2Sections();
+  });
+
+  // Collapse all but first error section button
+    document.getElementById('collapseAllButFirstError').addEventListener('click', function() {
+      collapseExceptFirstSpecialH2Section();
+  });
+
+  // Hide all header sections by default
+  collapseExceptFirstSpecialH2Section();
+  </script>
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

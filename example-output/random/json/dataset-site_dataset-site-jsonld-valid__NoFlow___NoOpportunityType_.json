@@ -1,0 +1,622 @@
+{
+  "flow": {
+    "Dataset Site Cached Proxy": {
+      "events": [],
+      "response": {
+        "body": {
+          "@context": [
+            "https://schema.org/",
+            "https://openactive.io/"
+          ],
+          "@type": "Dataset",
+          "@id": "https://localhost:5001/openactive/",
+          "name": "OpenActive Reference Implementation Sessions and Facilities",
+          "description": "Near real-time availability and rich descriptions relating to the sessions and facilities available from OpenActive Reference Implementation",
+          "accessService": {
+            "@type": "WebAPI",
+            "name": "Open Booking API",
+            "description": "API that allows for seamless booking experiences to be created for sessions and facilities available from OpenActive Reference Implementation",
+            "authenticationAuthority": "https://localhost:5003",
+            "conformsTo": [
+              "https://openactive.io/open-booking-api/EditorsDraft/"
+            ],
+            "documentation": "https://permalink.openactive.io/dataset-site/open-booking-api-documentation",
+            "endpointDescription": "https://www.openactive.io/open-booking-api/EditorsDraft/swagger.json",
+            "endpointUrl": "https://localhost:5001/api/openbooking",
+            "landingPage": "https://example.com/api-landing-page",
+            "termsOfService": "https://example.com/api-terms-page"
+          },
+          "backgroundImage": {
+            "@type": "ImageObject",
+            "url": "https://localhost:5001/images/placeholder-dataset-site-background.jpg"
+          },
+          "bookingService": {
+            "@type": "BookingService",
+            "name": "OpenActive Reference Implementation",
+            "hasCredential": "https://certificates.reference-implementation.openactive.io/examples/all-features/controlled/",
+            "softwareVersion": "1.0",
+            "url": "https://tutorials.openactive.io/open-booking-sdk/"
+          },
+          "dateModified": "2025-01-31T11:03:57+00:00",
+          "datePublished": "2019-01-14T00:00:00+00:00",
+          "discussionUrl": "https://github.com/openactive/OpenActive.Server.NET/issues",
+          "distribution": [
+            {
+              "@type": "DataDownload",
+              "identifier": "ScheduledSession",
+              "name": "ScheduledSession",
+              "additionalType": "https://openactive.io/ScheduledSession",
+              "contentUrl": "https://localhost:5001/feeds/scheduled-sessions",
+              "encodingFormat": "application/vnd.openactive.rpde+json; version=1"
+            },
+            {
+              "@type": "DataDownload",
+              "identifier": "SessionSeries",
+              "name": "SessionSeries",
+              "additionalType": "https://openactive.io/SessionSeries",
+              "contentUrl": "https://localhost:5001/feeds/session-series",
+              "encodingFormat": "application/vnd.openactive.rpde+json; version=1"
+            },
+            {
+              "@type": "DataDownload",
+              "identifier": "FacilityUse",
+              "name": "FacilityUse",
+              "additionalType": "https://openactive.io/FacilityUse",
+              "contentUrl": "https://localhost:5001/feeds/facility-uses",
+              "encodingFormat": "application/vnd.openactive.rpde+json; version=1"
+            },
+            {
+              "@type": "DataDownload",
+              "identifier": "IndividualFacilityUseSlot",
+              "name": "Slot for IndividualFacilityUse",
+              "additionalType": "https://openactive.io/Slot",
+              "contentUrl": "https://localhost:5001/feeds/individual-facility-use-slots",
+              "encodingFormat": "application/vnd.openactive.rpde+json; version=1"
+            }
+          ],
+          "documentation": "https://developer.openactive.io/",
+          "inLanguage": [
+            "en-GB"
+          ],
+          "keywords": [
+            "Sessions",
+            "Facilities",
+            "Activities",
+            "Sports",
+            "Physical Activity",
+            "OpenActive"
+          ],
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "publisher": {
+            "@type": "Organization",
+            "name": "OpenActive Reference Implementation",
+            "description": "The Reference Implementation provides an example of an full conformant implementation of the OpenActive specifications.",
+            "email": "hello@example.com",
+            "legalName": "OpenActive Reference Implementation",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://localhost:5001/images/placeholder-logo.png"
+            },
+            "url": "https://www.example.com/"
+          },
+          "schemaVersion": "https://openactive.io/modelling-opportunity-data/2.0/",
+          "url": "https://localhost:5001/openactive/"
+        },
+        "responseTime": 90.613653,
+        "status": 200,
+        "statusMessage": "OK",
+        "headers": {
+          "x-powered-by": "Express",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3451",
+          "etag": "W/\"d7b-Y5P5VTMr418i0F5Yj5pUH3igEXI\"",
+          "date": "Fri, 31 Jan 2025 11:19:17 GMT",
+          "connection": "close"
+        }
+      }
+    },
+    "Dataset Site": {
+      "events": [],
+      "response": {
+        "validations": []
+      }
+    },
+    "Get Dataset Site": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "dataset-site",
+              "dataset-site-jsonld-valid",
+              "_NoFlow_",
+              "_NoOpportunityType_",
+              "Get Dataset Site"
+            ],
+            "duration": 82,
+            "failureMessages": [],
+            "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site should contain JSON-LD representing the Dataset",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should contain JSON-LD representing the Dataset"
+          },
+          {
+            "ancestorTitles": [
+              "dataset-site",
+              "dataset-site-jsonld-valid",
+              "_NoFlow_",
+              "_NoOpportunityType_",
+              "Get Dataset Site",
+              "validation of Dataset Site"
+            ],
+            "duration": 410,
+            "failureMessages": [],
+            "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site validation of Dataset Site passes validation checks",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "passes validation checks"
+          },
+          {
+            "ancestorTitles": [
+              "dataset-site",
+              "dataset-site-jsonld-valid",
+              "_NoFlow_",
+              "_NoOpportunityType_",
+              "Get Dataset Site"
+            ],
+            "duration": 3,
+            "failureMessages": [],
+            "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site should include accessService.endpointUrl of the Open Booking API",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should include accessService.endpointUrl of the Open Booking API"
+          },
+          {
+            "ancestorTitles": [
+              "dataset-site",
+              "dataset-site-jsonld-valid",
+              "_NoFlow_",
+              "_NoOpportunityType_",
+              "Get Dataset Site"
+            ],
+            "duration": 21,
+            "failureMessages": [],
+            "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site should include accessService.endpointUrl that does not end in a trailing \"/\"",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should include accessService.endpointUrl that does not end in a trailing \"/\""
+          },
+          {
+            "ancestorTitles": [
+              "dataset-site",
+              "dataset-site-jsonld-valid",
+              "_NoFlow_",
+              "_NoOpportunityType_",
+              "Get Dataset Site"
+            ],
+            "duration": 1,
+            "failureMessages": [],
+            "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site should include `accessService.authenticationAuthority`, as the \"booking-partner-openid-authentication\" feature is \"true\" in the config",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should include `accessService.authenticationAuthority`, as the \"booking-partner-openid-authentication\" feature is \"true\" in the config"
+          }
+        ]
+      }
+    },
+    "Feature Description Assertions (for OpenActive maintainers)": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "dataset-site",
+              "dataset-site-jsonld-valid",
+              "_NoFlow_",
+              "_NoOpportunityType_",
+              "Feature Description Assertions (for OpenActive maintainers)"
+            ],
+            "duration": 1,
+            "failureMessages": [],
+            "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+          }
+        ]
+      }
+    }
+  },
+  "logs": [
+    {
+      "ancestorTitles": [
+        "dataset-site",
+        "dataset-site-jsonld-valid",
+        "_NoFlow_",
+        "_NoOpportunityType_",
+        "Get Dataset Site"
+      ],
+      "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site",
+      "type": "request",
+      "stage": "Dataset Site Cached Proxy",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/dataset-site",
+        "jsonBody": null,
+        "requestOptions": {
+          "timeout": 20000
+        }
+      },
+      "isPending": false,
+      "duration": 0,
+      "response": {
+        "body": {
+          "@context": [
+            "https://schema.org/",
+            "https://openactive.io/"
+          ],
+          "@type": "Dataset",
+          "@id": "https://localhost:5001/openactive/",
+          "name": "OpenActive Reference Implementation Sessions and Facilities",
+          "description": "Near real-time availability and rich descriptions relating to the sessions and facilities available from OpenActive Reference Implementation",
+          "accessService": {
+            "@type": "WebAPI",
+            "name": "Open Booking API",
+            "description": "API that allows for seamless booking experiences to be created for sessions and facilities available from OpenActive Reference Implementation",
+            "authenticationAuthority": "https://localhost:5003",
+            "conformsTo": [
+              "https://openactive.io/open-booking-api/EditorsDraft/"
+            ],
+            "documentation": "https://permalink.openactive.io/dataset-site/open-booking-api-documentation",
+            "endpointDescription": "https://www.openactive.io/open-booking-api/EditorsDraft/swagger.json",
+            "endpointUrl": "https://localhost:5001/api/openbooking",
+            "landingPage": "https://example.com/api-landing-page",
+            "termsOfService": "https://example.com/api-terms-page"
+          },
+          "backgroundImage": {
+            "@type": "ImageObject",
+            "url": "https://localhost:5001/images/placeholder-dataset-site-background.jpg"
+          },
+          "bookingService": {
+            "@type": "BookingService",
+            "name": "OpenActive Reference Implementation",
+            "hasCredential": "https://certificates.reference-implementation.openactive.io/examples/all-features/controlled/",
+            "softwareVersion": "1.0",
+            "url": "https://tutorials.openactive.io/open-booking-sdk/"
+          },
+          "dateModified": "2025-01-31T11:03:57+00:00",
+          "datePublished": "2019-01-14T00:00:00+00:00",
+          "discussionUrl": "https://github.com/openactive/OpenActive.Server.NET/issues",
+          "distribution": [
+            {
+              "@type": "DataDownload",
+              "identifier": "ScheduledSession",
+              "name": "ScheduledSession",
+              "additionalType": "https://openactive.io/ScheduledSession",
+              "contentUrl": "https://localhost:5001/feeds/scheduled-sessions",
+              "encodingFormat": "application/vnd.openactive.rpde+json; version=1"
+            },
+            {
+              "@type": "DataDownload",
+              "identifier": "SessionSeries",
+              "name": "SessionSeries",
+              "additionalType": "https://openactive.io/SessionSeries",
+              "contentUrl": "https://localhost:5001/feeds/session-series",
+              "encodingFormat": "application/vnd.openactive.rpde+json; version=1"
+            },
+            {
+              "@type": "DataDownload",
+              "identifier": "FacilityUse",
+              "name": "FacilityUse",
+              "additionalType": "https://openactive.io/FacilityUse",
+              "contentUrl": "https://localhost:5001/feeds/facility-uses",
+              "encodingFormat": "application/vnd.openactive.rpde+json; version=1"
+            },
+            {
+              "@type": "DataDownload",
+              "identifier": "IndividualFacilityUseSlot",
+              "name": "Slot for IndividualFacilityUse",
+              "additionalType": "https://openactive.io/Slot",
+              "contentUrl": "https://localhost:5001/feeds/individual-facility-use-slots",
+              "encodingFormat": "application/vnd.openactive.rpde+json; version=1"
+            }
+          ],
+          "documentation": "https://developer.openactive.io/",
+          "inLanguage": [
+            "en-GB"
+          ],
+          "keywords": [
+            "Sessions",
+            "Facilities",
+            "Activities",
+            "Sports",
+            "Physical Activity",
+            "OpenActive"
+          ],
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "publisher": {
+            "@type": "Organization",
+            "name": "OpenActive Reference Implementation",
+            "description": "The Reference Implementation provides an example of an full conformant implementation of the OpenActive specifications.",
+            "email": "hello@example.com",
+            "legalName": "OpenActive Reference Implementation",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://localhost:5001/images/placeholder-logo.png"
+            },
+            "url": "https://www.example.com/"
+          },
+          "schemaVersion": "https://openactive.io/modelling-opportunity-data/2.0/",
+          "url": "https://localhost:5001/openactive/"
+        },
+        "responseTime": 90.613653,
+        "status": 200,
+        "statusMessage": "OK",
+        "headers": {
+          "x-powered-by": "Express",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3451",
+          "etag": "W/\"d7b-Y5P5VTMr418i0F5Yj5pUH3igEXI\"",
+          "date": "Fri, 31 Jan 2025 11:19:17 GMT",
+          "connection": "close"
+        }
+      }
+    },
+    {
+      "ancestorTitles": [
+        "dataset-site",
+        "dataset-site-jsonld-valid",
+        "_NoFlow_",
+        "_NoOpportunityType_",
+        "Get Dataset Site",
+        "validation of Dataset Site"
+      ],
+      "title": "passes validation checks",
+      "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site validation of Dataset Site passes validation checks",
+      "type": "validations",
+      "stage": "Dataset Site",
+      "validations": []
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "dataset-site",
+        "dataset-site-jsonld-valid",
+        "_NoFlow_",
+        "_NoOpportunityType_",
+        "Get Dataset Site"
+      ],
+      "title": "should contain JSON-LD representing the Dataset",
+      "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site should contain JSON-LD representing the Dataset",
+      "spec": {
+        "ancestorTitles": [
+          "dataset-site",
+          "dataset-site-jsonld-valid",
+          "_NoFlow_",
+          "_NoOpportunityType_",
+          "Get Dataset Site"
+        ],
+        "duration": 82,
+        "failureMessages": [],
+        "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site should contain JSON-LD representing the Dataset",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should contain JSON-LD representing the Dataset"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "dataset-site",
+        "dataset-site-jsonld-valid",
+        "_NoFlow_",
+        "_NoOpportunityType_",
+        "Get Dataset Site",
+        "validation of Dataset Site"
+      ],
+      "title": "passes validation checks",
+      "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site validation of Dataset Site passes validation checks",
+      "spec": {
+        "ancestorTitles": [
+          "dataset-site",
+          "dataset-site-jsonld-valid",
+          "_NoFlow_",
+          "_NoOpportunityType_",
+          "Get Dataset Site",
+          "validation of Dataset Site"
+        ],
+        "duration": 410,
+        "failureMessages": [],
+        "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site validation of Dataset Site passes validation checks",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "passes validation checks"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "dataset-site",
+        "dataset-site-jsonld-valid",
+        "_NoFlow_",
+        "_NoOpportunityType_",
+        "Get Dataset Site"
+      ],
+      "title": "should include accessService.endpointUrl of the Open Booking API",
+      "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site should include accessService.endpointUrl of the Open Booking API",
+      "spec": {
+        "ancestorTitles": [
+          "dataset-site",
+          "dataset-site-jsonld-valid",
+          "_NoFlow_",
+          "_NoOpportunityType_",
+          "Get Dataset Site"
+        ],
+        "duration": 3,
+        "failureMessages": [],
+        "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site should include accessService.endpointUrl of the Open Booking API",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should include accessService.endpointUrl of the Open Booking API"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "dataset-site",
+        "dataset-site-jsonld-valid",
+        "_NoFlow_",
+        "_NoOpportunityType_",
+        "Get Dataset Site"
+      ],
+      "title": "should include accessService.endpointUrl that does not end in a trailing \"/\"",
+      "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site should include accessService.endpointUrl that does not end in a trailing \"/\"",
+      "spec": {
+        "ancestorTitles": [
+          "dataset-site",
+          "dataset-site-jsonld-valid",
+          "_NoFlow_",
+          "_NoOpportunityType_",
+          "Get Dataset Site"
+        ],
+        "duration": 21,
+        "failureMessages": [],
+        "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site should include accessService.endpointUrl that does not end in a trailing \"/\"",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should include accessService.endpointUrl that does not end in a trailing \"/\""
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "dataset-site",
+        "dataset-site-jsonld-valid",
+        "_NoFlow_",
+        "_NoOpportunityType_",
+        "Get Dataset Site"
+      ],
+      "title": "should include `accessService.authenticationAuthority`, as the \"booking-partner-openid-authentication\" feature is \"true\" in the config",
+      "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site should include `accessService.authenticationAuthority`, as the \"booking-partner-openid-authentication\" feature is \"true\" in the config",
+      "spec": {
+        "ancestorTitles": [
+          "dataset-site",
+          "dataset-site-jsonld-valid",
+          "_NoFlow_",
+          "_NoOpportunityType_",
+          "Get Dataset Site"
+        ],
+        "duration": 1,
+        "failureMessages": [],
+        "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Get Dataset Site should include `accessService.authenticationAuthority`, as the \"booking-partner-openid-authentication\" feature is \"true\" in the config",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should include `accessService.authenticationAuthority`, as the \"booking-partner-openid-authentication\" feature is \"true\" in the config"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "dataset-site",
+        "dataset-site-jsonld-valid",
+        "_NoFlow_",
+        "_NoOpportunityType_",
+        "Feature Description Assertions (for OpenActive maintainers)"
+      ],
+      "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "spec": {
+        "ancestorTitles": [
+          "dataset-site",
+          "dataset-site-jsonld-valid",
+          "_NoFlow_",
+          "_NoOpportunityType_",
+          "Feature Description Assertions (for OpenActive maintainers)"
+        ],
+        "duration": 1,
+        "failureMessages": [],
+        "fullName": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_ Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+      }
+    }
+  ],
+  "timestamp": "Fri Jan 31 2025 11:19:17 GMT+0000 (Coordinated Universal Time)",
+  "config": {
+    "testCategory": "core",
+    "testFeature": "dataset-site",
+    "testFeatureImplemented": true,
+    "testIdentifier": "dataset-site-jsonld-valid",
+    "testName": "Dataset Site JSON-LD valid",
+    "testDescription": "Validates the JSON-LD within the dataset site, using the microservice as a caching proxy. If you make changes to the dataset site, you must restart the microservice.",
+    "doesNotUseOpportunitiesMode": true
+  },
+  "implemented": true,
+  "testFileIdentifier": "dataset-site dataset-site-jsonld-valid _NoFlow_ _NoOpportunityType_",
+  "suites": [
+    [
+      "dataset-site",
+      "dataset-site-jsonld-valid",
+      "_NoFlow_",
+      "_NoOpportunityType_"
+    ],
+    [
+      "dataset-site",
+      "dataset-site-jsonld-valid",
+      "_NoFlow_",
+      "_NoOpportunityType_",
+      "Get Dataset Site"
+    ],
+    [
+      "dataset-site",
+      "dataset-site-jsonld-valid",
+      "_NoFlow_",
+      "_NoOpportunityType_",
+      "Get Dataset Site",
+      "validation of Dataset Site"
+    ],
+    [
+      "dataset-site",
+      "dataset-site-jsonld-valid",
+      "_NoFlow_",
+      "_NoOpportunityType_",
+      "Feature Description Assertions (for OpenActive maintainers)"
+    ]
+  ],
+  "title": "dataset-site >> dataset-site-jsonld-valid",
+  "workingLog": "",
+  "specs": {
+    "dataset-site,dataset-site-jsonld-valid,_NoFlow_,_NoOpportunityType_,Get Dataset Site": [
+      "should contain JSON-LD representing the Dataset",
+      "should include accessService.endpointUrl of the Open Booking API",
+      "should include accessService.endpointUrl that does not end in a trailing \"/\"",
+      "should include `accessService.authenticationAuthority`, as the \"booking-partner-openid-authentication\" feature is \"true\" in the config"
+    ],
+    "dataset-site,dataset-site-jsonld-valid,_NoFlow_,_NoOpportunityType_,Get Dataset Site,validation of Dataset Site": [
+      "passes validation checks"
+    ],
+    "dataset-site,dataset-site-jsonld-valid,_NoFlow_,_NoOpportunityType_,Feature Description Assertions (for OpenActive maintainers)": [
+      "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+    ]
+  },
+  "description": "Validates the JSON-LD within the dataset site, using the microservice as a caching proxy. If you make changes to the dataset site, you must restart the microservice.",
+  "baseAncestorTitles": [
+    "dataset-site",
+    "dataset-site-jsonld-valid",
+    "_NoFlow_",
+    "_NoOpportunityType_"
+  ]
+}

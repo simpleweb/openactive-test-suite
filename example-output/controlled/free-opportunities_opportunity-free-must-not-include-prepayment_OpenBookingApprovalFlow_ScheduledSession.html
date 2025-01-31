@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<p><head>
+  </p>
+<style>
+h2 {
+    cursor: pointer;
+    border-top-color: #CCC;
+    border-top-width: 1px;
+    border-top-style: solid;
+    padding-top: 5px;
+}
+h2:hover {
+    color: #0056b3; /* Example color change on hover */
+}
+</style>
+<p></head></p>
+<p><a href="summary.html" rel="noopener noreferrer" target="_blank">< Return to Summary</a> | File Generated: Fri Jan 31 2025 11:34:23 GMT+0000 (Coordinated Universal Time)</p>
+<p><button id="collapseH2Button">Collapse All Sections</button>
+<button id="showH2Button">Show All Sections</button>
+<button id="collapseAllButFirstError">Show Only First Error</button></p>
+<h1 id="freeopportunitiesopportunityfreemustnotincludeprepaymentopenbookingapprovalflowscheduledsession">free-opportunities &gt;&gt; opportunity-free-must-not-include-prepayment (OpenBookingApprovalFlow &gt;&gt; ScheduledSession)</h1>
+<p><strong>Booking Flow:</strong> OpenBookingApprovalFlow</p>
+<p><strong>Opportunity Type:</strong> ScheduledSession</p>
+<p><strong>Feature:</strong> Payment / Free opportunities (Implemented) </p>
+<p><strong>Test:</strong>  Free opportunities must have either a <code>openBookingPrepayment</code> value of Unspecified, or have no <code>openBookingPrepayment</code> specified</p>
+<p>Assert that no opportunities that match criteria 'TestOpportunityBookableFreePrepaymentOptional' or 'TestOpportunityBookableFreePrepaymentRequired' are available in the opportunity feeds.</p>
+<h3 id="runningonlythistest">Running only this test</h3>
+<pre><code class="bash language-bash">npm start -- --runInBand test/features/payment/free-opportunities/implemented/opportunity-free-must-not-include-prepayment-test.js
+</code></pre>
+<h3 id="isthistestfailing">Is this test failing?</h3>
+<p>The <a href="https://openactive.io/openactive-test-suite/example-output/controlled/free-opportunities_opportunity-free-must-not-include-prepayment_OpenBookingApprovalFlow_ScheduledSession.html" rel="noopener noreferrer" target="_blank">OpenActive Reference Implementation test result for this test</a> can be used as a reference to help with debugging.</p>
+<hr />
+<p>✅ 3 passed with 0 failures, 0 warnings and 0 suggestions </p>
+<hr />
+<h2 id="testopportunitybookablefreeprepaymentoptionalopportunityfeeditems">✅ TestOpportunityBookableFreePrepaymentOptional opportunity feed items</h2>
+<h3 id="assertunmatchedcriteriax27testopportunitybookablefreeprepaymentoptionalx27forx27scheduledsessionx27request">Assert Unmatched Criteria &#x27;TestOpportunityBookableFreePrepaymentOptional&#x27; for &#x27;ScheduledSession&#x27; Request</h3>
+<p>POST http://localhost:3000/assert-unmatched-criteria</p>
+<pre><code class="json language-json">{
+  "@type": "ScheduledSession",
+  "superEvent": {
+    "@type": "SessionSeries"
+  },
+  "@context": [
+    "https://openactive.io/",
+    "https://openactive.io/test-interface"
+  ],
+  "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional",
+  "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+}
+</code></pre>
+<hr />
+<p>Response status code: 204 No Content. Responded in 9.636356ms.</p>
+<h3 id="specs">Specs</h3>
+<ul>
+<li>✅ should be no events matching the <a href="https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional" rel="noopener noreferrer" target="_blank">TestOpportunityBookableFreePrepaymentOptional</a> criteria in the 'ScheduledSession' feed(s)</li>
+</ul>
+<h2 id="testopportunitybookablefreeprepaymentrequiredopportunityfeeditems">✅ TestOpportunityBookableFreePrepaymentRequired opportunity feed items</h2>
+<h3 id="assertunmatchedcriteriax27testopportunitybookablefreeprepaymentrequiredx27forx27scheduledsessionx27request">Assert Unmatched Criteria &#x27;TestOpportunityBookableFreePrepaymentRequired&#x27; for &#x27;ScheduledSession&#x27; Request</h3>
+<p>POST http://localhost:3000/assert-unmatched-criteria</p>
+<pre><code class="json language-json">{
+  "@type": "ScheduledSession",
+  "superEvent": {
+    "@type": "SessionSeries"
+  },
+  "@context": [
+    "https://openactive.io/",
+    "https://openactive.io/test-interface"
+  ],
+  "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired",
+  "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+}
+</code></pre>
+<hr />
+<p>Response status code: 204 No Content. Responded in 12.10257ms.</p>
+<h3 id="specs-1">Specs</h3>
+<ul>
+<li>✅ should be no events matching the <a href="https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired" rel="noopener noreferrer" target="_blank">TestOpportunityBookableFreePrepaymentRequired</a> criteria in the 'ScheduledSession' feed(s)</li>
+</ul>
+<script>
+  function collapseH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== 'none') {
+            nextElement.style.display = 'none';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function showH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== '') {
+            nextElement.style.display = '';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function toggleH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+              // Toggle visibility
+              nextElement.style.display = nextElement.style.display === 'none' ? '' : 'none';
+              nextElement = nextElement.nextElementSibling;
+          }
+  }
+
+  function collapseAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        collapseH2Section(nextElement);
+    });
+  }
+  function showAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        showH2Section(nextElement);
+    });
+  }
+
+  function collapseExceptFirstSpecialH2Section() {
+    const h2Elements = document.querySelectorAll('h2');
+    let specialSectionFound = false;
+
+    h2Elements.forEach((h2) => {
+        let nextNode = h2.nextElementSibling;
+        let sectionContainsSpecialChar = false;
+
+        // Iterate through sibling elements until the next H2 or no more siblings until the error section is found
+        while (nextNode && nextNode.tagName !== 'H2') {
+            if (!specialSectionFound && nextNode.textContent.includes('❌')) {
+                sectionContainsSpecialChar = true;
+                specialSectionFound = true; 
+                break;
+              }
+              showH2Section(nextNode);
+            nextNode = nextNode.nextElementSibling;
+        }
+
+        // If this section is not the one with the error, collapse it
+        if (!sectionContainsSpecialChar) {
+            nextNode = h2.nextElementSibling; 
+            collapseH2Section(nextNode);
+        }
+    });
+}
+
+
+  // Show/Hide each header section
+  document.querySelectorAll('h2').forEach(function(h2) {
+      h2.addEventListener('click', function() {
+          let nextElement = this.nextElementSibling;
+          toggleH2Section(nextElement)
+      });
+  });
+
+  // Show all header sections
+  document.getElementById('showH2Button').addEventListener('click', function() {
+      showAllH2Sections();
+  });
+
+  // Collapse all header sections
+  document.getElementById('collapseH2Button').addEventListener('click', function() {
+      collapseAllH2Sections();
+  });
+
+  // Collapse all but first error section button
+    document.getElementById('collapseAllButFirstError').addEventListener('click', function() {
+      collapseExceptFirstSpecialH2Section();
+  });
+
+  // Hide all header sections by default
+  collapseExceptFirstSpecialH2Section();
+  </script>
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

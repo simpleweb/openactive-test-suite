@@ -1,0 +1,2588 @@
+{
+  "flow": {
+    "Local Microservice Test Interface for OrderItem 0": {
+      "events": [],
+      "request": {
+        "@type": "ScheduledSession",
+        "superEvent": {
+          "@type": "SessionSeries",
+          "organizer": {
+            "@type": "Organization",
+            "@id": "https://localhost:5001/api/identifiers/sellers/1"
+          }
+        },
+        "@context": [
+          "https://openactive.io/",
+          "https://openactive.io/test-interface"
+        ],
+        "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable",
+        "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+      },
+      "response": {
+        "body": {
+          "@context": "https://openactive.io/",
+          "@type": "ScheduledSession",
+          "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139"
+        },
+        "responseTime": 3.908097,
+        "status": 200,
+        "statusMessage": "OK",
+        "headers": {
+          "x-powered-by": "Express",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "148",
+          "etag": "W/\"94-y/s7vHAVIhshzvMgg7EgTy6D6eo\"",
+          "date": "Fri, 31 Jan 2025 11:16:34 GMT",
+          "connection": "close"
+        }
+      }
+    },
+    "Opportunity Feed extract for OrderItem 0": {
+      "events": [],
+      "response": {
+        "body": {
+          "data": {
+            "@context": [
+              "https://openactive.io/"
+            ],
+            "@type": "ScheduledSession",
+            "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139",
+            "startDate": "2025-02-01T09:10:56+00:00",
+            "endDate": "2025-02-01T13:12:56+00:00",
+            "superEvent": {
+              "@type": "SessionSeries",
+              "@id": "https://localhost:5001/api/identifiers/session-series/1714",
+              "identifier": 1714,
+              "name": "Cotton Yoga",
+              "activity": [
+                {
+                  "@type": "Concept",
+                  "@id": "https://openactive.io/activity-list#bf1a5e00-cdcf-465d-8c5a-6f57040b7f7e",
+                  "inScheme": "https://openactive.io/activity-list",
+                  "prefLabel": "Yoga"
+                }
+              ],
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "location": {
+                "@type": "Place",
+                "@id": "https://example.com/place/2",
+                "identifier": 2,
+                "name": "Premier Lifters",
+                "description": "Where your Fitness Goals are Always Inn-Sight. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "GB",
+                  "addressLocality": "Oxford",
+                  "addressRegion": "Oxfordshire",
+                  "postalCode": "OX1 1BB",
+                  "streetAddress": "Greyfriars Court, Paradise Square"
+                },
+                "amenityFeature": [
+                  {
+                    "@type": "ChangingFacilities",
+                    "name": "Changing Facilities",
+                    "value": false
+                  },
+                  {
+                    "@type": "Showers",
+                    "name": "Showers",
+                    "value": false
+                  },
+                  {
+                    "@type": "Lockers",
+                    "name": "Lockers",
+                    "value": false
+                  },
+                  {
+                    "@type": "Towels",
+                    "name": "Towels",
+                    "value": true
+                  },
+                  {
+                    "@type": "Creche",
+                    "name": "Creche",
+                    "value": true
+                  },
+                  {
+                    "@type": "Parking",
+                    "name": "Parking",
+                    "value": true
+                  }
+                ],
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 51.7504933,
+                  "longitude": -1.2620685
+                },
+                "image": [
+                  {
+                    "@type": "ImageObject",
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Cambridge_Orchard_Park_Premier_Inn.jpg"
+                  }
+                ],
+                "openingHoursSpecification": [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "17:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Sunday"
+                    ],
+                    "opens": "09:00"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Monday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Tuesday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Wednesday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Thursday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Friday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "17:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Saturday"
+                    ],
+                    "opens": "09:00"
+                  }
+                ],
+                "telephone": "01865 000002",
+                "url": "https://en.wikipedia.org/wiki/Premier_Inn"
+              },
+              "offers": [
+                {
+                  "@type": "Offer",
+                  "@id": "https://localhost:5001/api/identifiers/session-series/1714#/offers/0",
+                  "name": "Junior",
+                  "acceptedPaymentMethod": [
+                    "http://purl.org/goodrelations/v1#Cash",
+                    "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+                  ],
+                  "ageRestriction": {
+                    "@type": "QuantitativeValue",
+                    "name": "Junior",
+                    "maxValue": 17
+                  },
+                  "allowCustomerCancellationFullRefund": false,
+                  "openBookingFlowRequirement": [
+                    "https://openactive.io/OpenBookingApproval"
+                  ],
+                  "openBookingPrepayment": "https://openactive.io/Unavailable",
+                  "price": 0,
+                  "priceCurrency": "GBP",
+                  "validFromBeforeStartDate": "P3DT14H55M"
+                },
+                {
+                  "@type": "Offer",
+                  "@id": "https://localhost:5001/api/identifiers/session-series/1714#/offers/0",
+                  "name": "Senior",
+                  "acceptedPaymentMethod": [
+                    "http://purl.org/goodrelations/v1#Cash",
+                    "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+                  ],
+                  "ageRestriction": {
+                    "@type": "QuantitativeValue",
+                    "name": "Senior",
+                    "minValue": 60
+                  },
+                  "allowCustomerCancellationFullRefund": false,
+                  "openBookingFlowRequirement": [
+                    "https://openactive.io/OpenBookingApproval"
+                  ],
+                  "openBookingPrepayment": "https://openactive.io/Unavailable",
+                  "price": 0,
+                  "priceCurrency": "GBP",
+                  "validFromBeforeStartDate": "P3DT14H55M"
+                }
+              ],
+              "organizer": {
+                "@type": "Organization",
+                "@id": "https://localhost:5001/api/identifiers/sellers/1",
+                "name": "Acme Fitness Ltd",
+                "isOpenBookingAllowed": true,
+                "sameAs": [
+                  "https://socialmedia.com/AcmeFitnessLtd"
+                ],
+                "taxMode": "https://openactive.io/TaxGross",
+                "telephone": "00483 030691",
+                "termsOfService": [
+                  {
+                    "@type": "PrivacyPolicy",
+                    "name": "Privacy Policy",
+                    "requiresExplicitConsent": false,
+                    "url": "https://example.com/privacy.html"
+                  }
+                ],
+                "url": "https://robb.info"
+              },
+              "url": "https://www.example.com/sessions/1714"
+            },
+            "duration": "PT4H2M",
+            "maximumAttendeeCapacity": 3,
+            "remainingAttendeeCapacity": 3
+          }
+        },
+        "responseTime": 2.950145,
+        "status": 200,
+        "statusMessage": "OK",
+        "headers": {
+          "x-powered-by": "Express",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4597",
+          "etag": "W/\"11f5-hp1qzrWsJa6cUkO1lxIna9M0DKM\"",
+          "date": "Fri, 31 Jan 2025 11:16:34 GMT",
+          "connection": "close"
+        },
+        "validations": [
+          {
+            "path": "$.eventStatus",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `eventStatus` is missing from `ScheduledSession`.\n\nA full example looks like this:\n\n```\n\"eventStatus\": \"https://schema.org/EventScheduled\"\n```"
+          },
+          {
+            "path": "$.leader",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `leader` is missing from `ScheduledSession`.\n\nA full example looks like this:\n\n```\n\"leader\": [\n  {\n    \"@type\": \"Person\",\n    \"familyName\": \"Smith\",\n    \"givenName\": \"Nicole\",\n    \"gender\": \"https://schema.org/Male\",\n    \"@id\": \"https://example.com/locations/1234ABCD/leaders/89\",\n    \"identifier\": 89\n  }\n]\n```"
+          },
+          {
+            "path": "$.url",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `url` is missing from `ScheduledSession`.\n\nA full example looks like this:\n\n```\n\"url\": \"https://example.com/event/1234\"\n```"
+          },
+          {
+            "path": "$.isAccessibleForFree",
+            "rule": "IsAccessibleForFreeRule",
+            "category": "data-quality",
+            "type": "missing_is_accessible_for_free",
+            "severity": "warning",
+            "message": "Where a `ScheduledSession` has at least one `Offer` with `price` set to `0`, it should also have a property named `isAccessibleForFree` set to `true`.\n\nFor example:\n\n```\n{\n  \"@type\": \"ScheduledSession\",\n  \"offers\": [\n    {\n      \"@type\": \"Offer\",\n      \"price\": 0\n    }\n  ],\n  \"isAccessibleForFree\": true\n}\n```"
+          },
+          {
+            "path": "$.superEvent.description",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `description` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"description\": \"A fast paced game that incorporates netball, handball and football.\"\n```"
+          },
+          {
+            "path": "$.superEvent.image",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `image` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"image\": [\n  {\n    \"@type\": \"ImageObject\",\n    \"url\": \"http://example.com/static/image/speedball_large.jpg\",\n    \"thumbnail\": [\n      {\n        \"@type\": \"ImageObject\",\n        \"url\": \"http://example.com/static/image/speedball_thumbnail.jpg\"\n      }\n    ]\n  }\n]\n```"
+          },
+          {
+            "path": "$.superEvent.ageRange",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `ageRange` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"ageRange\": {\n  \"@type\": \"QuantitativeValue\",\n  \"minValue\": 50,\n  \"maxValue\": 60\n}\n```"
+          },
+          {
+            "path": "$.superEvent.genderRestriction",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `genderRestriction` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"genderRestriction\": \"https://openactive.io/FemaleOnly\"\n```"
+          },
+          {
+            "path": "$.superEvent.leader",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `leader` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"leader\": [\n  {\n    \"@type\": \"Person\",\n    \"familyName\": \"Smith\",\n    \"givenName\": \"Nicole\",\n    \"gender\": \"https://schema.org/Male\",\n    \"@id\": \"https://example.com/locations/1234ABCD/leaders/89\",\n    \"identifier\": 89\n  }\n]\n```"
+          },
+          {
+            "path": "$.superEvent.level",
+            "rule": "RecommendedFieldsRule",
+            "category": "conformance",
+            "type": "missing_recommended_field",
+            "severity": "warning",
+            "message": "Recommended property `level` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"level\": [\n  \"Beginner\"\n]\n```"
+          },
+          {
+            "path": "$.superEvent.isAccessibleForFree",
+            "rule": "IsAccessibleForFreeRule",
+            "category": "data-quality",
+            "type": "missing_is_accessible_for_free",
+            "severity": "warning",
+            "message": "Where a `SessionSeries` has at least one `Offer` with `price` set to `0`, it should also have a property named `isAccessibleForFree` set to `true`.\n\nFor example:\n\n```\n{\n  \"@type\": \"SessionSeries\",\n  \"offers\": [\n    {\n      \"@type\": \"Offer\",\n      \"price\": 0\n    }\n  ],\n  \"isAccessibleForFree\": true\n}\n```"
+          },
+          {
+            "path": "$.genderRestriction",
+            "rule": "AssumeNoGenderRestrictionRule",
+            "category": "data-quality",
+            "type": "consumer_assume_no_gender_restriction",
+            "severity": "suggestion",
+            "message": "Data consumers will assume that there is no gender restriction when no valid `genderRestriction` is supplied on a `ScheduledSession`."
+          },
+          {
+            "path": "$.ageRange",
+            "rule": "AssumeAgeRangeRule",
+            "category": "data-quality",
+            "type": "consumer_assume_age_range",
+            "severity": "suggestion",
+            "message": "Data consumers will assume that the `ageRange` is 18+ when not specified.\n\nThis `ScheduledSession` is currently assumed to have the equivalent of:\n\n```\n\"ageRange\": {\n  \"minValue\": 18\n}```"
+          },
+          {
+            "path": "$.eventStatus",
+            "rule": "AssumeEventStatusRule",
+            "category": "data-quality",
+            "type": "consumer_assume_event_status",
+            "severity": "suggestion",
+            "message": "Data consumers will assume the `eventStatus` is scheduled if not specified or invalid.\n\nThis `ScheduledSession` is currently assumed to have the equivalent of:\n\n```\n\"eventStatus\": \"https://schema.org/EventScheduled\"\n```"
+          },
+          {
+            "path": "$.superEvent.genderRestriction",
+            "rule": "AssumeNoGenderRestrictionRule",
+            "category": "data-quality",
+            "type": "consumer_assume_no_gender_restriction",
+            "severity": "suggestion",
+            "message": "Data consumers will assume that there is no gender restriction when no valid `genderRestriction` is supplied on a `SessionSeries`."
+          },
+          {
+            "path": "$.superEvent.ageRange",
+            "rule": "AssumeAgeRangeRule",
+            "category": "data-quality",
+            "type": "consumer_assume_age_range",
+            "severity": "suggestion",
+            "message": "Data consumers will assume that the `ageRange` is 18+ when not specified.\n\nThis `SessionSeries` is currently assumed to have the equivalent of:\n\n```\n\"ageRange\": {\n  \"minValue\": 18\n}```"
+          },
+          {
+            "path": "$.superEvent.eventStatus",
+            "rule": "AssumeEventStatusRule",
+            "category": "data-quality",
+            "type": "consumer_assume_event_status",
+            "severity": "suggestion",
+            "message": "Data consumers will assume the `eventStatus` is scheduled if not specified or invalid.\n\nThis `SessionSeries` is currently assumed to have the equivalent of:\n\n```\n\"eventStatus\": \"https://schema.org/EventScheduled\"\n```"
+          },
+          {
+            "value": "Junior",
+            "path": "$.superEvent.offers[0].ageRestriction.name",
+            "rule": "FieldsNotInModelRule",
+            "category": "conformance",
+            "type": "schema_org_fields_not_checked",
+            "severity": "notice",
+            "message": "`schema:name` is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for [schema:name](https://schema.org/name) for additional guidance."
+          },
+          {
+            "value": "Senior",
+            "path": "$.superEvent.offers[1].ageRestriction.name",
+            "rule": "FieldsNotInModelRule",
+            "category": "conformance",
+            "type": "schema_org_fields_not_checked",
+            "severity": "notice",
+            "message": "`schema:name` is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for [schema:name](https://schema.org/name) for additional guidance."
+          }
+        ]
+      }
+    },
+    "C1": {
+      "events": [],
+      "request": {
+        "@context": "https://openactive.io/",
+        "@type": "OrderQuote",
+        "brokerRole": "https://openactive.io/AgentBroker",
+        "broker": {
+          "@type": "Organization",
+          "name": "MyFitnessApp",
+          "url": "https://myfitnessapp.example.com",
+          "description": "A fitness app for all the community",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Alan Peacock Way",
+            "addressLocality": "Village East",
+            "addressRegion": "Middlesbrough",
+            "postalCode": "TS4 3AE",
+            "addressCountry": "GB"
+          }
+        },
+        "seller": "https://localhost:5001/api/identifiers/sellers/1",
+        "orderedItem": [
+          {
+            "@type": "OrderItem",
+            "position": 0,
+            "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139"
+          }
+        ],
+        "payment": {
+          "@type": "Payment",
+          "name": "AcmeBroker Points",
+          "accountId": "SN1593",
+          "paymentProviderId": "STRIPE"
+        }
+      },
+      "response": {
+        "body": {
+          "@context": "https://openactive.io/",
+          "@type": "OrderQuote",
+          "@id": "https://localhost:5001/api/openbooking/order-quotes/05f5fecb-46dc-49cc-b452-9983c2dacfde",
+          "orderRequiresApproval": false,
+          "bookingService": {
+            "@type": "BookingService",
+            "name": "Acme booking system",
+            "termsOfService": [
+              {
+                "@type": "PrivacyPolicy",
+                "name": "Privacy Policy",
+                "requiresExplicitConsent": false,
+                "url": "https://example.com/privacy.html"
+              }
+            ],
+            "url": "https://example.com"
+          },
+          "broker": {
+            "@type": "Organization",
+            "name": "MyFitnessApp",
+            "url": "https://myfitnessapp.example.com"
+          },
+          "brokerRole": "https://openactive.io/AgentBroker",
+          "orderedItem": [
+            {
+              "@type": "OrderItem",
+              "error": [
+                {
+                  "@type": "IncompleteOrderItemError",
+                  "name": "There is a missing 'acceptedOffer' or 'orderedItem' property on the 'OrderItem'.",
+                  "statusCode": 409,
+                  "description": "acceptedOffer @id was not provided"
+                }
+              ],
+              "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139",
+              "position": 0
+            }
+          ],
+          "payment": {
+            "@type": "Payment",
+            "name": "AcmeBroker Points",
+            "accountId": "SN1593",
+            "paymentProviderId": "STRIPE"
+          },
+          "seller": {
+            "@type": "Organization",
+            "@id": "https://localhost:5001/api/identifiers/sellers/1",
+            "name": "Acme Fitness Ltd",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "GB",
+              "addressLocality": "Another town",
+              "addressRegion": "Oxfordshire",
+              "postalCode": "OX1 1AA",
+              "streetAddress": "1 Hidden Gem"
+            },
+            "isOpenBookingAllowed": true,
+            "legalName": "Acme Fitness Ltd",
+            "taxMode": "https://openactive.io/TaxGross",
+            "termsOfService": [
+              {
+                "@type": "PrivacyPolicy",
+                "name": "Privacy Policy",
+                "requiresExplicitConsent": false,
+                "url": "https://example.com/privacy.html"
+              }
+            ]
+          },
+          "totalPaymentDue": {
+            "@type": "PriceSpecification",
+            "openBookingPrepayment": "https://openactive.io/Required",
+            "price": 0
+          }
+        },
+        "responseTime": 23.526854,
+        "status": 409,
+        "statusMessage": "Conflict",
+        "headers": {
+          "connection": "close",
+          "date": "Fri, 31 Jan 2025 11:16:35 GMT",
+          "content-type": "application/vnd.openactive.booking+json; version=1",
+          "server": "Kestrel",
+          "content-length": "1681"
+        }
+      }
+    },
+    "C2": {
+      "events": [],
+      "request": {
+        "@context": "https://openactive.io/",
+        "@type": "OrderQuote",
+        "brokerRole": "https://openactive.io/AgentBroker",
+        "broker": {
+          "@type": "Organization",
+          "name": "MyFitnessApp",
+          "url": "https://myfitnessapp.example.com",
+          "description": "A fitness app for all the community",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Alan Peacock Way",
+            "addressLocality": "Village East",
+            "addressRegion": "Middlesbrough",
+            "postalCode": "TS4 3AE",
+            "addressCountry": "GB"
+          }
+        },
+        "seller": "https://localhost:5001/api/identifiers/sellers/1",
+        "customer": {
+          "@type": "Person",
+          "email": "Boris84@gmail.com",
+          "givenName": "Runolfsdottir",
+          "identifier": "e212f0a7-4cd4-4437-af37-15a4478b5c95"
+        },
+        "orderedItem": [
+          {
+            "@type": "OrderItem",
+            "position": 0,
+            "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139"
+          }
+        ],
+        "payment": {
+          "@type": "Payment",
+          "name": "AcmeBroker Points",
+          "accountId": "SN1593",
+          "paymentProviderId": "STRIPE"
+        }
+      },
+      "response": {
+        "body": {
+          "@context": "https://openactive.io/",
+          "@type": "OrderQuote",
+          "@id": "https://localhost:5001/api/openbooking/order-quotes/05f5fecb-46dc-49cc-b452-9983c2dacfde",
+          "orderRequiresApproval": false,
+          "bookingService": {
+            "@type": "BookingService",
+            "name": "Acme booking system",
+            "termsOfService": [
+              {
+                "@type": "PrivacyPolicy",
+                "name": "Privacy Policy",
+                "requiresExplicitConsent": false,
+                "url": "https://example.com/privacy.html"
+              }
+            ],
+            "url": "https://example.com"
+          },
+          "broker": {
+            "@type": "Organization",
+            "name": "MyFitnessApp",
+            "url": "https://myfitnessapp.example.com"
+          },
+          "brokerRole": "https://openactive.io/AgentBroker",
+          "customer": {
+            "@type": "Person",
+            "identifier": "e212f0a7-4cd4-4437-af37-15a4478b5c95",
+            "email": "Boris84@gmail.com",
+            "givenName": "Runolfsdottir"
+          },
+          "orderedItem": [
+            {
+              "@type": "OrderItem",
+              "error": [
+                {
+                  "@type": "IncompleteOrderItemError",
+                  "name": "There is a missing 'acceptedOffer' or 'orderedItem' property on the 'OrderItem'.",
+                  "statusCode": 409,
+                  "description": "acceptedOffer @id was not provided"
+                }
+              ],
+              "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139",
+              "position": 0
+            }
+          ],
+          "payment": {
+            "@type": "Payment",
+            "name": "AcmeBroker Points",
+            "accountId": "SN1593",
+            "paymentProviderId": "STRIPE"
+          },
+          "seller": {
+            "@type": "Organization",
+            "@id": "https://localhost:5001/api/identifiers/sellers/1",
+            "name": "Acme Fitness Ltd",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "GB",
+              "addressLocality": "Another town",
+              "addressRegion": "Oxfordshire",
+              "postalCode": "OX1 1AA",
+              "streetAddress": "1 Hidden Gem"
+            },
+            "isOpenBookingAllowed": true,
+            "legalName": "Acme Fitness Ltd",
+            "taxMode": "https://openactive.io/TaxGross",
+            "termsOfService": [
+              {
+                "@type": "PrivacyPolicy",
+                "name": "Privacy Policy",
+                "requiresExplicitConsent": false,
+                "url": "https://example.com/privacy.html"
+              }
+            ]
+          },
+          "totalPaymentDue": {
+            "@type": "PriceSpecification",
+            "openBookingPrepayment": "https://openactive.io/Required",
+            "price": 0
+          }
+        },
+        "responseTime": 11.812654,
+        "status": 409,
+        "statusMessage": "Conflict",
+        "headers": {
+          "connection": "close",
+          "date": "Fri, 31 Jan 2025 11:16:35 GMT",
+          "content-type": "application/vnd.openactive.booking+json; version=1",
+          "server": "Kestrel",
+          "content-length": "1819"
+        }
+      }
+    },
+    "P": {
+      "events": [],
+      "request": {
+        "@context": "https://openactive.io/",
+        "@type": "OrderProposal",
+        "brokerRole": "https://openactive.io/AgentBroker",
+        "broker": {
+          "@type": "Organization",
+          "name": "MyFitnessApp",
+          "url": "https://myfitnessapp.example.com",
+          "description": "A fitness app for all the community",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Alan Peacock Way",
+            "addressLocality": "Village East",
+            "addressRegion": "Middlesbrough",
+            "postalCode": "TS4 3AE",
+            "addressCountry": "GB"
+          }
+        },
+        "seller": "https://localhost:5001/api/identifiers/sellers/1",
+        "customer": {
+          "@type": "Person",
+          "email": "Boris84@gmail.com",
+          "givenName": "Runolfsdottir",
+          "identifier": "e212f0a7-4cd4-4437-af37-15a4478b5c95"
+        },
+        "orderedItem": [
+          {
+            "@type": "OrderItem",
+            "position": 0,
+            "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139"
+          }
+        ],
+        "totalPaymentDue": {
+          "@type": "PriceSpecification",
+          "price": 0,
+          "priceCurrency": "GBP"
+        }
+      },
+      "response": {
+        "body": {
+          "@context": "https://openactive.io/",
+          "@type": "OrderProposal",
+          "@id": "https://localhost:5001/api/openbooking/order-proposals/05f5fecb-46dc-49cc-b452-9983c2dacfde",
+          "bookingService": {
+            "@type": "BookingService",
+            "name": "Acme booking system",
+            "termsOfService": [
+              {
+                "@type": "PrivacyPolicy",
+                "name": "Privacy Policy",
+                "requiresExplicitConsent": false,
+                "url": "https://example.com/privacy.html"
+              }
+            ],
+            "url": "https://example.com"
+          },
+          "broker": {
+            "@type": "Organization",
+            "name": "MyFitnessApp",
+            "url": "https://myfitnessapp.example.com"
+          },
+          "brokerRole": "https://openactive.io/AgentBroker",
+          "customer": {
+            "@type": "Person",
+            "identifier": "e212f0a7-4cd4-4437-af37-15a4478b5c95",
+            "email": "Boris84@gmail.com",
+            "givenName": "Runolfsdottir"
+          },
+          "orderedItem": [
+            {
+              "@type": "OrderItem",
+              "error": [
+                {
+                  "@type": "IncompleteOrderItemError",
+                  "name": "There is a missing 'acceptedOffer' or 'orderedItem' property on the 'OrderItem'.",
+                  "statusCode": 409,
+                  "description": "acceptedOffer @id was not provided"
+                }
+              ],
+              "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139",
+              "position": 0
+            }
+          ],
+          "seller": {
+            "@type": "Organization",
+            "@id": "https://localhost:5001/api/identifiers/sellers/1",
+            "name": "Acme Fitness Ltd",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "GB",
+              "addressLocality": "Another town",
+              "addressRegion": "Oxfordshire",
+              "postalCode": "OX1 1AA",
+              "streetAddress": "1 Hidden Gem"
+            },
+            "isOpenBookingAllowed": true,
+            "legalName": "Acme Fitness Ltd",
+            "taxMode": "https://openactive.io/TaxGross",
+            "termsOfService": [
+              {
+                "@type": "PrivacyPolicy",
+                "name": "Privacy Policy",
+                "requiresExplicitConsent": false,
+                "url": "https://example.com/privacy.html"
+              }
+            ]
+          },
+          "totalPaymentDue": {
+            "@type": "PriceSpecification",
+            "openBookingPrepayment": "https://openactive.io/Required",
+            "price": 0
+          }
+        },
+        "responseTime": 19.693554,
+        "status": 409,
+        "statusMessage": "Conflict",
+        "headers": {
+          "connection": "close",
+          "date": "Fri, 31 Jan 2025 11:16:35 GMT",
+          "content-type": "application/vnd.openactive.booking+json; version=1",
+          "server": "Kestrel",
+          "content-length": "1688"
+        },
+        "specs": [
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "P"
+            ],
+            "duration": 0,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession P should return HTTP 409",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should return HTTP 409"
+          },
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "P"
+            ],
+            "duration": 1,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession P Should have the same number of OrderItems as criteria",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "Should have the same number of OrderItems as criteria"
+          },
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "P"
+            ],
+            "duration": 0,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession P OrderItem at position 0 - should include an IncompleteOrderItemError",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "OrderItem at position 0 - should include an IncompleteOrderItemError"
+          }
+        ]
+      }
+    },
+    "Fetch Opportunities": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Fetch Opportunities"
+            ],
+            "duration": 0,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Fetch Opportunities should return 200 on success for request relevant to OrderItem 0",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should return 200 on success for request relevant to OrderItem 0"
+          },
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Fetch Opportunities",
+              "validation of Opportunity Feed extract for OrderItem 0"
+            ],
+            "duration": 458,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 passes validation checks",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "passes validation checks"
+          },
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Fetch Opportunities",
+              "validation of Opportunity Feed extract for OrderItem 0"
+            ],
+            "duration": 1,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 matches the criteria 'TestOpportunityBookable' required for this test",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "matches the criteria 'TestOpportunityBookable' required for this test"
+          }
+        ]
+      }
+    },
+    "Assert Opportunity Capacity (after C1)": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Assert Opportunity Capacity (after C1)"
+            ],
+            "duration": 0,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) should return 200 on success for request relevant to OrderItem 0",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should return 200 on success for request relevant to OrderItem 0"
+          },
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Assert Opportunity Capacity (after C1)"
+            ],
+            "duration": 1,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) should return HTTP 409",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should return HTTP 409"
+          },
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Assert Opportunity Capacity (after C1)"
+            ],
+            "duration": 1,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) Should have the same number of OrderItems as criteria",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "Should have the same number of OrderItems as criteria"
+          },
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Assert Opportunity Capacity (after C1)"
+            ],
+            "duration": 0,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) OrderItem at position 0 - should include an IncompleteOrderItemError",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "OrderItem at position 0 - should include an IncompleteOrderItemError"
+          }
+        ]
+      }
+    },
+    "Assert Opportunity Capacity (after C2)": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Assert Opportunity Capacity (after C2)"
+            ],
+            "duration": 1,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) should return 200 on success for request relevant to OrderItem 0",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should return 200 on success for request relevant to OrderItem 0"
+          },
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Assert Opportunity Capacity (after C2)"
+            ],
+            "duration": 0,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) should return HTTP 409",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "should return HTTP 409"
+          },
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Assert Opportunity Capacity (after C2)"
+            ],
+            "duration": 1,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) Should have the same number of OrderItems as criteria",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "Should have the same number of OrderItems as criteria"
+          },
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Assert Opportunity Capacity (after C2)"
+            ],
+            "duration": 0,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) OrderItem at position 0 - should include an IncompleteOrderItemError",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "OrderItem at position 0 - should include an IncompleteOrderItemError"
+          }
+        ]
+      }
+    },
+    "Feature Description Assertions (for OpenActive maintainers)": {
+      "events": [],
+      "response": {
+        "specs": [
+          {
+            "ancestorTitles": [
+              "common-error-conditions",
+              "incomplete-order-item-no-offer",
+              "OpenBookingApprovalFlow",
+              "ScheduledSession",
+              "Feature Description Assertions (for OpenActive maintainers)"
+            ],
+            "duration": 1,
+            "failureMessages": [],
+            "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+            "location": null,
+            "numPassingAsserts": 0,
+            "status": "passed",
+            "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+          }
+        ]
+      }
+    }
+  },
+  "logs": [
+    {
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Fetch Opportunities"
+      ],
+      "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingSimpleFlow Multiple Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "type": "request",
+      "stage": "Local Microservice Test Interface for OrderItem 0",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:3000/test-interface/datasets/uat-ci/opportunities",
+        "jsonBody": {
+          "@type": "ScheduledSession",
+          "superEvent": {
+            "@type": "SessionSeries",
+            "organizer": {
+              "@type": "Organization",
+              "@id": "https://localhost:5001/api/identifiers/sellers/1"
+            }
+          },
+          "@context": [
+            "https://openactive.io/",
+            "https://openactive.io/test-interface"
+          ],
+          "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable",
+          "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+        },
+        "requestOptions": {
+          "timeout": 20000
+        }
+      },
+      "isPending": false,
+      "duration": 0,
+      "response": {
+        "body": {
+          "@context": "https://openactive.io/",
+          "@type": "ScheduledSession",
+          "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139"
+        },
+        "responseTime": 3.908097,
+        "status": 200,
+        "statusMessage": "OK",
+        "headers": {
+          "x-powered-by": "Express",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "148",
+          "etag": "W/\"94-y/s7vHAVIhshzvMgg7EgTy6D6eo\"",
+          "date": "Fri, 31 Jan 2025 11:16:34 GMT",
+          "connection": "close"
+        }
+      }
+    },
+    {
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Fetch Opportunities"
+      ],
+      "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingSimpleFlow Multiple Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "type": "request",
+      "stage": "Opportunity Feed extract for OrderItem 0",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F1714%2Fevents%2F17139?useCacheIfAvailable=true",
+        "jsonBody": null,
+        "requestOptions": {
+          "timeout": 60000
+        }
+      },
+      "isPending": false,
+      "requestMetadata": {
+        "feedExtract": {
+          "id": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139",
+          "type": "opportunities"
+        }
+      },
+      "duration": 0,
+      "response": {
+        "body": {
+          "data": {
+            "@context": [
+              "https://openactive.io/"
+            ],
+            "@type": "ScheduledSession",
+            "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139",
+            "startDate": "2025-02-01T09:10:56+00:00",
+            "endDate": "2025-02-01T13:12:56+00:00",
+            "superEvent": {
+              "@type": "SessionSeries",
+              "@id": "https://localhost:5001/api/identifiers/session-series/1714",
+              "identifier": 1714,
+              "name": "Cotton Yoga",
+              "activity": [
+                {
+                  "@type": "Concept",
+                  "@id": "https://openactive.io/activity-list#bf1a5e00-cdcf-465d-8c5a-6f57040b7f7e",
+                  "inScheme": "https://openactive.io/activity-list",
+                  "prefLabel": "Yoga"
+                }
+              ],
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "location": {
+                "@type": "Place",
+                "@id": "https://example.com/place/2",
+                "identifier": 2,
+                "name": "Premier Lifters",
+                "description": "Where your Fitness Goals are Always Inn-Sight. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "GB",
+                  "addressLocality": "Oxford",
+                  "addressRegion": "Oxfordshire",
+                  "postalCode": "OX1 1BB",
+                  "streetAddress": "Greyfriars Court, Paradise Square"
+                },
+                "amenityFeature": [
+                  {
+                    "@type": "ChangingFacilities",
+                    "name": "Changing Facilities",
+                    "value": false
+                  },
+                  {
+                    "@type": "Showers",
+                    "name": "Showers",
+                    "value": false
+                  },
+                  {
+                    "@type": "Lockers",
+                    "name": "Lockers",
+                    "value": false
+                  },
+                  {
+                    "@type": "Towels",
+                    "name": "Towels",
+                    "value": true
+                  },
+                  {
+                    "@type": "Creche",
+                    "name": "Creche",
+                    "value": true
+                  },
+                  {
+                    "@type": "Parking",
+                    "name": "Parking",
+                    "value": true
+                  }
+                ],
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 51.7504933,
+                  "longitude": -1.2620685
+                },
+                "image": [
+                  {
+                    "@type": "ImageObject",
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Cambridge_Orchard_Park_Premier_Inn.jpg"
+                  }
+                ],
+                "openingHoursSpecification": [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "17:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Sunday"
+                    ],
+                    "opens": "09:00"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Monday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Tuesday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Wednesday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Thursday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "21:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Friday"
+                    ],
+                    "opens": "06:30"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "closes": "17:30",
+                    "dayOfWeek": [
+                      "https://schema.org/Saturday"
+                    ],
+                    "opens": "09:00"
+                  }
+                ],
+                "telephone": "01865 000002",
+                "url": "https://en.wikipedia.org/wiki/Premier_Inn"
+              },
+              "offers": [
+                {
+                  "@type": "Offer",
+                  "@id": "https://localhost:5001/api/identifiers/session-series/1714#/offers/0",
+                  "name": "Junior",
+                  "acceptedPaymentMethod": [
+                    "http://purl.org/goodrelations/v1#Cash",
+                    "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+                  ],
+                  "ageRestriction": {
+                    "@type": "QuantitativeValue",
+                    "name": "Junior",
+                    "maxValue": 17
+                  },
+                  "allowCustomerCancellationFullRefund": false,
+                  "openBookingFlowRequirement": [
+                    "https://openactive.io/OpenBookingApproval"
+                  ],
+                  "openBookingPrepayment": "https://openactive.io/Unavailable",
+                  "price": 0,
+                  "priceCurrency": "GBP",
+                  "validFromBeforeStartDate": "P3DT14H55M"
+                },
+                {
+                  "@type": "Offer",
+                  "@id": "https://localhost:5001/api/identifiers/session-series/1714#/offers/0",
+                  "name": "Senior",
+                  "acceptedPaymentMethod": [
+                    "http://purl.org/goodrelations/v1#Cash",
+                    "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+                  ],
+                  "ageRestriction": {
+                    "@type": "QuantitativeValue",
+                    "name": "Senior",
+                    "minValue": 60
+                  },
+                  "allowCustomerCancellationFullRefund": false,
+                  "openBookingFlowRequirement": [
+                    "https://openactive.io/OpenBookingApproval"
+                  ],
+                  "openBookingPrepayment": "https://openactive.io/Unavailable",
+                  "price": 0,
+                  "priceCurrency": "GBP",
+                  "validFromBeforeStartDate": "P3DT14H55M"
+                }
+              ],
+              "organizer": {
+                "@type": "Organization",
+                "@id": "https://localhost:5001/api/identifiers/sellers/1",
+                "name": "Acme Fitness Ltd",
+                "isOpenBookingAllowed": true,
+                "sameAs": [
+                  "https://socialmedia.com/AcmeFitnessLtd"
+                ],
+                "taxMode": "https://openactive.io/TaxGross",
+                "telephone": "00483 030691",
+                "termsOfService": [
+                  {
+                    "@type": "PrivacyPolicy",
+                    "name": "Privacy Policy",
+                    "requiresExplicitConsent": false,
+                    "url": "https://example.com/privacy.html"
+                  }
+                ],
+                "url": "https://robb.info"
+              },
+              "url": "https://www.example.com/sessions/1714"
+            },
+            "duration": "PT4H2M",
+            "maximumAttendeeCapacity": 3,
+            "remainingAttendeeCapacity": 3
+          }
+        },
+        "responseTime": 2.950145,
+        "status": 200,
+        "statusMessage": "OK",
+        "headers": {
+          "x-powered-by": "Express",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4597",
+          "etag": "W/\"11f5-hp1qzrWsJa6cUkO1lxIna9M0DKM\"",
+          "date": "Fri, 31 Jan 2025 11:16:34 GMT",
+          "connection": "close"
+        }
+      }
+    },
+    {
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Fetch Opportunities",
+        "validation of Opportunity Feed extract for OrderItem 0"
+      ],
+      "title": "passes validation checks",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 passes validation checks",
+      "type": "validations",
+      "stage": "Opportunity Feed extract for OrderItem 0",
+      "validations": [
+        {
+          "path": "$.eventStatus",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `eventStatus` is missing from `ScheduledSession`.\n\nA full example looks like this:\n\n```\n\"eventStatus\": \"https://schema.org/EventScheduled\"\n```"
+        },
+        {
+          "path": "$.leader",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `leader` is missing from `ScheduledSession`.\n\nA full example looks like this:\n\n```\n\"leader\": [\n  {\n    \"@type\": \"Person\",\n    \"familyName\": \"Smith\",\n    \"givenName\": \"Nicole\",\n    \"gender\": \"https://schema.org/Male\",\n    \"@id\": \"https://example.com/locations/1234ABCD/leaders/89\",\n    \"identifier\": 89\n  }\n]\n```"
+        },
+        {
+          "path": "$.url",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `url` is missing from `ScheduledSession`.\n\nA full example looks like this:\n\n```\n\"url\": \"https://example.com/event/1234\"\n```"
+        },
+        {
+          "path": "$.isAccessibleForFree",
+          "rule": "IsAccessibleForFreeRule",
+          "category": "data-quality",
+          "type": "missing_is_accessible_for_free",
+          "severity": "warning",
+          "message": "Where a `ScheduledSession` has at least one `Offer` with `price` set to `0`, it should also have a property named `isAccessibleForFree` set to `true`.\n\nFor example:\n\n```\n{\n  \"@type\": \"ScheduledSession\",\n  \"offers\": [\n    {\n      \"@type\": \"Offer\",\n      \"price\": 0\n    }\n  ],\n  \"isAccessibleForFree\": true\n}\n```"
+        },
+        {
+          "path": "$.superEvent.description",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `description` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"description\": \"A fast paced game that incorporates netball, handball and football.\"\n```"
+        },
+        {
+          "path": "$.superEvent.image",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `image` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"image\": [\n  {\n    \"@type\": \"ImageObject\",\n    \"url\": \"http://example.com/static/image/speedball_large.jpg\",\n    \"thumbnail\": [\n      {\n        \"@type\": \"ImageObject\",\n        \"url\": \"http://example.com/static/image/speedball_thumbnail.jpg\"\n      }\n    ]\n  }\n]\n```"
+        },
+        {
+          "path": "$.superEvent.ageRange",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `ageRange` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"ageRange\": {\n  \"@type\": \"QuantitativeValue\",\n  \"minValue\": 50,\n  \"maxValue\": 60\n}\n```"
+        },
+        {
+          "path": "$.superEvent.genderRestriction",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `genderRestriction` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"genderRestriction\": \"https://openactive.io/FemaleOnly\"\n```"
+        },
+        {
+          "path": "$.superEvent.leader",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `leader` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"leader\": [\n  {\n    \"@type\": \"Person\",\n    \"familyName\": \"Smith\",\n    \"givenName\": \"Nicole\",\n    \"gender\": \"https://schema.org/Male\",\n    \"@id\": \"https://example.com/locations/1234ABCD/leaders/89\",\n    \"identifier\": 89\n  }\n]\n```"
+        },
+        {
+          "path": "$.superEvent.level",
+          "rule": "RecommendedFieldsRule",
+          "category": "conformance",
+          "type": "missing_recommended_field",
+          "severity": "warning",
+          "message": "Recommended property `level` is missing from `SessionSeries`.\n\nA full example looks like this:\n\n```\n\"level\": [\n  \"Beginner\"\n]\n```"
+        },
+        {
+          "path": "$.superEvent.isAccessibleForFree",
+          "rule": "IsAccessibleForFreeRule",
+          "category": "data-quality",
+          "type": "missing_is_accessible_for_free",
+          "severity": "warning",
+          "message": "Where a `SessionSeries` has at least one `Offer` with `price` set to `0`, it should also have a property named `isAccessibleForFree` set to `true`.\n\nFor example:\n\n```\n{\n  \"@type\": \"SessionSeries\",\n  \"offers\": [\n    {\n      \"@type\": \"Offer\",\n      \"price\": 0\n    }\n  ],\n  \"isAccessibleForFree\": true\n}\n```"
+        },
+        {
+          "path": "$.genderRestriction",
+          "rule": "AssumeNoGenderRestrictionRule",
+          "category": "data-quality",
+          "type": "consumer_assume_no_gender_restriction",
+          "severity": "suggestion",
+          "message": "Data consumers will assume that there is no gender restriction when no valid `genderRestriction` is supplied on a `ScheduledSession`."
+        },
+        {
+          "path": "$.ageRange",
+          "rule": "AssumeAgeRangeRule",
+          "category": "data-quality",
+          "type": "consumer_assume_age_range",
+          "severity": "suggestion",
+          "message": "Data consumers will assume that the `ageRange` is 18+ when not specified.\n\nThis `ScheduledSession` is currently assumed to have the equivalent of:\n\n```\n\"ageRange\": {\n  \"minValue\": 18\n}```"
+        },
+        {
+          "path": "$.eventStatus",
+          "rule": "AssumeEventStatusRule",
+          "category": "data-quality",
+          "type": "consumer_assume_event_status",
+          "severity": "suggestion",
+          "message": "Data consumers will assume the `eventStatus` is scheduled if not specified or invalid.\n\nThis `ScheduledSession` is currently assumed to have the equivalent of:\n\n```\n\"eventStatus\": \"https://schema.org/EventScheduled\"\n```"
+        },
+        {
+          "path": "$.superEvent.genderRestriction",
+          "rule": "AssumeNoGenderRestrictionRule",
+          "category": "data-quality",
+          "type": "consumer_assume_no_gender_restriction",
+          "severity": "suggestion",
+          "message": "Data consumers will assume that there is no gender restriction when no valid `genderRestriction` is supplied on a `SessionSeries`."
+        },
+        {
+          "path": "$.superEvent.ageRange",
+          "rule": "AssumeAgeRangeRule",
+          "category": "data-quality",
+          "type": "consumer_assume_age_range",
+          "severity": "suggestion",
+          "message": "Data consumers will assume that the `ageRange` is 18+ when not specified.\n\nThis `SessionSeries` is currently assumed to have the equivalent of:\n\n```\n\"ageRange\": {\n  \"minValue\": 18\n}```"
+        },
+        {
+          "path": "$.superEvent.eventStatus",
+          "rule": "AssumeEventStatusRule",
+          "category": "data-quality",
+          "type": "consumer_assume_event_status",
+          "severity": "suggestion",
+          "message": "Data consumers will assume the `eventStatus` is scheduled if not specified or invalid.\n\nThis `SessionSeries` is currently assumed to have the equivalent of:\n\n```\n\"eventStatus\": \"https://schema.org/EventScheduled\"\n```"
+        },
+        {
+          "value": "Junior",
+          "path": "$.superEvent.offers[0].ageRestriction.name",
+          "rule": "FieldsNotInModelRule",
+          "category": "conformance",
+          "type": "schema_org_fields_not_checked",
+          "severity": "notice",
+          "message": "`schema:name` is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for [schema:name](https://schema.org/name) for additional guidance."
+        },
+        {
+          "value": "Senior",
+          "path": "$.superEvent.offers[1].ageRestriction.name",
+          "rule": "FieldsNotInModelRule",
+          "category": "conformance",
+          "type": "schema_org_fields_not_checked",
+          "severity": "notice",
+          "message": "`schema:name` is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for [schema:name](https://schema.org/name) for additional guidance."
+        }
+      ]
+    },
+    {
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Assert Opportunity Capacity (after C1)"
+      ],
+      "title": "matches the criteria 'TestOpportunityBookable' required for this test",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 matches the criteria 'TestOpportunityBookable' required for this test",
+      "type": "request",
+      "stage": "C1",
+      "request": {
+        "method": "PUT",
+        "url": "https://localhost:5001/api/openbooking/order-quote-templates/05f5fecb-46dc-49cc-b452-9983c2dacfde",
+        "jsonBody": {
+          "@context": "https://openactive.io/",
+          "@type": "OrderQuote",
+          "brokerRole": "https://openactive.io/AgentBroker",
+          "broker": {
+            "@type": "Organization",
+            "name": "MyFitnessApp",
+            "url": "https://myfitnessapp.example.com",
+            "description": "A fitness app for all the community",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Alan Peacock Way",
+              "addressLocality": "Village East",
+              "addressRegion": "Middlesbrough",
+              "postalCode": "TS4 3AE",
+              "addressCountry": "GB"
+            }
+          },
+          "seller": "https://localhost:5001/api/identifiers/sellers/1",
+          "orderedItem": [
+            {
+              "@type": "OrderItem",
+              "position": 0,
+              "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139"
+            }
+          ],
+          "payment": {
+            "@type": "Payment",
+            "name": "AcmeBroker Points",
+            "accountId": "SN1593",
+            "paymentProviderId": "STRIPE"
+          }
+        },
+        "requestOptions": {
+          "headers": {
+            "Content-Type": "application/vnd.openactive.booking+json; version=1",
+            "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"
+          },
+          "timeout": 20000
+        }
+      },
+      "isPending": false,
+      "duration": 0,
+      "response": {
+        "body": {
+          "@context": "https://openactive.io/",
+          "@type": "OrderQuote",
+          "@id": "https://localhost:5001/api/openbooking/order-quotes/05f5fecb-46dc-49cc-b452-9983c2dacfde",
+          "orderRequiresApproval": false,
+          "bookingService": {
+            "@type": "BookingService",
+            "name": "Acme booking system",
+            "termsOfService": [
+              {
+                "@type": "PrivacyPolicy",
+                "name": "Privacy Policy",
+                "requiresExplicitConsent": false,
+                "url": "https://example.com/privacy.html"
+              }
+            ],
+            "url": "https://example.com"
+          },
+          "broker": {
+            "@type": "Organization",
+            "name": "MyFitnessApp",
+            "url": "https://myfitnessapp.example.com"
+          },
+          "brokerRole": "https://openactive.io/AgentBroker",
+          "orderedItem": [
+            {
+              "@type": "OrderItem",
+              "error": [
+                {
+                  "@type": "IncompleteOrderItemError",
+                  "name": "There is a missing 'acceptedOffer' or 'orderedItem' property on the 'OrderItem'.",
+                  "statusCode": 409,
+                  "description": "acceptedOffer @id was not provided"
+                }
+              ],
+              "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139",
+              "position": 0
+            }
+          ],
+          "payment": {
+            "@type": "Payment",
+            "name": "AcmeBroker Points",
+            "accountId": "SN1593",
+            "paymentProviderId": "STRIPE"
+          },
+          "seller": {
+            "@type": "Organization",
+            "@id": "https://localhost:5001/api/identifiers/sellers/1",
+            "name": "Acme Fitness Ltd",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "GB",
+              "addressLocality": "Another town",
+              "addressRegion": "Oxfordshire",
+              "postalCode": "OX1 1AA",
+              "streetAddress": "1 Hidden Gem"
+            },
+            "isOpenBookingAllowed": true,
+            "legalName": "Acme Fitness Ltd",
+            "taxMode": "https://openactive.io/TaxGross",
+            "termsOfService": [
+              {
+                "@type": "PrivacyPolicy",
+                "name": "Privacy Policy",
+                "requiresExplicitConsent": false,
+                "url": "https://example.com/privacy.html"
+              }
+            ]
+          },
+          "totalPaymentDue": {
+            "@type": "PriceSpecification",
+            "openBookingPrepayment": "https://openactive.io/Required",
+            "price": 0
+          }
+        },
+        "responseTime": 23.526854,
+        "status": 409,
+        "statusMessage": "Conflict",
+        "headers": {
+          "connection": "close",
+          "date": "Fri, 31 Jan 2025 11:16:35 GMT",
+          "content-type": "application/vnd.openactive.booking+json; version=1",
+          "server": "Kestrel",
+          "content-length": "1681"
+        }
+      }
+    },
+    {
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Assert Opportunity Capacity (after C2)"
+      ],
+      "title": "OrderItem at position 0 - should include an IncompleteOrderItemError",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) OrderItem at position 0 - should include an IncompleteOrderItemError",
+      "type": "request",
+      "stage": "C2",
+      "request": {
+        "method": "PUT",
+        "url": "https://localhost:5001/api/openbooking/order-quotes/05f5fecb-46dc-49cc-b452-9983c2dacfde",
+        "jsonBody": {
+          "@context": "https://openactive.io/",
+          "@type": "OrderQuote",
+          "brokerRole": "https://openactive.io/AgentBroker",
+          "broker": {
+            "@type": "Organization",
+            "name": "MyFitnessApp",
+            "url": "https://myfitnessapp.example.com",
+            "description": "A fitness app for all the community",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Alan Peacock Way",
+              "addressLocality": "Village East",
+              "addressRegion": "Middlesbrough",
+              "postalCode": "TS4 3AE",
+              "addressCountry": "GB"
+            }
+          },
+          "seller": "https://localhost:5001/api/identifiers/sellers/1",
+          "customer": {
+            "@type": "Person",
+            "email": "Boris84@gmail.com",
+            "givenName": "Runolfsdottir",
+            "identifier": "e212f0a7-4cd4-4437-af37-15a4478b5c95"
+          },
+          "orderedItem": [
+            {
+              "@type": "OrderItem",
+              "position": 0,
+              "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139"
+            }
+          ],
+          "payment": {
+            "@type": "Payment",
+            "name": "AcmeBroker Points",
+            "accountId": "SN1593",
+            "paymentProviderId": "STRIPE"
+          }
+        },
+        "requestOptions": {
+          "headers": {
+            "Content-Type": "application/vnd.openactive.booking+json; version=1",
+            "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"
+          },
+          "timeout": 20000
+        }
+      },
+      "isPending": false,
+      "duration": 0,
+      "response": {
+        "body": {
+          "@context": "https://openactive.io/",
+          "@type": "OrderQuote",
+          "@id": "https://localhost:5001/api/openbooking/order-quotes/05f5fecb-46dc-49cc-b452-9983c2dacfde",
+          "orderRequiresApproval": false,
+          "bookingService": {
+            "@type": "BookingService",
+            "name": "Acme booking system",
+            "termsOfService": [
+              {
+                "@type": "PrivacyPolicy",
+                "name": "Privacy Policy",
+                "requiresExplicitConsent": false,
+                "url": "https://example.com/privacy.html"
+              }
+            ],
+            "url": "https://example.com"
+          },
+          "broker": {
+            "@type": "Organization",
+            "name": "MyFitnessApp",
+            "url": "https://myfitnessapp.example.com"
+          },
+          "brokerRole": "https://openactive.io/AgentBroker",
+          "customer": {
+            "@type": "Person",
+            "identifier": "e212f0a7-4cd4-4437-af37-15a4478b5c95",
+            "email": "Boris84@gmail.com",
+            "givenName": "Runolfsdottir"
+          },
+          "orderedItem": [
+            {
+              "@type": "OrderItem",
+              "error": [
+                {
+                  "@type": "IncompleteOrderItemError",
+                  "name": "There is a missing 'acceptedOffer' or 'orderedItem' property on the 'OrderItem'.",
+                  "statusCode": 409,
+                  "description": "acceptedOffer @id was not provided"
+                }
+              ],
+              "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139",
+              "position": 0
+            }
+          ],
+          "payment": {
+            "@type": "Payment",
+            "name": "AcmeBroker Points",
+            "accountId": "SN1593",
+            "paymentProviderId": "STRIPE"
+          },
+          "seller": {
+            "@type": "Organization",
+            "@id": "https://localhost:5001/api/identifiers/sellers/1",
+            "name": "Acme Fitness Ltd",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "GB",
+              "addressLocality": "Another town",
+              "addressRegion": "Oxfordshire",
+              "postalCode": "OX1 1AA",
+              "streetAddress": "1 Hidden Gem"
+            },
+            "isOpenBookingAllowed": true,
+            "legalName": "Acme Fitness Ltd",
+            "taxMode": "https://openactive.io/TaxGross",
+            "termsOfService": [
+              {
+                "@type": "PrivacyPolicy",
+                "name": "Privacy Policy",
+                "requiresExplicitConsent": false,
+                "url": "https://example.com/privacy.html"
+              }
+            ]
+          },
+          "totalPaymentDue": {
+            "@type": "PriceSpecification",
+            "openBookingPrepayment": "https://openactive.io/Required",
+            "price": 0
+          }
+        },
+        "responseTime": 11.812654,
+        "status": 409,
+        "statusMessage": "Conflict",
+        "headers": {
+          "connection": "close",
+          "date": "Fri, 31 Jan 2025 11:16:35 GMT",
+          "content-type": "application/vnd.openactive.booking+json; version=1",
+          "server": "Kestrel",
+          "content-length": "1819"
+        }
+      }
+    },
+    {
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "P"
+      ],
+      "title": "OrderItem at position 0 - should include an IncompleteOrderItemError",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) OrderItem at position 0 - should include an IncompleteOrderItemError",
+      "type": "request",
+      "stage": "P",
+      "request": {
+        "method": "PUT",
+        "url": "https://localhost:5001/api/openbooking/order-proposals/05f5fecb-46dc-49cc-b452-9983c2dacfde",
+        "jsonBody": {
+          "@context": "https://openactive.io/",
+          "@type": "OrderProposal",
+          "brokerRole": "https://openactive.io/AgentBroker",
+          "broker": {
+            "@type": "Organization",
+            "name": "MyFitnessApp",
+            "url": "https://myfitnessapp.example.com",
+            "description": "A fitness app for all the community",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Alan Peacock Way",
+              "addressLocality": "Village East",
+              "addressRegion": "Middlesbrough",
+              "postalCode": "TS4 3AE",
+              "addressCountry": "GB"
+            }
+          },
+          "seller": "https://localhost:5001/api/identifiers/sellers/1",
+          "customer": {
+            "@type": "Person",
+            "email": "Boris84@gmail.com",
+            "givenName": "Runolfsdottir",
+            "identifier": "e212f0a7-4cd4-4437-af37-15a4478b5c95"
+          },
+          "orderedItem": [
+            {
+              "@type": "OrderItem",
+              "position": 0,
+              "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139"
+            }
+          ],
+          "totalPaymentDue": {
+            "@type": "PriceSpecification",
+            "price": 0,
+            "priceCurrency": "GBP"
+          }
+        },
+        "requestOptions": {
+          "headers": {
+            "Content-Type": "application/vnd.openactive.booking+json; version=1",
+            "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"
+          },
+          "timeout": 20000
+        }
+      },
+      "isPending": false,
+      "duration": 0,
+      "response": {
+        "body": {
+          "@context": "https://openactive.io/",
+          "@type": "OrderProposal",
+          "@id": "https://localhost:5001/api/openbooking/order-proposals/05f5fecb-46dc-49cc-b452-9983c2dacfde",
+          "bookingService": {
+            "@type": "BookingService",
+            "name": "Acme booking system",
+            "termsOfService": [
+              {
+                "@type": "PrivacyPolicy",
+                "name": "Privacy Policy",
+                "requiresExplicitConsent": false,
+                "url": "https://example.com/privacy.html"
+              }
+            ],
+            "url": "https://example.com"
+          },
+          "broker": {
+            "@type": "Organization",
+            "name": "MyFitnessApp",
+            "url": "https://myfitnessapp.example.com"
+          },
+          "brokerRole": "https://openactive.io/AgentBroker",
+          "customer": {
+            "@type": "Person",
+            "identifier": "e212f0a7-4cd4-4437-af37-15a4478b5c95",
+            "email": "Boris84@gmail.com",
+            "givenName": "Runolfsdottir"
+          },
+          "orderedItem": [
+            {
+              "@type": "OrderItem",
+              "error": [
+                {
+                  "@type": "IncompleteOrderItemError",
+                  "name": "There is a missing 'acceptedOffer' or 'orderedItem' property on the 'OrderItem'.",
+                  "statusCode": 409,
+                  "description": "acceptedOffer @id was not provided"
+                }
+              ],
+              "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1714/events/17139",
+              "position": 0
+            }
+          ],
+          "seller": {
+            "@type": "Organization",
+            "@id": "https://localhost:5001/api/identifiers/sellers/1",
+            "name": "Acme Fitness Ltd",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "GB",
+              "addressLocality": "Another town",
+              "addressRegion": "Oxfordshire",
+              "postalCode": "OX1 1AA",
+              "streetAddress": "1 Hidden Gem"
+            },
+            "isOpenBookingAllowed": true,
+            "legalName": "Acme Fitness Ltd",
+            "taxMode": "https://openactive.io/TaxGross",
+            "termsOfService": [
+              {
+                "@type": "PrivacyPolicy",
+                "name": "Privacy Policy",
+                "requiresExplicitConsent": false,
+                "url": "https://example.com/privacy.html"
+              }
+            ]
+          },
+          "totalPaymentDue": {
+            "@type": "PriceSpecification",
+            "openBookingPrepayment": "https://openactive.io/Required",
+            "price": 0
+          }
+        },
+        "responseTime": 19.693554,
+        "status": 409,
+        "statusMessage": "Conflict",
+        "headers": {
+          "connection": "close",
+          "date": "Fri, 31 Jan 2025 11:16:35 GMT",
+          "content-type": "application/vnd.openactive.booking+json; version=1",
+          "server": "Kestrel",
+          "content-length": "1688"
+        }
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Fetch Opportunities"
+      ],
+      "title": "should return 200 on success for request relevant to OrderItem 0",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Fetch Opportunities should return 200 on success for request relevant to OrderItem 0",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Fetch Opportunities"
+        ],
+        "duration": 0,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Fetch Opportunities should return 200 on success for request relevant to OrderItem 0",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should return 200 on success for request relevant to OrderItem 0"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Fetch Opportunities",
+        "validation of Opportunity Feed extract for OrderItem 0"
+      ],
+      "title": "passes validation checks",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 passes validation checks",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Fetch Opportunities",
+          "validation of Opportunity Feed extract for OrderItem 0"
+        ],
+        "duration": 458,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 passes validation checks",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "passes validation checks"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Fetch Opportunities",
+        "validation of Opportunity Feed extract for OrderItem 0"
+      ],
+      "title": "matches the criteria 'TestOpportunityBookable' required for this test",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 matches the criteria 'TestOpportunityBookable' required for this test",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Fetch Opportunities",
+          "validation of Opportunity Feed extract for OrderItem 0"
+        ],
+        "duration": 1,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Fetch Opportunities validation of Opportunity Feed extract for OrderItem 0 matches the criteria 'TestOpportunityBookable' required for this test",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "matches the criteria 'TestOpportunityBookable' required for this test"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Assert Opportunity Capacity (after C1)"
+      ],
+      "title": "should return 200 on success for request relevant to OrderItem 0",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) should return 200 on success for request relevant to OrderItem 0",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Assert Opportunity Capacity (after C1)"
+        ],
+        "duration": 0,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) should return 200 on success for request relevant to OrderItem 0",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should return 200 on success for request relevant to OrderItem 0"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Assert Opportunity Capacity (after C1)"
+      ],
+      "title": "should return HTTP 409",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) should return HTTP 409",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Assert Opportunity Capacity (after C1)"
+        ],
+        "duration": 1,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) should return HTTP 409",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should return HTTP 409"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Assert Opportunity Capacity (after C1)"
+      ],
+      "title": "Should have the same number of OrderItems as criteria",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) Should have the same number of OrderItems as criteria",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Assert Opportunity Capacity (after C1)"
+        ],
+        "duration": 1,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) Should have the same number of OrderItems as criteria",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "Should have the same number of OrderItems as criteria"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Assert Opportunity Capacity (after C1)"
+      ],
+      "title": "OrderItem at position 0 - should include an IncompleteOrderItemError",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) OrderItem at position 0 - should include an IncompleteOrderItemError",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Assert Opportunity Capacity (after C1)"
+        ],
+        "duration": 0,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C1) OrderItem at position 0 - should include an IncompleteOrderItemError",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "OrderItem at position 0 - should include an IncompleteOrderItemError"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Assert Opportunity Capacity (after C2)"
+      ],
+      "title": "should return 200 on success for request relevant to OrderItem 0",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) should return 200 on success for request relevant to OrderItem 0",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Assert Opportunity Capacity (after C2)"
+        ],
+        "duration": 1,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) should return 200 on success for request relevant to OrderItem 0",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should return 200 on success for request relevant to OrderItem 0"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Assert Opportunity Capacity (after C2)"
+      ],
+      "title": "should return HTTP 409",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) should return HTTP 409",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Assert Opportunity Capacity (after C2)"
+        ],
+        "duration": 0,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) should return HTTP 409",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should return HTTP 409"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Assert Opportunity Capacity (after C2)"
+      ],
+      "title": "Should have the same number of OrderItems as criteria",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) Should have the same number of OrderItems as criteria",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Assert Opportunity Capacity (after C2)"
+        ],
+        "duration": 1,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) Should have the same number of OrderItems as criteria",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "Should have the same number of OrderItems as criteria"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Assert Opportunity Capacity (after C2)"
+      ],
+      "title": "OrderItem at position 0 - should include an IncompleteOrderItemError",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) OrderItem at position 0 - should include an IncompleteOrderItemError",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Assert Opportunity Capacity (after C2)"
+        ],
+        "duration": 0,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Assert Opportunity Capacity (after C2) OrderItem at position 0 - should include an IncompleteOrderItemError",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "OrderItem at position 0 - should include an IncompleteOrderItemError"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "P"
+      ],
+      "title": "should return HTTP 409",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession P should return HTTP 409",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "P"
+        ],
+        "duration": 0,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession P should return HTTP 409",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "should return HTTP 409"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "P"
+      ],
+      "title": "Should have the same number of OrderItems as criteria",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession P Should have the same number of OrderItems as criteria",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "P"
+        ],
+        "duration": 1,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession P Should have the same number of OrderItems as criteria",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "Should have the same number of OrderItems as criteria"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "P"
+      ],
+      "title": "OrderItem at position 0 - should include an IncompleteOrderItemError",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession P OrderItem at position 0 - should include an IncompleteOrderItemError",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "P"
+        ],
+        "duration": 0,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession P OrderItem at position 0 - should include an IncompleteOrderItemError",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "OrderItem at position 0 - should include an IncompleteOrderItemError"
+      }
+    },
+    {
+      "type": "spec",
+      "ancestorTitles": [
+        "common-error-conditions",
+        "incomplete-order-item-no-offer",
+        "OpenBookingApprovalFlow",
+        "ScheduledSession",
+        "Feature Description Assertions (for OpenActive maintainers)"
+      ],
+      "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+      "spec": {
+        "ancestorTitles": [
+          "common-error-conditions",
+          "incomplete-order-item-no-offer",
+          "OpenBookingApprovalFlow",
+          "ScheduledSession",
+          "Feature Description Assertions (for OpenActive maintainers)"
+        ],
+        "duration": 1,
+        "failureMessages": [],
+        "fullName": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession Feature Description Assertions (for OpenActive maintainers) Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test",
+        "location": null,
+        "numPassingAsserts": 0,
+        "status": "passed",
+        "title": "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+      }
+    }
+  ],
+  "timestamp": "Fri Jan 31 2025 11:16:29 GMT+0000 (Coordinated Universal Time)",
+  "config": {
+    "testCategory": "core",
+    "testFeature": "common-error-conditions",
+    "testFeatureImplemented": true,
+    "testIdentifier": "incomplete-order-item-no-offer",
+    "testName": "Test for IncompleteOrderItemError with missing `acceptedOffer`",
+    "testDescription": "Test for IncompleteOrderItemError (at C1, C2 and B). If there is a missing `acceptedOffer` property on the OrderItem.",
+    "testOpportunityCriteria": "TestOpportunityBookable",
+    "controlOpportunityCriteria": "TestOpportunityBookable"
+  },
+  "implemented": true,
+  "testFileIdentifier": "common-error-conditions incomplete-order-item-no-offer OpenBookingApprovalFlow ScheduledSession",
+  "suites": [
+    [
+      "common-error-conditions",
+      "incomplete-order-item-no-offer",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession"
+    ],
+    [
+      "common-error-conditions",
+      "incomplete-order-item-no-offer",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "Fetch Opportunities"
+    ],
+    [
+      "common-error-conditions",
+      "incomplete-order-item-no-offer",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "Fetch Opportunities",
+      "validation of Opportunity Feed extract for OrderItem 0"
+    ],
+    [
+      "common-error-conditions",
+      "incomplete-order-item-no-offer",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "C1"
+    ],
+    [
+      "common-error-conditions",
+      "incomplete-order-item-no-offer",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "Assert Opportunity Capacity (after C1)"
+    ],
+    [
+      "common-error-conditions",
+      "incomplete-order-item-no-offer",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "C2"
+    ],
+    [
+      "common-error-conditions",
+      "incomplete-order-item-no-offer",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "Assert Opportunity Capacity (after C2)"
+    ],
+    [
+      "common-error-conditions",
+      "incomplete-order-item-no-offer",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "P"
+    ],
+    [
+      "common-error-conditions",
+      "incomplete-order-item-no-offer",
+      "OpenBookingApprovalFlow",
+      "ScheduledSession",
+      "Feature Description Assertions (for OpenActive maintainers)"
+    ]
+  ],
+  "title": "common-error-conditions >> incomplete-order-item-no-offer (OpenBookingApprovalFlow >> ScheduledSession)",
+  "workingLog": "",
+  "specs": {
+    "common-error-conditions,incomplete-order-item-no-offer,OpenBookingApprovalFlow,ScheduledSession,Fetch Opportunities": [
+      "should return 200 on success for request relevant to OrderItem 0"
+    ],
+    "common-error-conditions,incomplete-order-item-no-offer,OpenBookingApprovalFlow,ScheduledSession,Fetch Opportunities,validation of Opportunity Feed extract for OrderItem 0": [
+      "passes validation checks",
+      "matches the criteria 'TestOpportunityBookable' required for this test"
+    ],
+    "common-error-conditions,incomplete-order-item-no-offer,OpenBookingApprovalFlow,ScheduledSession,Assert Opportunity Capacity (after C1)": [
+      "should return 200 on success for request relevant to OrderItem 0",
+      "should return HTTP 409",
+      "Should have the same number of OrderItems as criteria",
+      "OrderItem at position 0 - should include an IncompleteOrderItemError"
+    ],
+    "common-error-conditions,incomplete-order-item-no-offer,OpenBookingApprovalFlow,ScheduledSession,Assert Opportunity Capacity (after C2)": [
+      "should return 200 on success for request relevant to OrderItem 0",
+      "should return HTTP 409",
+      "Should have the same number of OrderItems as criteria",
+      "OrderItem at position 0 - should include an IncompleteOrderItemError"
+    ],
+    "common-error-conditions,incomplete-order-item-no-offer,OpenBookingApprovalFlow,ScheduledSession,P": [
+      "should return HTTP 409",
+      "Should have the same number of OrderItems as criteria",
+      "OrderItem at position 0 - should include an IncompleteOrderItemError"
+    ],
+    "common-error-conditions,incomplete-order-item-no-offer,OpenBookingApprovalFlow,ScheduledSession,Feature Description Assertions (for OpenActive maintainers)": [
+      "Feature Description `.testInterfaceActions` should match the Test Interface Actions that were used in the test"
+    ]
+  },
+  "description": "Test for IncompleteOrderItemError (at C1, C2 and B). If there is a missing `acceptedOffer` property on the OrderItem.",
+  "bookingFlow": "OpenBookingApprovalFlow",
+  "opportunityType": "ScheduledSession",
+  "baseAncestorTitles": [
+    "common-error-conditions",
+    "incomplete-order-item-no-offer",
+    "OpenBookingApprovalFlow",
+    "ScheduledSession"
+  ]
+}

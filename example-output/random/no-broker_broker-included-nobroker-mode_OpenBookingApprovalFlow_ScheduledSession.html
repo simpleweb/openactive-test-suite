@@ -1,0 +1,2323 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<p><head>
+  </p>
+<style>
+h2 {
+    cursor: pointer;
+    border-top-color: #CCC;
+    border-top-width: 1px;
+    border-top-style: solid;
+    padding-top: 5px;
+}
+h2:hover {
+    color: #0056b3; /* Example color change on hover */
+}
+</style>
+<p></head></p>
+<p><a href="summary.html" rel="noopener noreferrer" target="_blank">< Return to Summary</a> | File Generated: Fri Jan 31 2025 11:14:30 GMT+0000 (Coordinated Universal Time)</p>
+<p><button id="collapseH2Button">Collapse All Sections</button>
+<button id="showH2Button">Show All Sections</button>
+<button id="collapseAllButFirstError">Show Only First Error</button></p>
+<h1 id="nobrokerbrokerincludednobrokermodeopenbookingapprovalflowscheduledsession">no-broker &gt;&gt; broker-included-nobroker-mode (OpenBookingApprovalFlow &gt;&gt; ScheduledSession)</h1>
+<p><strong>Booking Flow:</strong> OpenBookingApprovalFlow</p>
+<p><strong>Opportunity Type:</strong> ScheduledSession</p>
+<p><strong>Feature:</strong> Broker Role / NoBroker mode (Implemented) </p>
+<p><strong>Test:</strong>  Broker included in Order in NoBroker mode</p>
+<p>Request shoud fail if broker is included in Order in NoBroker mode for C1, C2 &amp; B request.</p>
+<h3 id="runningonlythistest">Running only this test</h3>
+<pre><code class="bash language-bash">npm start -- --runInBand test/features/broker-role/no-broker/implemented/broker-included-nobroker-mode-test.js
+</code></pre>
+<h3 id="isthistestfailing">Is this test failing?</h3>
+<p>The <a href="https://openactive.io/openactive-test-suite/example-output/random/no-broker_broker-included-nobroker-mode_OpenBookingApprovalFlow_ScheduledSession.html" rel="noopener noreferrer" target="_blank">OpenActive Reference Implementation test result for this test</a> can be used as a reference to help with debugging.</p>
+<hr />
+<p>⚠️ 24 passed with 0 failures, 120 warnings and 66 suggestions </p>
+<hr />
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc1fetchopportunities">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C1 &gt;&gt; Fetch Opportunities</h2>
+<h3 id="localmicroservicetestinterfacefororderitem0request">Local Microservice Test Interface for OrderItem 0 Request</h3>
+<p>POST http://localhost:3000/test-interface/datasets/uat-ci/opportunities</p>
+<pre><code class="json language-json">{
+  "@type": "ScheduledSession",
+  "superEvent": {
+    "@type": "SessionSeries",
+    "organizer": {
+      "@type": "Organization",
+      "@id": "https://localhost:5001/api/identifiers/sellers/1"
+    }
+  },
+  "@context": [
+    "https://openactive.io/",
+    "https://openactive.io/test-interface"
+  ],
+  "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable",
+  "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 4.9704ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "ScheduledSession",
+  "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/999/events/9981"
+}
+</code></pre>
+<h3 id="opportunityfeedextractfororderitem0request">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F999%2Fevents%2F9981?useCacheIfAvailable=true</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 3.741858ms.</p>
+<pre><code class="json language-json">{
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "ScheduledSession",
+    "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/999/events/9981",
+    "startDate": "2025-02-05T11:45:56+00:00",
+    "endDate": "2025-02-05T15:16:56+00:00",
+    "superEvent": {
+      "@type": "SessionSeries",
+      "@id": "https://localhost:5001/api/identifiers/session-series/999",
+      "identifier": 999,
+      "name": "GOLDEN: Fresh Running",
+      "activity": [
+        {
+          "@type": "Concept",
+          "@id": "https://openactive.io/activity-list#72ddb2dc-7d75-424e-880a-d90eabe91381",
+          "inScheme": "https://openactive.io/activity-list",
+          "prefLabel": "Running"
+        }
+      ],
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "offers": [
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/999#/offers/0",
+          "name": "Adult",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Adult",
+            "maxValue": 59,
+            "minValue": 18
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "latestCancellationBeforeStartDate": "P1DT16H",
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "price": 6.74,
+          "priceCurrency": "GBP"
+        },
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/999#/offers/0",
+          "name": "Junior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Junior",
+            "maxValue": 17
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "latestCancellationBeforeStartDate": "P1DT16H",
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "price": 6.74,
+          "priceCurrency": "GBP"
+        },
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/999#/offers/0",
+          "name": "Senior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Senior",
+            "minValue": 60
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "latestCancellationBeforeStartDate": "P1DT16H",
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "price": 6.74,
+          "priceCurrency": "GBP"
+        },
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/999#/offers/0",
+          "name": "Adult (off-peak)",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Adult (off-peak)",
+            "maxValue": 59,
+            "minValue": 18
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "latestCancellationBeforeStartDate": "P1DT16H",
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "price": 6.74,
+          "priceCurrency": "GBP"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "@id": "https://localhost:5001/api/identifiers/sellers/1",
+        "name": "Acme Fitness Ltd",
+        "isOpenBookingAllowed": true,
+        "sameAs": [
+          "https://socialmedia.com/AcmeFitnessLtd"
+        ],
+        "taxMode": "https://openactive.io/TaxGross",
+        "telephone": "02556 562432",
+        "termsOfService": [
+          {
+            "@type": "PrivacyPolicy",
+            "name": "Privacy Policy",
+            "requiresExplicitConsent": false,
+            "url": "https://example.com/privacy.html"
+          }
+        ],
+        "url": "https://anais.net"
+      },
+      "url": "https://www.example.com/sessions/999"
+    },
+    "duration": "PT3H31M",
+    "maximumAttendeeCapacity": 3,
+    "remainingAttendeeCapacity": 3
+  }
+}
+</code></pre>
+<h3 id="specs">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc1fetchopportunitiesvalidationofopportunityfeedextractfororderitem0">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C1 &gt;&gt; Fetch Opportunities &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-1">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+<li>✅ matches the criteria 'TestOpportunityBookable' required for this test</li>
+</ul>
+<h3 id="validations">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+<li>❔ $.superEvent.offers[1].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+<li>❔ $.superEvent.offers[2].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+<li>❔ $.superEvent.offers[3].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc1c1">❔ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C1 &gt;&gt; C1</h2>
+<h3 id="c1request">C1 Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-quote-templates/8a8248b5-d2ba-49fa-9a46-973ad002496f</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "brokerRole": "https://openactive.io/NoBroker",
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com",
+    "description": "A fitness app for all the community",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alan Peacock Way",
+      "addressLocality": "Village East",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "seller": "https://localhost:5001/api/identifiers/sellers/1",
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/session-series/999#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/999/events/9981"
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 400 Bad Request. Responded in 23.072554ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "IncompleteBrokerDetailsError",
+  "name": "The 'name' property is not supplied within the 'Organisation' object describing the Broker; or the 'broker' property supplied is not a valid 'Organisation' object.",
+  "statusCode": 400
+}
+</code></pre>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc1c1validationofc1">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C1 &gt;&gt; C1 &gt;&gt; validation of C1</h2>
+<h3 id="specs-2">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-1">Validations</h3>
+<ul>
+<li>⚠️ $.description: Recommended property <code>description</code> is missing from <code>IncompleteBrokerDetailsError</code>.</li>
+<li>⚠️ $.instance: Recommended property <code>instance</code> is missing from <code>IncompleteBrokerDetailsError</code>.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc1assertopportunitycapacityafterc1">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C1 &gt;&gt; Assert Opportunity Capacity (after C1)</h2>
+<h3 id="specs-3">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+<li>✅ should return a response containing <code>"@type": "IncompleteBrokerDetailsError"</code> with status code <code>400</code></li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc1assertopportunitycapacityafterc1validationofopportunityfeedextractfororderitem0">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C1 &gt;&gt; Assert Opportunity Capacity (after C1) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-4">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-2">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+<li>❔ $.superEvent.offers[1].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+<li>❔ $.superEvent.offers[2].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+<li>❔ $.superEvent.offers[3].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc2fetchopportunities">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C2 &gt;&gt; Fetch Opportunities</h2>
+<h3 id="localmicroservicetestinterfacefororderitem0request-1">Local Microservice Test Interface for OrderItem 0 Request</h3>
+<p>POST http://localhost:3000/test-interface/datasets/uat-ci/opportunities</p>
+<pre><code class="json language-json">{
+  "@type": "ScheduledSession",
+  "superEvent": {
+    "@type": "SessionSeries",
+    "organizer": {
+      "@type": "Organization",
+      "@id": "https://localhost:5001/api/identifiers/sellers/1"
+    }
+  },
+  "@context": [
+    "https://openactive.io/",
+    "https://openactive.io/test-interface"
+  ],
+  "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable",
+  "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 5.339291ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "ScheduledSession",
+  "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1448/events/14479"
+}
+</code></pre>
+<h3 id="opportunityfeedextractfororderitem0request-1">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F1448%2Fevents%2F14479?useCacheIfAvailable=true</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 7.750887ms.</p>
+<pre><code class="json language-json">{
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "ScheduledSession",
+    "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1448/events/14479",
+    "startDate": "2025-02-02T01:05:56+00:00",
+    "endDate": "2025-02-02T02:44:56+00:00",
+    "superEvent": {
+      "@type": "SessionSeries",
+      "@id": "https://localhost:5001/api/identifiers/session-series/1448",
+      "identifier": 1448,
+      "name": "Cotton Yoga",
+      "activity": [
+        {
+          "@type": "Concept",
+          "@id": "https://openactive.io/activity-list#bf1a5e00-cdcf-465d-8c5a-6f57040b7f7e",
+          "inScheme": "https://openactive.io/activity-list",
+          "prefLabel": "Yoga"
+        }
+      ],
+      "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "@id": "https://example.com/place/3",
+        "identifier": 3,
+        "name": "Stroll &amp; Stretch",
+        "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "GB",
+          "addressLocality": "Oxford",
+          "addressRegion": "Oxfordshire",
+          "postalCode": "OX1 1UU",
+          "streetAddress": "Norfolk Street"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 51.749826,
+          "longitude": -1.261492
+        },
+        "image": [
+          {
+            "@type": "ImageObject",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+          }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "17:30",
+            "dayOfWeek": [
+              "https://schema.org/Sunday"
+            ],
+            "opens": "09:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Monday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Tuesday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Wednesday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Thursday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Friday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "17:30",
+            "dayOfWeek": [
+              "https://schema.org/Saturday"
+            ],
+            "opens": "09:00"
+          }
+        ],
+        "telephone": "01865 000003",
+        "url": "https://en.wikipedia.org/wiki/Shopping_center"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1448#/offers/0",
+          "name": "Junior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Junior",
+            "maxValue": 17
+          },
+          "allowCustomerCancellationFullRefund": false,
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "openBookingPrepayment": "https://openactive.io/Unavailable",
+          "price": 0,
+          "priceCurrency": "GBP",
+          "validFromBeforeStartDate": "P12DT4H8M"
+        },
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1448#/offers/0",
+          "name": "Senior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Senior",
+            "minValue": 60
+          },
+          "allowCustomerCancellationFullRefund": false,
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "openBookingPrepayment": "https://openactive.io/Unavailable",
+          "price": 0,
+          "priceCurrency": "GBP",
+          "validFromBeforeStartDate": "P12DT4H8M"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "@id": "https://localhost:5001/api/identifiers/sellers/1",
+        "name": "Acme Fitness Ltd",
+        "isOpenBookingAllowed": true,
+        "sameAs": [
+          "https://socialmedia.com/AcmeFitnessLtd"
+        ],
+        "taxMode": "https://openactive.io/TaxGross",
+        "telephone": "09968 120907",
+        "termsOfService": [
+          {
+            "@type": "PrivacyPolicy",
+            "name": "Privacy Policy",
+            "requiresExplicitConsent": false,
+            "url": "https://example.com/privacy.html"
+          }
+        ],
+        "url": "https://steve.name"
+      },
+      "url": "https://www.example.com/sessions/1448"
+    },
+    "duration": "PT1H39M",
+    "maximumAttendeeCapacity": 2,
+    "remainingAttendeeCapacity": 2
+  }
+}
+</code></pre>
+<h3 id="specs-5">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc2fetchopportunitiesvalidationofopportunityfeedextractfororderitem0">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C2 &gt;&gt; Fetch Opportunities &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-6">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+<li>✅ matches the criteria 'TestOpportunityBookable' required for this test</li>
+</ul>
+<h3 id="validations-3">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.isAccessibleForFree: Where a <code>ScheduledSession</code> has at least one <code>Offer</code> with <code>price</code> set to <code>0</code>, it should also have a property named <code>isAccessibleForFree</code> set to <code>true</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.isAccessibleForFree: Where a <code>SessionSeries</code> has at least one <code>Offer</code> with <code>price</code> set to <code>0</code>, it should also have a property named <code>isAccessibleForFree</code> set to <code>true</code>.</li>
+<li>⚠️ $.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+<li>❔ $.superEvent.offers[1].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc2c1">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C2 &gt;&gt; C1</h2>
+<h3 id="c1request-1">C1 Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-quote-templates/735043ff-aa40-4f51-9888-7c1ede1aa5b7</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "brokerRole": "https://openactive.io/NoBroker",
+  "seller": "https://localhost:5001/api/identifiers/sellers/1",
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/session-series/1448#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1448/events/14479"
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 80.416396ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "@id": "https://localhost:5001/api/openbooking/order-quotes/735043ff-aa40-4f51-9888-7c1ede1aa5b7",
+  "lease": {
+    "@type": "Lease",
+    "leaseExpires": "2025-01-31T11:20:09+00:00"
+  },
+  "orderRequiresApproval": true,
+  "bookingService": {
+    "@type": "BookingService",
+    "name": "Acme booking system",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ],
+    "url": "https://example.com"
+  },
+  "broker": {
+    "@type": "Organization"
+  },
+  "brokerRole": "https://openactive.io/NoBroker",
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "acceptedOffer": {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/session-series/1448#/offers/0",
+        "allowCustomerCancellationFullRefund": false,
+        "openBookingPrepayment": "https://openactive.io/Unavailable",
+        "price": 0,
+        "priceCurrency": "GBP",
+        "validFromBeforeStartDate": "P12DT4H8M"
+      },
+      "orderedItem": {
+        "@type": "ScheduledSession",
+        "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1448/events/14479",
+        "startDate": "2025-02-02T01:05:56+00:00",
+        "endDate": "2025-02-02T02:44:56+00:00",
+        "superEvent": {
+          "@type": "SessionSeries",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1448",
+          "name": "Cotton Yoga",
+          "activity": [
+            {
+              "@type": "Concept",
+              "@id": "https://openactive.io/activity-list#6bdea630-ad22-4e58-98a3-bca26ee3f1da",
+              "inScheme": "https://openactive.io/activity-list",
+              "prefLabel": "Rave Fitness"
+            }
+          ],
+          "location": {
+            "@type": "Place",
+            "@id": "https://example.com/place/3",
+            "identifier": 3,
+            "name": "Stroll &amp; Stretch",
+            "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "GB",
+              "addressLocality": "Oxford",
+              "addressRegion": "Oxfordshire",
+              "postalCode": "OX1 1UU",
+              "streetAddress": "Norfolk Street"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 51.749826,
+              "longitude": -1.261492
+            },
+            "image": [
+              {
+                "@type": "ImageObject",
+                "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+              }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "17:30",
+                "dayOfWeek": [
+                  "https://schema.org/Sunday"
+                ],
+                "opens": "09:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Monday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Tuesday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Wednesday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Thursday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Friday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "17:30",
+                "dayOfWeek": [
+                  "https://schema.org/Saturday"
+                ],
+                "opens": "09:00"
+              }
+            ],
+            "telephone": "01865 000003",
+            "url": "https://en.wikipedia.org/wiki/Shopping_center"
+          },
+          "url": "https://example.com/events/1448"
+        },
+        "maximumAttendeeCapacity": 2,
+        "remainingAttendeeCapacity": 2
+      },
+      "position": 0,
+      "unitTaxSpecification": [
+        {
+          "@type": "TaxChargeSpecification",
+          "name": "VAT at 20%",
+          "price": 0,
+          "priceCurrency": "GBP",
+          "rate": 0.2
+        }
+      ]
+    }
+  ],
+  "seller": {
+    "@type": "Organization",
+    "@id": "https://localhost:5001/api/identifiers/sellers/1",
+    "name": "Acme Fitness Ltd",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB",
+      "addressLocality": "Another town",
+      "addressRegion": "Oxfordshire",
+      "postalCode": "OX1 1AA",
+      "streetAddress": "1 Hidden Gem"
+    },
+    "isOpenBookingAllowed": true,
+    "legalName": "Acme Fitness Ltd",
+    "taxMode": "https://openactive.io/TaxGross",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ]
+  },
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "openBookingPrepayment": "https://openactive.io/Unavailable",
+    "price": 0,
+    "priceCurrency": "GBP"
+  },
+  "totalPaymentTax": [
+    {
+      "@type": "TaxChargeSpecification",
+      "name": "VAT at 20%",
+      "price": 0,
+      "priceCurrency": "GBP",
+      "rate": 0.2
+    }
+  ]
+}
+</code></pre>
+<h3 id="specs-7">Specs</h3>
+<ul>
+<li>✅ should return 200 on success</li>
+<li>✅ Should have the same number of OrderItems as criteria</li>
+<li>✅ OrderItem at position 0 - capacities should not have changed from their initial values after C1/C2 (regardless of leasing)</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc2c1validationofc1">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C2 &gt;&gt; C1 &gt;&gt; validation of C1</h2>
+<h3 id="specs-8">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-4">Validations</h3>
+<ul>
+<li>⚠️ $.orderedItem[0].acceptedOffer.name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>⚠️ $.seller.email: Recommended property <code>email</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.url: Recommended property <code>url</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.logo: Recommended property <code>logo</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.vatID: Recommended property <code>vatID</code> is missing from <code>Organization</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.orderedItem[0].orderedItem.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc2assertopportunitycapacityafterc1">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C2 &gt;&gt; Assert Opportunity Capacity (after C1)</h2>
+<h3 id="opportunityfeedextractfororderitem0request-2">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F1448%2Fevents%2F14479?useCacheIfAvailable=true&amp;expectedCapacity=1</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 425.455499ms.</p>
+<pre><code class="json language-json">{
+  "state": "updated",
+  "id": "https://localhost:5001/api/identifiers/scheduled-sessions/1448/events/14479",
+  "modified": "1738322110996",
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "ScheduledSession",
+    "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1448/events/14479",
+    "startDate": "2025-02-02T01:05:56+00:00",
+    "endDate": "2025-02-02T02:44:56+00:00",
+    "superEvent": {
+      "@type": "SessionSeries",
+      "@id": "https://localhost:5001/api/identifiers/session-series/1448",
+      "identifier": 1448,
+      "name": "Cotton Yoga",
+      "activity": [
+        {
+          "@type": "Concept",
+          "@id": "https://openactive.io/activity-list#bf1a5e00-cdcf-465d-8c5a-6f57040b7f7e",
+          "inScheme": "https://openactive.io/activity-list",
+          "prefLabel": "Yoga"
+        }
+      ],
+      "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "@id": "https://example.com/place/3",
+        "identifier": 3,
+        "name": "Stroll &amp; Stretch",
+        "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "GB",
+          "addressLocality": "Oxford",
+          "addressRegion": "Oxfordshire",
+          "postalCode": "OX1 1UU",
+          "streetAddress": "Norfolk Street"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 51.749826,
+          "longitude": -1.261492
+        },
+        "image": [
+          {
+            "@type": "ImageObject",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+          }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "17:30",
+            "dayOfWeek": [
+              "https://schema.org/Sunday"
+            ],
+            "opens": "09:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Monday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Tuesday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Wednesday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Thursday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "21:30",
+            "dayOfWeek": [
+              "https://schema.org/Friday"
+            ],
+            "opens": "06:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "closes": "17:30",
+            "dayOfWeek": [
+              "https://schema.org/Saturday"
+            ],
+            "opens": "09:00"
+          }
+        ],
+        "telephone": "01865 000003",
+        "url": "https://en.wikipedia.org/wiki/Shopping_center"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1448#/offers/0",
+          "name": "Junior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Junior",
+            "maxValue": 17
+          },
+          "allowCustomerCancellationFullRefund": false,
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "openBookingPrepayment": "https://openactive.io/Unavailable",
+          "price": 0,
+          "priceCurrency": "GBP",
+          "validFromBeforeStartDate": "P12DT4H8M"
+        },
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1448#/offers/0",
+          "name": "Senior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Senior",
+            "minValue": 60
+          },
+          "allowCustomerCancellationFullRefund": false,
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "openBookingPrepayment": "https://openactive.io/Unavailable",
+          "price": 0,
+          "priceCurrency": "GBP",
+          "validFromBeforeStartDate": "P12DT4H8M"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "@id": "https://localhost:5001/api/identifiers/sellers/1",
+        "name": "Acme Fitness Ltd",
+        "isOpenBookingAllowed": true,
+        "sameAs": [
+          "https://socialmedia.com/AcmeFitnessLtd"
+        ],
+        "taxMode": "https://openactive.io/TaxGross",
+        "telephone": "09968 120907",
+        "termsOfService": [
+          {
+            "@type": "PrivacyPolicy",
+            "name": "Privacy Policy",
+            "requiresExplicitConsent": false,
+            "url": "https://example.com/privacy.html"
+          }
+        ],
+        "url": "https://steve.name"
+      },
+      "url": "https://www.example.com/sessions/1448"
+    },
+    "duration": "PT1H39M",
+    "maximumAttendeeCapacity": 2,
+    "remainingAttendeeCapacity": 1
+  }
+}
+</code></pre>
+<h3 id="specs-9">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc2assertopportunitycapacityafterc1validationofopportunityfeedextractfororderitem0">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C2 &gt;&gt; Assert Opportunity Capacity (after C1) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-10">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-5">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.isAccessibleForFree: Where a <code>ScheduledSession</code> has at least one <code>Offer</code> with <code>price</code> set to <code>0</code>, it should also have a property named <code>isAccessibleForFree</code> set to <code>true</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.isAccessibleForFree: Where a <code>SessionSeries</code> has at least one <code>Offer</code> with <code>price</code> set to <code>0</code>, it should also have a property named <code>isAccessibleForFree</code> set to <code>true</code>.</li>
+<li>⚠️ $.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+<li>❔ $.superEvent.offers[1].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc2c2">❔ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C2 &gt;&gt; C2</h2>
+<h3 id="c2request">C2 Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-quotes/735043ff-aa40-4f51-9888-7c1ede1aa5b7</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "brokerRole": "https://openactive.io/NoBroker",
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com",
+    "description": "A fitness app for all the community",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alan Peacock Way",
+      "addressLocality": "Village East",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "seller": "https://localhost:5001/api/identifiers/sellers/1",
+  "customer": {
+    "@type": "Person",
+    "email": "Claudia_Hirthe@hotmail.com",
+    "telephone": "318.734.3849",
+    "givenName": "Smitham",
+    "familyName": "Daryl",
+    "identifier": "7188608f-fb34-46a9-acdf-86c799529bae"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/session-series/1448#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1448/events/14479"
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 400 Bad Request. Responded in 12.857089ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "IncompleteBrokerDetailsError",
+  "name": "The 'name' property is not supplied within the 'Organisation' object describing the Broker; or the 'broker' property supplied is not a valid 'Organisation' object.",
+  "statusCode": 400
+}
+</code></pre>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc2c2validationofc2">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C2 &gt;&gt; C2 &gt;&gt; validation of C2</h2>
+<h3 id="specs-11">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-6">Validations</h3>
+<ul>
+<li>⚠️ $.description: Recommended property <code>description</code> is missing from <code>IncompleteBrokerDetailsError</code>.</li>
+<li>⚠️ $.instance: Recommended property <code>instance</code> is missing from <code>IncompleteBrokerDetailsError</code>.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc2assertopportunitycapacityafterc2">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C2 &gt;&gt; Assert Opportunity Capacity (after C2)</h2>
+<h3 id="specs-12">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+<li>✅ should return a response containing <code>"@type": "IncompleteBrokerDetailsError"</code> with status code <code>400</code></li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatc2assertopportunitycapacityafterc2validationofopportunityfeedextractfororderitem0">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at C2 &gt;&gt; Assert Opportunity Capacity (after C2) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-13">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-7">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.isAccessibleForFree: Where a <code>ScheduledSession</code> has at least one <code>Offer</code> with <code>price</code> set to <code>0</code>, it should also have a property named <code>isAccessibleForFree</code> set to <code>true</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.isAccessibleForFree: Where a <code>SessionSeries</code> has at least one <code>Offer</code> with <code>price</code> set to <code>0</code>, it should also have a property named <code>isAccessibleForFree</code> set to <code>true</code>.</li>
+<li>⚠️ $.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+<li>❔ $.superEvent.offers[1].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatborpfetchopportunities">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at B or P &gt;&gt; Fetch Opportunities</h2>
+<h3 id="localmicroservicetestinterfacefororderitem0request-2">Local Microservice Test Interface for OrderItem 0 Request</h3>
+<p>POST http://localhost:3000/test-interface/datasets/uat-ci/opportunities</p>
+<pre><code class="json language-json">{
+  "@type": "ScheduledSession",
+  "superEvent": {
+    "@type": "SessionSeries",
+    "organizer": {
+      "@type": "Organization",
+      "@id": "https://localhost:5001/api/identifiers/sellers/1"
+    }
+  },
+  "@context": [
+    "https://openactive.io/",
+    "https://openactive.io/test-interface"
+  ],
+  "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable",
+  "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingApprovalFlow"
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 6.814844ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "ScheduledSession",
+  "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1040/events/10400"
+}
+</code></pre>
+<h3 id="opportunityfeedextractfororderitem0request-3">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F1040%2Fevents%2F10400?useCacheIfAvailable=true</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 4.674297ms.</p>
+<pre><code class="json language-json">{
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "ScheduledSession",
+    "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1040/events/10400",
+    "startDate": "2025-02-09T10:11:56+00:00",
+    "endDate": "2025-02-09T15:07:56+00:00",
+    "superEvent": {
+      "@type": "SessionSeries",
+      "@id": "https://localhost:5001/api/identifiers/session-series/1040",
+      "identifier": 1040,
+      "name": "Wooden Jumping",
+      "activity": [
+        {
+          "@type": "Concept",
+          "@id": "https://openactive.io/activity-list#8a4abff3-c616-4f33-80a1-398b88c672a3",
+          "inScheme": "https://openactive.io/activity-list",
+          "prefLabel": "World Jumping®"
+        }
+      ],
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "offers": [
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1040#/offers/0",
+          "name": "Senior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Senior",
+            "minValue": 60
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "latestCancellationBeforeStartDate": "P1D",
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "price": 10.33,
+          "priceCurrency": "GBP"
+        },
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1040#/offers/0",
+          "name": "Junior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Junior",
+            "maxValue": 17
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "latestCancellationBeforeStartDate": "P1D",
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "price": 10.33,
+          "priceCurrency": "GBP"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "@id": "https://localhost:5001/api/identifiers/sellers/1",
+        "name": "Acme Fitness Ltd",
+        "isOpenBookingAllowed": true,
+        "sameAs": [
+          "https://socialmedia.com/AcmeFitnessLtd"
+        ],
+        "taxMode": "https://openactive.io/TaxGross",
+        "telephone": "07481 674455",
+        "termsOfService": [
+          {
+            "@type": "PrivacyPolicy",
+            "name": "Privacy Policy",
+            "requiresExplicitConsent": false,
+            "url": "https://example.com/privacy.html"
+          }
+        ],
+        "url": "https://micheal.name"
+      },
+      "url": "https://www.example.com/sessions/1040"
+    },
+    "duration": "PT4H56M",
+    "maximumAttendeeCapacity": 3,
+    "remainingAttendeeCapacity": 3
+  }
+}
+</code></pre>
+<h3 id="specs-14">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatborpfetchopportunitiesvalidationofopportunityfeedextractfororderitem0">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at B or P &gt;&gt; Fetch Opportunities &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-15">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+<li>✅ matches the criteria 'TestOpportunityBookable' required for this test</li>
+</ul>
+<h3 id="validations-8">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+<li>❔ $.superEvent.offers[1].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatborpc1">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at B or P &gt;&gt; C1</h2>
+<h3 id="c1request-2">C1 Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-quote-templates/c190b4c0-1534-4a9b-838a-2cb1e4086cb5</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "brokerRole": "https://openactive.io/NoBroker",
+  "seller": "https://localhost:5001/api/identifiers/sellers/1",
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/session-series/1040#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1040/events/10400"
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 92.327145ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "@id": "https://localhost:5001/api/openbooking/order-quotes/c190b4c0-1534-4a9b-838a-2cb1e4086cb5",
+  "lease": {
+    "@type": "Lease",
+    "leaseExpires": "2025-01-31T11:20:12+00:00"
+  },
+  "orderRequiresApproval": true,
+  "bookingService": {
+    "@type": "BookingService",
+    "name": "Acme booking system",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ],
+    "url": "https://example.com"
+  },
+  "broker": {
+    "@type": "Organization"
+  },
+  "brokerRole": "https://openactive.io/NoBroker",
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "acceptedOffer": {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/session-series/1040#/offers/0",
+        "allowCustomerCancellationFullRefund": true,
+        "latestCancellationBeforeStartDate": "P1D",
+        "price": 10.33,
+        "priceCurrency": "GBP"
+      },
+      "orderedItem": {
+        "@type": "ScheduledSession",
+        "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1040/events/10400",
+        "startDate": "2025-02-09T10:11:56+00:00",
+        "endDate": "2025-02-09T15:07:56+00:00",
+        "superEvent": {
+          "@type": "SessionSeries",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1040",
+          "name": "Wooden Jumping",
+          "activity": [
+            {
+              "@type": "Concept",
+              "@id": "https://openactive.io/activity-list#6bdea630-ad22-4e58-98a3-bca26ee3f1da",
+              "inScheme": "https://openactive.io/activity-list",
+              "prefLabel": "Rave Fitness"
+            }
+          ],
+          "location": {
+            "@type": "Place",
+            "@id": "https://example.com/place/3",
+            "identifier": 3,
+            "name": "Stroll &amp; Stretch",
+            "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "GB",
+              "addressLocality": "Oxford",
+              "addressRegion": "Oxfordshire",
+              "postalCode": "OX1 1UU",
+              "streetAddress": "Norfolk Street"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 51.749826,
+              "longitude": -1.261492
+            },
+            "image": [
+              {
+                "@type": "ImageObject",
+                "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+              }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "17:30",
+                "dayOfWeek": [
+                  "https://schema.org/Sunday"
+                ],
+                "opens": "09:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Monday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Tuesday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Wednesday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Thursday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Friday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "17:30",
+                "dayOfWeek": [
+                  "https://schema.org/Saturday"
+                ],
+                "opens": "09:00"
+              }
+            ],
+            "telephone": "01865 000003",
+            "url": "https://en.wikipedia.org/wiki/Shopping_center"
+          },
+          "url": "https://example.com/events/1040"
+        },
+        "maximumAttendeeCapacity": 3,
+        "remainingAttendeeCapacity": 3
+      },
+      "position": 0,
+      "unitTaxSpecification": [
+        {
+          "@type": "TaxChargeSpecification",
+          "name": "VAT at 20%",
+          "price": 2.066,
+          "priceCurrency": "GBP",
+          "rate": 0.2
+        }
+      ]
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  },
+  "seller": {
+    "@type": "Organization",
+    "@id": "https://localhost:5001/api/identifiers/sellers/1",
+    "name": "Acme Fitness Ltd",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB",
+      "addressLocality": "Another town",
+      "addressRegion": "Oxfordshire",
+      "postalCode": "OX1 1AA",
+      "streetAddress": "1 Hidden Gem"
+    },
+    "isOpenBookingAllowed": true,
+    "legalName": "Acme Fitness Ltd",
+    "taxMode": "https://openactive.io/TaxGross",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ]
+  },
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "openBookingPrepayment": "https://openactive.io/Required",
+    "price": 10.33,
+    "priceCurrency": "GBP"
+  },
+  "totalPaymentTax": [
+    {
+      "@type": "TaxChargeSpecification",
+      "name": "VAT at 20%",
+      "price": 2.066,
+      "priceCurrency": "GBP",
+      "rate": 0.2
+    }
+  ]
+}
+</code></pre>
+<h3 id="specs-16">Specs</h3>
+<ul>
+<li>✅ should return 200 on success</li>
+<li>✅ Should have the same number of OrderItems as criteria</li>
+<li>✅ OrderItem at position 0 - capacities should not have changed from their initial values after C1/C2 (regardless of leasing)</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatborpc1validationofc1">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at B or P &gt;&gt; C1 &gt;&gt; validation of C1</h2>
+<h3 id="specs-17">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-9">Validations</h3>
+<ul>
+<li>⚠️ $.orderedItem[0].acceptedOffer.name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>⚠️ $.seller.email: Recommended property <code>email</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.url: Recommended property <code>url</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.logo: Recommended property <code>logo</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.vatID: Recommended property <code>vatID</code> is missing from <code>Organization</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.orderedItem[0].orderedItem.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatborpassertopportunitycapacityafterc1">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at B or P &gt;&gt; Assert Opportunity Capacity (after C1)</h2>
+<h3 id="opportunityfeedextractfororderitem0request-4">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F1040%2Fevents%2F10400?useCacheIfAvailable=true&amp;expectedCapacity=2</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 591.293218ms.</p>
+<pre><code class="json language-json">{
+  "state": "updated",
+  "id": "https://localhost:5001/api/identifiers/scheduled-sessions/1040/events/10400",
+  "modified": "1738322113911",
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "ScheduledSession",
+    "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1040/events/10400",
+    "startDate": "2025-02-09T10:11:56+00:00",
+    "endDate": "2025-02-09T15:07:56+00:00",
+    "superEvent": {
+      "@type": "SessionSeries",
+      "@id": "https://localhost:5001/api/identifiers/session-series/1040",
+      "identifier": 1040,
+      "name": "Wooden Jumping",
+      "activity": [
+        {
+          "@type": "Concept",
+          "@id": "https://openactive.io/activity-list#8a4abff3-c616-4f33-80a1-398b88c672a3",
+          "inScheme": "https://openactive.io/activity-list",
+          "prefLabel": "World Jumping®"
+        }
+      ],
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "offers": [
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1040#/offers/0",
+          "name": "Senior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Senior",
+            "minValue": 60
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "latestCancellationBeforeStartDate": "P1D",
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "price": 10.33,
+          "priceCurrency": "GBP"
+        },
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1040#/offers/0",
+          "name": "Junior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Junior",
+            "maxValue": 17
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "latestCancellationBeforeStartDate": "P1D",
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "price": 10.33,
+          "priceCurrency": "GBP"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "@id": "https://localhost:5001/api/identifiers/sellers/1",
+        "name": "Acme Fitness Ltd",
+        "isOpenBookingAllowed": true,
+        "sameAs": [
+          "https://socialmedia.com/AcmeFitnessLtd"
+        ],
+        "taxMode": "https://openactive.io/TaxGross",
+        "telephone": "07481 674455",
+        "termsOfService": [
+          {
+            "@type": "PrivacyPolicy",
+            "name": "Privacy Policy",
+            "requiresExplicitConsent": false,
+            "url": "https://example.com/privacy.html"
+          }
+        ],
+        "url": "https://micheal.name"
+      },
+      "url": "https://www.example.com/sessions/1040"
+    },
+    "duration": "PT4H56M",
+    "maximumAttendeeCapacity": 3,
+    "remainingAttendeeCapacity": 2
+  }
+}
+</code></pre>
+<h3 id="specs-18">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatborpassertopportunitycapacityafterc1validationofopportunityfeedextractfororderitem0">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at B or P &gt;&gt; Assert Opportunity Capacity (after C1) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-19">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-10">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+<li>❔ $.superEvent.offers[1].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatborpc2">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at B or P &gt;&gt; C2</h2>
+<h3 id="c2request-1">C2 Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-quotes/c190b4c0-1534-4a9b-838a-2cb1e4086cb5</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "brokerRole": "https://openactive.io/NoBroker",
+  "seller": "https://localhost:5001/api/identifiers/sellers/1",
+  "customer": {
+    "@type": "Person",
+    "email": "Rashad_Grimes62@hotmail.com",
+    "telephone": "806-806-2246 x64839",
+    "givenName": "Borer",
+    "identifier": "8bae0222-4d46-43e2-a243-49647d385b69"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/session-series/1040#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1040/events/10400"
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 200 OK. Responded in 72.2335ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderQuote",
+  "@id": "https://localhost:5001/api/openbooking/order-quotes/c190b4c0-1534-4a9b-838a-2cb1e4086cb5",
+  "lease": {
+    "@type": "Lease",
+    "leaseExpires": "2025-01-31T11:20:13+00:00"
+  },
+  "orderRequiresApproval": true,
+  "bookingService": {
+    "@type": "BookingService",
+    "name": "Acme booking system",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ],
+    "url": "https://example.com"
+  },
+  "broker": {
+    "@type": "Organization"
+  },
+  "brokerRole": "https://openactive.io/NoBroker",
+  "customer": {
+    "@type": "Person",
+    "identifier": "8bae0222-4d46-43e2-a243-49647d385b69",
+    "email": "Rashad_Grimes62@hotmail.com",
+    "givenName": "Borer",
+    "telephone": "806-806-2246 x64839"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "acceptedOffer": {
+        "@type": "Offer",
+        "@id": "https://localhost:5001/api/identifiers/session-series/1040#/offers/0",
+        "allowCustomerCancellationFullRefund": true,
+        "latestCancellationBeforeStartDate": "P1D",
+        "price": 10.33,
+        "priceCurrency": "GBP"
+      },
+      "orderedItem": {
+        "@type": "ScheduledSession",
+        "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1040/events/10400",
+        "startDate": "2025-02-09T10:11:56+00:00",
+        "endDate": "2025-02-09T15:07:56+00:00",
+        "superEvent": {
+          "@type": "SessionSeries",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1040",
+          "name": "Wooden Jumping",
+          "activity": [
+            {
+              "@type": "Concept",
+              "@id": "https://openactive.io/activity-list#6bdea630-ad22-4e58-98a3-bca26ee3f1da",
+              "inScheme": "https://openactive.io/activity-list",
+              "prefLabel": "Rave Fitness"
+            }
+          ],
+          "location": {
+            "@type": "Place",
+            "@id": "https://example.com/place/3",
+            "identifier": 3,
+            "name": "Stroll &amp; Stretch",
+            "description": "Casual Calisthenics in the Heart of Commerce. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "GB",
+              "addressLocality": "Oxford",
+              "addressRegion": "Oxfordshire",
+              "postalCode": "OX1 1UU",
+              "streetAddress": "Norfolk Street"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 51.749826,
+              "longitude": -1.261492
+            },
+            "image": [
+              {
+                "@type": "ImageObject",
+                "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Westfield_Garden_State_Plaza_-_panoramio.jpg"
+              }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "17:30",
+                "dayOfWeek": [
+                  "https://schema.org/Sunday"
+                ],
+                "opens": "09:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Monday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Tuesday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Wednesday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Thursday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "21:30",
+                "dayOfWeek": [
+                  "https://schema.org/Friday"
+                ],
+                "opens": "06:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "closes": "17:30",
+                "dayOfWeek": [
+                  "https://schema.org/Saturday"
+                ],
+                "opens": "09:00"
+              }
+            ],
+            "telephone": "01865 000003",
+            "url": "https://en.wikipedia.org/wiki/Shopping_center"
+          },
+          "url": "https://example.com/events/1040"
+        },
+        "maximumAttendeeCapacity": 3,
+        "remainingAttendeeCapacity": 3
+      },
+      "position": 0,
+      "unitTaxSpecification": [
+        {
+          "@type": "TaxChargeSpecification",
+          "name": "VAT at 20%",
+          "price": 2.066,
+          "priceCurrency": "GBP",
+          "rate": 0.2
+        }
+      ]
+    }
+  ],
+  "payment": {
+    "@type": "Payment",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  },
+  "seller": {
+    "@type": "Organization",
+    "@id": "https://localhost:5001/api/identifiers/sellers/1",
+    "name": "Acme Fitness Ltd",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB",
+      "addressLocality": "Another town",
+      "addressRegion": "Oxfordshire",
+      "postalCode": "OX1 1AA",
+      "streetAddress": "1 Hidden Gem"
+    },
+    "isOpenBookingAllowed": true,
+    "legalName": "Acme Fitness Ltd",
+    "taxMode": "https://openactive.io/TaxGross",
+    "termsOfService": [
+      {
+        "@type": "PrivacyPolicy",
+        "name": "Privacy Policy",
+        "requiresExplicitConsent": false,
+        "url": "https://example.com/privacy.html"
+      }
+    ]
+  },
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "openBookingPrepayment": "https://openactive.io/Required",
+    "price": 10.33,
+    "priceCurrency": "GBP"
+  },
+  "totalPaymentTax": [
+    {
+      "@type": "TaxChargeSpecification",
+      "name": "VAT at 20%",
+      "price": 2.066,
+      "priceCurrency": "GBP",
+      "rate": 0.2
+    }
+  ]
+}
+</code></pre>
+<h3 id="specs-20">Specs</h3>
+<ul>
+<li>✅ should return 200 on success</li>
+<li>✅ Should have the same number of OrderItems as criteria</li>
+<li>✅ OrderItem at position 0 - capacities should not have changed from their initial values after C1/C2 (regardless of leasing)</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatborpc2validationofc2">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at B or P &gt;&gt; C2 &gt;&gt; validation of C2</h2>
+<h3 id="specs-21">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-11">Validations</h3>
+<ul>
+<li>⚠️ $.orderedItem[0].acceptedOffer.name: Recommended property <code>name</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].acceptedOffer.ageRestriction: Recommended property <code>ageRestriction</code> is missing from <code>Offer</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.orderedItem[0].orderedItem.superEvent.location.amenityFeature: Recommended property <code>amenityFeature</code> is missing from <code>Place</code>.</li>
+<li>⚠️ $.seller.email: Recommended property <code>email</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.url: Recommended property <code>url</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.logo: Recommended property <code>logo</code> is missing from <code>Organization</code>.</li>
+<li>⚠️ $.seller.vatID: Recommended property <code>vatID</code> is missing from <code>Organization</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.orderedItem[0].orderedItem.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.orderedItem[0].orderedItem.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatborpassertopportunitycapacityafterc2">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at B or P &gt;&gt; Assert Opportunity Capacity (after C2)</h2>
+<h3 id="opportunityfeedextractfororderitem0request-5">Opportunity Feed extract for OrderItem 0 Request</h3>
+<p>GET http://localhost:3000/opportunity/https%3A%2F%2Flocalhost%3A5001%2Fapi%2Fidentifiers%2Fscheduled-sessions%2F1040%2Fevents%2F10400?useCacheIfAvailable=true&amp;expectedCapacity=2</p>
+<hr />
+<p>Response status code: 200 OK. Responded in 12.342246ms.</p>
+<pre><code class="json language-json">{
+  "data": {
+    "@context": [
+      "https://openactive.io/"
+    ],
+    "@type": "ScheduledSession",
+    "@id": "https://localhost:5001/api/identifiers/scheduled-sessions/1040/events/10400",
+    "startDate": "2025-02-09T10:11:56+00:00",
+    "endDate": "2025-02-09T15:07:56+00:00",
+    "superEvent": {
+      "@type": "SessionSeries",
+      "@id": "https://localhost:5001/api/identifiers/session-series/1040",
+      "identifier": 1040,
+      "name": "Wooden Jumping",
+      "activity": [
+        {
+          "@type": "Concept",
+          "@id": "https://openactive.io/activity-list#8a4abff3-c616-4f33-80a1-398b88c672a3",
+          "inScheme": "https://openactive.io/activity-list",
+          "prefLabel": "World Jumping®"
+        }
+      ],
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "offers": [
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1040#/offers/0",
+          "name": "Senior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Senior",
+            "minValue": 60
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "latestCancellationBeforeStartDate": "P1D",
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "price": 10.33,
+          "priceCurrency": "GBP"
+        },
+        {
+          "@type": "Offer",
+          "@id": "https://localhost:5001/api/identifiers/session-series/1040#/offers/0",
+          "name": "Junior",
+          "acceptedPaymentMethod": [
+            "http://purl.org/goodrelations/v1#Cash",
+            "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
+          ],
+          "ageRestriction": {
+            "@type": "QuantitativeValue",
+            "name": "Junior",
+            "maxValue": 17
+          },
+          "allowCustomerCancellationFullRefund": true,
+          "latestCancellationBeforeStartDate": "P1D",
+          "openBookingFlowRequirement": [
+            "https://openactive.io/OpenBookingApproval"
+          ],
+          "price": 10.33,
+          "priceCurrency": "GBP"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "@id": "https://localhost:5001/api/identifiers/sellers/1",
+        "name": "Acme Fitness Ltd",
+        "isOpenBookingAllowed": true,
+        "sameAs": [
+          "https://socialmedia.com/AcmeFitnessLtd"
+        ],
+        "taxMode": "https://openactive.io/TaxGross",
+        "telephone": "07481 674455",
+        "termsOfService": [
+          {
+            "@type": "PrivacyPolicy",
+            "name": "Privacy Policy",
+            "requiresExplicitConsent": false,
+            "url": "https://example.com/privacy.html"
+          }
+        ],
+        "url": "https://micheal.name"
+      },
+      "url": "https://www.example.com/sessions/1040"
+    },
+    "duration": "PT4H56M",
+    "maximumAttendeeCapacity": 3,
+    "remainingAttendeeCapacity": 2
+  }
+}
+</code></pre>
+<h3 id="specs-22">Specs</h3>
+<ul>
+<li>✅ should return 200 on success for request relevant to OrderItem 0</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatborpassertopportunitycapacityafterc2validationofopportunityfeedextractfororderitem0">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at B or P &gt;&gt; Assert Opportunity Capacity (after C2) &gt;&gt; validation of Opportunity Feed extract for OrderItem 0</h2>
+<h3 id="specs-23">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-12">Validations</h3>
+<ul>
+<li>⚠️ $.eventStatus: Recommended property <code>eventStatus</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.leader: Recommended property <code>leader</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.url: Recommended property <code>url</code> is missing from <code>ScheduledSession</code>.</li>
+<li>⚠️ $.superEvent.description: Recommended property <code>description</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.image: Recommended property <code>image</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.ageRange: Recommended property <code>ageRange</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.genderRestriction: Recommended property <code>genderRestriction</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.leader: Recommended property <code>leader</code> is missing from <code>SessionSeries</code>.</li>
+<li>⚠️ $.superEvent.level: Recommended property <code>level</code> is missing from <code>SessionSeries</code>.</li>
+<li>📝 $.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>ScheduledSession</code>.</li>
+<li>📝 $.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>📝 $.superEvent.genderRestriction: Data consumers will assume that there is no gender restriction when no valid <code>genderRestriction</code> is supplied on a <code>SessionSeries</code>.</li>
+<li>📝 $.superEvent.ageRange: Data consumers will assume that the <code>ageRange</code> is 18+ when not specified.</li>
+<li>📝 $.superEvent.eventStatus: Data consumers will assume the <code>eventStatus</code> is scheduled if not specified or invalid.</li>
+<li>❔ $.superEvent.offers[0].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+<li>❔ $.superEvent.offers[1].ageRestriction.name: <code>schema:name</code> is declared in schema.org but this validator is not yet capable of checking whether they have the right format or values. You should refer to the schema.org documentation for <a href="https://schema.org/name" rel="noopener noreferrer" target="_blank">schema:name</a> for additional guidance.</li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatborpp">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at B or P &gt;&gt; P</h2>
+<h3 id="prequest">P Request</h3>
+<p>PUT https://localhost:5001/api/openbooking/order-proposals/c190b4c0-1534-4a9b-838a-2cb1e4086cb5</p>
+<ul>
+<li><strong>Content-Type:</strong> <code>"application/vnd.openactive.booking+json; version=1"</code></li>
+<li><strong>Authorization:</strong> <code>"Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkIwNEY3QjkxREUzQjk0NzhDNjE4MzNGQjI0QUE1Q0RCIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzgzMjE0NDAsImV4cCI6MTczODMyNTA0MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMyIsImF1ZCI6Im9wZW5ib29raW5nIiwiY2xpZW50X2lkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwiaHR0cHM6Ly9vcGVuYWN0aXZlLmlvL2NsaWVudElkIjoiNWQ4ODNlMzAtMzRjYi00ZGZiLThhMGEtOGI0M2E0MGM1OTIwIiwic3ViIjoiMTAwIiwiYXV0aF90aW1lIjoxNzM4MzIxNDM5LCJpZHAiOiJsb2NhbCIsImh0dHBzOi8vb3BlbmFjdGl2ZS5pby9zZWxsZXJJZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvYXBpL2lkZW50aWZpZXJzL3NlbGxlcnMvMSIsImp0aSI6Ijg3QUYxRjZCNDBBRjc4RDFGRTVBNUY2RDAwNDFBMUM2Iiwic2lkIjoiMEY1RTJGRjQxNDkyNUVBRTAzRTEyNkZCOEIxREUyMUYiLCJpYXQiOjE3MzgzMjE0NDAsInNjb3BlIjpbIm9wZW5pZCIsIm9wZW5hY3RpdmUtb3BlbmJvb2tpbmciLCJvcGVuYWN0aXZlLWlkZW50aXR5Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.cWPv2tg2JWBAhUL9-TGTBs-vBMg9tqWZz-AqpY8UbDyzFCqWAXDKvZsOxQ1VpF1vUooezUuboWDNXNSphlbCGRhcUNv59ON6CnkOfCzk5UGpdZJ6ZW5t3Kc_KXo5EWmtq5pM5NW4I37unmXRFRMEuvyMRho7VHYLSWFPb3Yt0Xc4E5IFu7glsqAfDXn3IVP891AtbDz2iwpOhjvPvJwu805QUOgRkoWl-0rg179AKa0v1woLPO6P5WCGOmvW91drLElzYwPgRBKVwXDCzJPdbts4jOQPxCBecyv9gkDKikETd5ETbP0pRWDU2J1r3S9EHWPv_uxksjg2AB4dVdVIbw"</code></li>
+</ul>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "OrderProposal",
+  "brokerRole": "https://openactive.io/NoBroker",
+  "broker": {
+    "@type": "Organization",
+    "name": "MyFitnessApp",
+    "url": "https://myfitnessapp.example.com",
+    "description": "A fitness app for all the community",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://data.myfitnessapp.org.uk/images/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alan Peacock Way",
+      "addressLocality": "Village East",
+      "addressRegion": "Middlesbrough",
+      "postalCode": "TS4 3AE",
+      "addressCountry": "GB"
+    }
+  },
+  "seller": "https://localhost:5001/api/identifiers/sellers/1",
+  "customer": {
+    "@type": "Person",
+    "email": "Rashad_Grimes62@hotmail.com",
+    "telephone": "806-806-2246 x64839",
+    "givenName": "Borer",
+    "identifier": "8bae0222-4d46-43e2-a243-49647d385b69"
+  },
+  "orderedItem": [
+    {
+      "@type": "OrderItem",
+      "position": 0,
+      "acceptedOffer": "https://localhost:5001/api/identifiers/session-series/1040#/offers/0",
+      "orderedItem": "https://localhost:5001/api/identifiers/scheduled-sessions/1040/events/10400"
+    }
+  ],
+  "totalPaymentDue": {
+    "@type": "PriceSpecification",
+    "price": 10.33,
+    "priceCurrency": "GBP"
+  },
+  "payment": {
+    "@type": "Payment",
+    "identifier": "cDY_8QQ7Vd",
+    "name": "AcmeBroker Points",
+    "accountId": "SN1593",
+    "paymentProviderId": "STRIPE"
+  }
+}
+</code></pre>
+<hr />
+<p>Response status code: 400 Bad Request. Responded in 24.413715ms.</p>
+<pre><code class="json language-json">{
+  "@context": "https://openactive.io/",
+  "@type": "IncompleteBrokerDetailsError",
+  "name": "The 'name' property is not supplied within the 'Organisation' object describing the Broker; or the 'broker' property supplied is not a valid 'Organisation' object.",
+  "statusCode": 400
+}
+</code></pre>
+<h3 id="specs-24">Specs</h3>
+<ul>
+<li>✅ should return a response containing <code>"@type": "IncompleteBrokerDetailsError"</code> with status code <code>400</code></li>
+</ul>
+<h2 id="bookingshouldfailbecausebrokerisincludedinorderinnobrokermodeatborppvalidationofp">✅ Booking should fail because Broker is included in Order in NoBroker mode &gt;&gt; at B or P &gt;&gt; P &gt;&gt; validation of P</h2>
+<h3 id="specs-25">Specs</h3>
+<ul>
+<li>✅ passes validation checks</li>
+</ul>
+<h3 id="validations-13">Validations</h3>
+<ul>
+<li>⚠️ $.description: Recommended property <code>description</code> is missing from <code>IncompleteBrokerDetailsError</code>.</li>
+<li>⚠️ $.instance: Recommended property <code>instance</code> is missing from <code>IncompleteBrokerDetailsError</code>.</li>
+</ul>
+<script>
+  function collapseH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== 'none') {
+            nextElement.style.display = 'none';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function showH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+        if (nextElement.style.display !== '') {
+            nextElement.style.display = '';
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+  }
+
+  function toggleH2Section(nextElement) {
+    while(nextElement && nextElement.tagName !== 'H2') {
+              // Toggle visibility
+              nextElement.style.display = nextElement.style.display === 'none' ? '' : 'none';
+              nextElement = nextElement.nextElementSibling;
+          }
+  }
+
+  function collapseAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        collapseH2Section(nextElement);
+    });
+  }
+  function showAllH2Sections() {
+    var h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(function(h2) {
+        var nextElement = h2.nextElementSibling;
+        showH2Section(nextElement);
+    });
+  }
+
+  function collapseExceptFirstSpecialH2Section() {
+    const h2Elements = document.querySelectorAll('h2');
+    let specialSectionFound = false;
+
+    h2Elements.forEach((h2) => {
+        let nextNode = h2.nextElementSibling;
+        let sectionContainsSpecialChar = false;
+
+        // Iterate through sibling elements until the next H2 or no more siblings until the error section is found
+        while (nextNode && nextNode.tagName !== 'H2') {
+            if (!specialSectionFound && nextNode.textContent.includes('❌')) {
+                sectionContainsSpecialChar = true;
+                specialSectionFound = true; 
+                break;
+              }
+              showH2Section(nextNode);
+            nextNode = nextNode.nextElementSibling;
+        }
+
+        // If this section is not the one with the error, collapse it
+        if (!sectionContainsSpecialChar) {
+            nextNode = h2.nextElementSibling; 
+            collapseH2Section(nextNode);
+        }
+    });
+}
+
+
+  // Show/Hide each header section
+  document.querySelectorAll('h2').forEach(function(h2) {
+      h2.addEventListener('click', function() {
+          let nextElement = this.nextElementSibling;
+          toggleH2Section(nextElement)
+      });
+  });
+
+  // Show all header sections
+  document.getElementById('showH2Button').addEventListener('click', function() {
+      showAllH2Sections();
+  });
+
+  // Collapse all header sections
+  document.getElementById('collapseH2Button').addEventListener('click', function() {
+      collapseAllH2Sections();
+  });
+
+  // Collapse all but first error section button
+    document.getElementById('collapseAllButFirstError').addEventListener('click', function() {
+      collapseExceptFirstSpecialH2Section();
+  });
+
+  // Hide all header sections by default
+  collapseExceptFirstSpecialH2Section();
+  </script>
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>
